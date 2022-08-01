@@ -1,11 +1,11 @@
-import RegisterForm from "../../modules/Register/RegisterForm";
+import Register from "modules/Register/Register";
 
 function RegisterPage() {
     return (
         <main>
             <div className="container">
                 <h1>Register Page</h1>
-                <RegisterForm />
+                <Register />
             </div>
         </main>
     )

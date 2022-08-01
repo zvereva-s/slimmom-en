@@ -1,7 +1,9 @@
 function DiaryPage() {
     return (
         <main>
-            <h1>Diary Page</h1>
+            <div className="container">
+                <h1>Diary Page</h1>
+            </div>
         </main>
     )
  };

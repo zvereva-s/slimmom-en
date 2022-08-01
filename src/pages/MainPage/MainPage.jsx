@@ -1,7 +1,9 @@
 function MainPage() {
     return (
         <main>
-            <h1>Main Page</h1>
+            <div className="container">
+                <h1>Main Page</h1>
+                </div>
         </main>
     )
  };

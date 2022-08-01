@@ -1,7 +1,9 @@
 function CalculatorPage() {
     return (
         <main>
-            <h1>Calculator Page</h1>
+            <div className="container">
+                 <h1>Calculator Page</h1>
+            </div>
         </main>
     )
  };

@@ -1,7 +1,9 @@
 function RegisterPage() { 
     return (
         <main>
-            <h1>Register Page</h1>
+            <div className="container">
+                <h1>Register Page</h1>
+            </div>
         </main>
     )
 };

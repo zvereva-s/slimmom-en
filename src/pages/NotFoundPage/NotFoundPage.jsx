@@ -1,7 +1,12 @@
+import styles from './notFoundPage.module.css';
+
+
 function NotFoundPage() {
     return (
         <main>
-            <h1>Not Found Page</h1>
+            <div className="container">
+                <h1 className={styles.text}>Not Found Page</h1>
+            </div>
         </main>
     )
  };

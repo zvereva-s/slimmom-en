@@ -17,7 +17,6 @@ function HeaderMenu() {
     </li>
 );
 
-    console.log(items);
     return (
       <ul>{elements}</ul>
   );

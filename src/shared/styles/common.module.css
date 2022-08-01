@@ -54,15 +54,10 @@ p,
 body {
     margin: 0;
 
-    /* font-family: $mainFont;
-    color: $txt-color; */
+    font-family: var(--ff);
+    color: var(--color-text);
 
     background-color: white;
 }
 
-.container { 
-    width: 1280px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-/* .section {} */
+

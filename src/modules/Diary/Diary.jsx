@@ -1,0 +1,1 @@
+import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";

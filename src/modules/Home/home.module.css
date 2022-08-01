@@ -1,0 +1,29 @@
+.modal__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  text-align: center;
+  width: 509px;
+  margin-top: 25px;
+
+  color: #212121;
+}
+.modal__calories {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #264061;
+}
+.modal__listTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+
+  letter-spacing: 0.04em;
+
+  color: #212121;
+}

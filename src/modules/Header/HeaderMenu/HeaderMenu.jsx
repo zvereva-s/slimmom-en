@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { items } from './items';
 
-import styles from './HeaderMenu.module.css';
+import styles from './header-menu.module.css';
 
 function getClassName({ isActive }) {
   const style = isActive ? styles.isActive : styles.link;
@@ -9,8 +9,11 @@ function getClassName({ isActive }) {
 }
 
 function HeaderMenu() {
-  const elements = items.map(({id, link, title}) => 
-    <li key={id}>
+  
+  const selectItems =items.filter(item => !item.private);
+
+  const elements = selectItems.map(({id, link, title}) => 
+    <li key={id} className={styles.item}>
       <NavLink className={getClassName} to={link}>
         {title}
       </NavLink>
@@ -18,7 +21,7 @@ function HeaderMenu() {
 );
 
     return (
-      <ul>{elements}</ul>
+      <ul className={styles.menu}>{elements}</ul>
   );
 }
 export default HeaderMenu;

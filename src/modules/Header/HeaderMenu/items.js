@@ -25,7 +25,7 @@ export const items = [
     },
     {
         id: 5,
-        title: 'Diary',
+        title: 'Main Page',
         link: '/home',
         private: false,
     },

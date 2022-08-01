@@ -20,7 +20,7 @@ export const items = [
     {
         id: 4,
         title: 'CALCULATOR',
-        link: '/calculatore',
+        link: '/calculator',
         private: true,
     },
     {

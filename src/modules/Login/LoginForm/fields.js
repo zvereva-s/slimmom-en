@@ -2,7 +2,7 @@ export const fields = {
   email: {
     name: 'email',
     placeholder: 'Email *',
-    type: 'password',
+    type: 'email',
     required: true,
   },
   password: {

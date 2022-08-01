@@ -4,7 +4,7 @@ function CalculatorPage() {
     return (
         <main>
             <div className="container">
-                <h1>Calculator Page</h1>
+                <h1>Calculate your daily calorie intake right now</h1>
                 <CalculatorForm />
             </div>
         </main>

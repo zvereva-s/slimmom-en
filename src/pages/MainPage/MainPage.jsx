@@ -4,7 +4,7 @@ function MainPage() {
   return (
     <main>
       <div className="container">
-        <h1>Main Page</h1>
+        <h1  className="visually-hidden">Main Page</h1>
         <Home />
       </div>
     </main>

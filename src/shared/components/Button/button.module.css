@@ -1,0 +1,17 @@
+.button {
+cursor: pointer;
+display: block;
+
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border: none;
+    background: #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+
+    font-family: 'Verdana';
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.21;
+}

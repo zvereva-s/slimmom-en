@@ -1,0 +1,38 @@
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+.link {
+    font-family: var(--ff);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 13px;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.isActive {
+    composes: link;
+    color: #212121;
+}
+
+.item:not(:last-child) {
+    margin-right: 16px;
+}
+
+
+.logedMenu {
+    display: none;
+}
+
+@media screen and (min-width: 1280px) {
+    .menu {
+        margin-bottom: -2px;
+    }
+
+    
+}

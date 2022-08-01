@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.userInfo {
+    display: none;
+}
+
+.menuIcon {
+    display: block;
+}
+
+.desktopMenu {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .userInfo {
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .menuIcon {
+        margin-left: 50px;
+    }
+    
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        display: none;
+    }
+    
+    .desktopMenu {
+        display: flex;
+    }
+}

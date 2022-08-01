@@ -1,7 +1,16 @@
-function App(){
+
+import UserRoutes from './UserRoutes';
+import Header from './modules/Header';
+
+
+
+
+function App() {
   return (
-    <div></div>
+    <>
+      <Header />
+      <UserRoutes />
+    </>
   );
 };
-
 export default App;

@@ -1,5 +1,6 @@
 import useForm from '../../../shared/hooks/useForm';
 import TextField from '../../../shared/components/TextField';
+import Button from 'shared/components/Button/Button';
 
 import { initialState } from './initialState';
 import { fields } from './fields';
@@ -15,12 +16,9 @@ const LoginForm = ({ onSubmit }) => {
     <>
           <form onSubmit={handleSubmit}>
               <TextField onChange={handleChange} value={email} {...fields.email} />
-              <TextField onChange={handleChange} value={password} {...fields.password} />
+               <TextField onChange={handleChange} value={password} {...fields.password} />
+              <Button text="Login" type="submit"/>
       </form>
-      <div>
-        <button>Login</button>
-        <button>Register</button>
-      </div>
     </>
   );
 };

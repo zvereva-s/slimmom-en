@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from "redux-persist/lib/storage";
 
 import authReducer from 'redux/auth/auth-slice';
+import dailyReducer from 'redux/daily/daily-slice';
 
 
 const persistConfig = {
@@ -14,7 +15,8 @@ const persistConfig = {
 const persistAuthReducer = persistReducer(persistConfig, authReducer);
 
 const rootReducer = combineReducers({
-    auth:persistAuthReducer, 
+    auth: persistAuthReducer, 
+    dayli: dailyReducer,
 })
 
 export default rootReducer;

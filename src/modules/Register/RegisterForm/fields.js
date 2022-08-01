@@ -1,19 +1,19 @@
 export const fields = {
   name: {
-    name: 'name',
-    placeholder: 'Name *',
+    name: 'username',
+    placeholder: 'Name',
     type: 'text',
     required: true,
   },
   email: {
     name: 'email',
-    placeholder: 'Email *',
+    placeholder: 'Email',
     type: 'email',
     required: true,
   },
   password: {
     name: 'password',
-    placeholder: 'Password *',
+    placeholder: 'Password',
     type: 'password',
     required: true,
   },

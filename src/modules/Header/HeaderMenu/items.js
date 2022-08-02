@@ -1,31 +1,31 @@
 export const items = [
     {
         id: 1,
-        title: 'SIGN IN',
+        title: 'sign in',
         link: '/login',
         private: false,
     },
     {
         id: 2,
-        title: 'REGISTRATION',
+        title: 'registration',
         link: '/register',
         private: false,
     },
     {
         id: 3,
-        title: 'DIARY',
+        title: 'diary',
         link: '/diary',
         private: true,
     },
     {
         id: 4,
-        title: 'CALCULATOR',
+        title: 'calculator',
         link: '/calculator',
         private: true,
     },
     {
         id: 5,
-        title: 'Main Page',
+        title: 'main Page',
         link: '/home',
         private: true,
     },

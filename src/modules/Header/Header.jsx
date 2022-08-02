@@ -1,19 +1,26 @@
 import HeaderMenu from "./HeaderMenu";
 import Logo from "../../shared/components/Logo";
+import UserMenu from "./UserMenu/UserMenu";
+import UserInfo from "./UserInfo";
 
 import styles from "./header.module.css";
 
 function Header() { 
+    const isLogin = false;
+
     return (
-        <header className={styles.header}>
-            <div className="container">          
+        <>
+            <header className={styles.header}>
                 <nav className={styles.row}>
                     <Logo />
                     <div className={styles.line}></div>
-                    <HeaderMenu />
+                    {isLogin ? <UserMenu /> : <HeaderMenu />}
                 </nav>
-            </div>
-        </header>
+            </header>
+            {isLogin && (<div className={styles.mobileUserInfo} >
+                <UserInfo />
+            </div>)}
+        </>
     )
 };
 export default Header;

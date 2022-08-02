@@ -12,8 +12,9 @@ function DiaryDateCalendar() {
 
     const date = startDate.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join("-");
 
-  return (
-      <DatePicker
+    return (
+      
+        <DatePicker
       dateFormat="dd.MM.yyyy"
       selected={startDate}
       onChange={(date) => setStartDate(date)}

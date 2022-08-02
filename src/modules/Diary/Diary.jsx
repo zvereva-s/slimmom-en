@@ -1,6 +1,5 @@
 import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
 import DiaryDateCalendar from "./DiaryDateСalendar";
-import DiaryProductList from "./DiaryProductsList";
 
 
  
@@ -12,7 +11,6 @@ function Diary() {
         <>
             <DiaryDateCalendar />
             <DiaryAddProductForm />
-            {/* <DiaryProductList /> */}
         </>
     )
  };

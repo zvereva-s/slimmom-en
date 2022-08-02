@@ -13,9 +13,22 @@
     display: none;
 }
 
+.mobileUserInfo {
+    height: 40px;
+    padding-right: 20px;
+    background-color: #EFF1F3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 @media screen and (min-width: 768px) {
     .header {
         padding: 20px 32px;
+    }
+
+    .mobileUserInfo {
+        display: none;
     }
     
 }

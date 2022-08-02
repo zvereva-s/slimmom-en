@@ -34,7 +34,7 @@ const Modal = props => {
             <Close />
           </Button>
         </div>
-        <div className={styles.modal}>{children}</div>
+        <div className={styles.info}>{children}</div>
       </div>
     </div>,
     modal

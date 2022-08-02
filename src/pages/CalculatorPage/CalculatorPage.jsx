@@ -6,9 +6,6 @@ function CalculatorPage() {
     return (
         <main>
             <div className="container">
-
-                <h1>Calculate your daily calorie intake right now</h1>
-
                 <div className="section">
                 <h1 className={styles.title}>Calculate your daily calorie intake right now</h1>
                 <CalculatorForm />

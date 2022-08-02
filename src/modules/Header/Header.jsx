@@ -14,9 +14,9 @@ function Header() {
         <>
             <header className={styles.header}>
                 <nav className={styles.row}>
-                    <Logo />
+                    <Logo isLogin={isLogin} />
                     <div className={styles.line}></div>
-                    {isLogin ? <UserMenu /> : <HeaderMenu />}
+                    {isLogin ? <UserMenu isLogin={isLogin} /> : <HeaderMenu isLogin={isLogin} />}
                 </nav>
             </header>
             {isLogin && (<div className={styles.mobileUserInfo} >
@@ -25,4 +25,5 @@ function Header() {
         </>
     )
 };
+
 export default Header;

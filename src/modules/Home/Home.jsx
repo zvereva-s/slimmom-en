@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import Modal from '../../shared/components/Modal';
 import CalculatorForm from 'modules/Calculator/CalculatorForm';
+import Button from 'shared/components/Button/Button';
 import styles from './home.module.css';
 
 function Home() {
@@ -22,12 +23,23 @@ function Home() {
     <div>
       {modalOpen && (
         <Modal closeModal={closeModal}>
-          <p className={styles.modal__title}>
+          <h2 className={styles.modal__title}>
             Your recommended daily calorie intake is
+          </h2>
+          <p className={styles.modal__calories}>
+            {modalContent.calories} <span className={styles.ccal}>ккал</span>
           </p>
-          <p className={styles.modal__calories}>{modalContent.calories}</p>
           <p className={styles.modal__listTitle}>Foods you should not eat</p>
-          <ul className={styles.modal__list}>123</ul>
+          <ol className={styles.modal__list}>
+            <li className={styles.item}>123</li>
+            <li className={styles.item}>234</li>
+          </ol>
+          <Button
+            text={'Start losing weight'}
+            type={'button'}
+            className={styles.modalBtn}
+            onClick={closeModal}
+          />
         </Modal>
       )}
       <CalculatorForm onSubmit={showModal} />

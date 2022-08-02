@@ -14,6 +14,7 @@ const CalculatorForm = ({ onSubmit }) => {
   });
   const { height, age, weight, desiredWeight } = state;
 
+
   const handleChangeRadio = ({ target }) => {
     const { value } = target;
     setState(prevState => ({
@@ -21,6 +22,10 @@ const CalculatorForm = ({ onSubmit }) => {
       bloodType: Number(value),
     }));
   };
+
+    const { state, handleChange, handleSubmit } = useForm({ onSubmit, initialState });
+    const { height, age, currentWeight, desiredWeight } = state;
+    
 
   return (
     <form onSubmit={handleSubmit}>

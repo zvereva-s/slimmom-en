@@ -26,17 +26,18 @@ export function logout() {
     setToken('');
 }
 
-// export async function getCurrent(token) {
-//     try {
-//         setToken(token);
-//         const { data: result } = await instance.get('/users/current');
-//         return result;
-//     }
-//     catch (error) {
-//         setToken('');
-//         throw error;
-//     }
+export async function getCurrent(token) {
+    try {
+        setToken(token);
+        const { data: result } = await instance.get('/user');
+
+        return result;
+    }
+    catch (error) {
+        setToken('');
+        throw error;
+    }
     
-// }
+}
 
 export default instance;

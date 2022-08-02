@@ -30,11 +30,22 @@
 }
 
 @media screen and (min-width: 1280px) {
-    .container {
+    .menuIcon {
         display: none;
     }
     
     .desktopMenu {
         display: flex;
+    }
+
+    .wraper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+
+    .userInfo {
+       margin-bottom: -20px;
     }
 }

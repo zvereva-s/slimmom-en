@@ -7,7 +7,7 @@ import styles from "./user-menu.module.css";
 function UserMenu({isLogin}) {
 
     return (
-        <div>
+        <div className={styles.wraper} >
             <div className={styles.container}>
                 <div className={styles.userInfo} >
                     <UserInfo />

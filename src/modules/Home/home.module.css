@@ -5,25 +5,73 @@
   line-height: 32px;
   text-align: center;
   width: 509px;
-  margin-top: 25px;
-
+  letter-spacing: 0.05em;
+  display: inline-block;
   color: #212121;
 }
+
 .modal__calories {
   font-weight: 700;
   font-size: 48px;
   line-height: 58px;
   text-align: center;
   letter-spacing: 0.04em;
-
+  border-bottom: 1px solid #e0e0e0;
   color: #264061;
+}
+.ccal {
+  font-size: 14px;
+  font-weight: 700;
 }
 .modal__listTitle {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-
+  margin-top: 12px;
   letter-spacing: 0.04em;
 
   color: #212121;
+}
+
+.modal__list {
+  padding-inline-start: 20px;
+}
+
+.item {
+  color: #9b9faa;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+}
+
+.modalBtn {
+  width: 210px;
+  height: 43px;
+  color: #fff;
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+  margin: 40px auto;
+  display: block;
+  border-color: transparent;
+  cursor: pointer;
+}
+.modalBtn:active{
+  color: #fc842d;
+  background: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .modal__title {
+    font-size: 18px;
+    line-height: 26px;
+    width: auto;
+    letter-spacing: 0.04em;
+  }
+  .modal__listTitle {
+    margin-top: 20px;
+  }
 }

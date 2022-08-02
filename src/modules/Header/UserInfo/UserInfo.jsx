@@ -8,7 +8,6 @@ import Button from "shared/components/Button/Button";
 import styles from "./user-info.module.css";
 
 function UserInfo() {
-    
     const { user } = useSelector(auth);
     const name = user.username;
     const dispatch = useDispatch();

@@ -6,8 +6,8 @@ function Diary() {
 
     return (
         <>
-            <DiaryAddProductForm />
             <DiaryDateCalendar />
+            <DiaryAddProductForm />
         </>
     )
  };

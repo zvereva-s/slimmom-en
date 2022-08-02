@@ -1,0 +1,43 @@
+.button {
+  cursor: pointer;
+  display: block;
+
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border: none;
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border-radius: 30px;
+
+  font-family: 'Verdana';
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+.add {
+  composes: button;
+  padding-left: 46px;
+  padding-right: 46px;
+}
+
+.login {
+  composes: button;
+  border: 2px solid #fc842d;
+  padding-left: 71px;
+  padding-right: 71px;
+  margin-bottom: 20px;
+}
+
+.register {
+  composes: button;
+  padding-left: 57px;
+  padding-right: 57px;
+
+  border: 2px solid #fc842d;
+  background-color: #fff;
+  color: #fc842d;
+
+  box-shadow: none;
+}

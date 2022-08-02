@@ -12,6 +12,7 @@ const CalculatorForm = ({ onSubmit }) => {
     onSubmit,
     initialState,
   });
+  
   const { height, age, weight, desiredWeight } = state;
 
   const handleChangeRadio = ({ target }) => {

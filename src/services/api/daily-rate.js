@@ -6,11 +6,13 @@ const instanceClear = axios.create({
 });
 
 export async function postDailyRate(obj) {
-    const { data } = await instanceClear.post('/daily-rate', obj);
+    const { data } = await instance.post('/daily-rate', obj);
     return data;
 } 
+
 
 export async function postDailyRateByUserId(userID, obj) {
     const { data } = await instanceToken.post(`/daily-rate/${userID}`, obj);
     return data;
 }
+

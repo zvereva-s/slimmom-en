@@ -15,12 +15,13 @@ import { getDiaryState } from 'redux/diary/diary-selectors';
 function DiaryDateCalendar() {
     const [startDate, setStartDate] = useState(new Date());
 
-    const date = startDate.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join("-");
+  const date = startDate.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join("-");
+  
     const dispatch = useDispatch();
-    const diary = useSelector(getDiaryState);
+    // const diary = useSelector(getDiaryState);
 
-    function onGetDateInfo() {
-        dispatch(getDayInfo());
+    function onGetDateInfo(date) {
+        dispatch(getDayInfo(date));
     }
 
   return (

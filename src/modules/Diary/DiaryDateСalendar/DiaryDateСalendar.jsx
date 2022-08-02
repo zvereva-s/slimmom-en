@@ -1,29 +1,35 @@
 import { useState } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
+
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 
 import { getDayInfo, searchProductInfo, addDayProduct, removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDiaryState } from 'redux/diary/diary-selectors';
 
 
-
-
 function DiaryDateCalendar() {
+    const [startDate, setStartDate] = useState(new Date());
+
+    const date = startDate.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join("-");
     const dispatch = useDispatch();
     const diary = useSelector(getDiaryState);
 
-    const dateTest = {
-        date: '2022-02-02',
+    function onGetDateInfo() {
+        dispatch(getDayInfo());
     }
 
-    function onGetDateInfo(dateTest) {
-        dispatch(getDayInfo(dateTest));
-    }
+  return (
+      <DatePicker
+      dateFormat="dd.MM.yyyy"
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+    />
+  );
+};;
 
-
-    return (
-        <>
-            <h1 onClick={()=>onGetDateInfo(dateTest)}>02-02-2022</h1>
-        </>
-    )
- };
 export default DiaryDateCalendar;

@@ -34,7 +34,6 @@ const authSlice = createSlice({
       store.loading = false;
       store.error = null;
       store.user = payload;
-      store.token = payload.token;
       store.isLogin = false;
     },
 

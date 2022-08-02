@@ -4,16 +4,14 @@ import {ReactComponent as LogoText} from "../../../images/logo-text.svg";
 
 import styles from "./logo.module.css";
 
-function Logo() {
-    const isLogin = false;
-
+function Logo({isLogin}) {
+    console.log(isLogin);
     return (
         <Link to="/home">
             <div className={styles.logoContainer}>
                 <LogoIcon className={styles.logo} />
                 <LogoText className={styles.logoText} />
                 {isLogin && <LogoText className={styles.logedText} />}
-                
             </div>
         </Link>
     )

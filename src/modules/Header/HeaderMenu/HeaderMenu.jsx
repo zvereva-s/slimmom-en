@@ -8,9 +8,9 @@ function getClassName({ isActive }) {
   return style;
 }
 
-function HeaderMenu() {
+function HeaderMenu({isLogin}) {
   
-  const selectItems =items.filter(item => !item.private);
+  const selectItems =isLogin ? items.filter(item => item.private) : items.filter(item => !item.private);
 
   const elements = selectItems.map(({id, link, title}) => 
     <li key={id} className={styles.item}>

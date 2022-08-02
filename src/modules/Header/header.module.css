@@ -1,5 +1,8 @@
 .header {
-    padding: 20px;
+    padding: 20px 0;
+}
+
+.outline {
     border-bottom: 2px solid #E0E0E0;
 }
 
@@ -24,7 +27,7 @@
 
 @media screen and (min-width: 768px) {
     .header {
-        padding: 20px 32px;
+        padding: 20px 15px;
     }
 
     .mobileUserInfo {
@@ -36,9 +39,12 @@
 @media screen and (min-width: 1280px) {
     .header {
         padding: 80px 16px;
-        border-bottom: none;
     }
     
+    .outline {
+        border-bottom: none;    
+    }
+
     .row {
         display: flex;
         justify-content:flex-start;

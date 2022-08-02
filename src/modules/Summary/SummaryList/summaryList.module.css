@@ -1,0 +1,16 @@
+.list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.item:not(:last-child) {
+margin-bottom: 15px;
+}

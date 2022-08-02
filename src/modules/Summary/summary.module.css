@@ -1,0 +1,27 @@
+.wrapper {
+    padding: 40px 20px;
+}
+
+.title {
+    color: #212121;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+    }
+}

@@ -5,14 +5,18 @@ import styles from './diaryPage.module.css';
 function DiaryPage() {
   return (
     <main>
-      <div className="container">
-        <div className={`${styles[`section-diary`]} section`}>
-            <div className='diary'>
-              <h1 className={styles.title}>Diary Page</h1>
-              <Diary />
+      <div className={styles.wrapper} >
+        <section className="section" >
+          <div className={styles.leftSide} >
+            <h1 className={styles.title}>Diary Page</h1>
+            <Diary />
           </div>
-              <Summary />
-        </div>
+        </section>
+        <section className={styles.summarySection}>
+          <div className={styles.rightSide}>
+            <Summary />
+          </div>
+        </section>
       </div>
     </main>
   );

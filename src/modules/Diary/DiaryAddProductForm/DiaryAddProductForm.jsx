@@ -6,7 +6,7 @@ import Button from "../../../shared/components/Button/Button";
 import { initialState } from "./initialState";
 import { fields } from "./fields";
 
-import styles from './diary-add-product-form.module.css'
+import btnStyles from '../../../shared/styles/buttons.module.css'
 
 const DiaryAddProductForm = ({ onSubmit }) => {
     
@@ -17,7 +17,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
         <form onSubmit={handleSubmit}>
             <TextField onChange={handleChange} value={productName} {...fields.productName} />
             <TextField onChange={handleChange} value={grams} {...fields.grams} />
-            <Button className={styles.btn} type="submit" text="Add" />
+            <Button className={btnStyles.add} type="submit" text="Add" />
         </form>
     )
 }

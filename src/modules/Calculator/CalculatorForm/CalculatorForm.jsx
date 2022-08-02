@@ -5,7 +5,7 @@ import { initialState } from "./initialState";
 import { fields } from "./fields";
 import Button from "shared/components/Button/Button";
 
-import styles from './calculate-form.module.css'
+import styles from './calculator-form.module.css'
 
 const CalculatorForm = ({onSubmit}) => {
 
@@ -34,7 +34,7 @@ const CalculatorForm = ({onSubmit}) => {
                 <input className={styles.input} id="4" type="radio" name="bloodType" value='4' /><span className={styles.span}>4</span>
             </label>
             </div>
-            <Button text='Start losing weight' type='submit'/>
+            <Button className={styles.btn} text='Start losing weight' type='submit'/>
         </form>
     )
  }

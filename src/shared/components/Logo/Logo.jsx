@@ -5,7 +5,7 @@ import {ReactComponent as LogoText} from "../../../images/logo-text.svg";
 import styles from "./logo.module.css";
 
 function Logo({isLogin}) {
-    console.log(isLogin);
+    
     return (
         <Link to="/home">
             <div className={styles.logoContainer}>

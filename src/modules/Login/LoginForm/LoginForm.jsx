@@ -6,6 +6,7 @@ import { initialState } from './initialState';
 import { fields } from './fields';
 
 import styles from './login-form.module.css'
+import btnStyles from '../../../shared/styles/buttons.module.css'
 
 const LoginForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({
@@ -20,8 +21,8 @@ const LoginForm = ({ onSubmit }) => {
               <TextField onChange={handleChange} value={email} {...fields.email} />
         <TextField onChange={handleChange} value={password} {...fields.password} />
         <div className={styles.wrap}>
-        <Button className={styles.btn} text="Login" type='submit' />
-        <Button className={styles.whiteBtn} text='Register' type="submit" />
+        <Button className={btnStyles.login} text="Login" type='submit' />
+        <Button className={btnStyles.register} text='Register' type="submit" />
         </div>
       </form>
     </>

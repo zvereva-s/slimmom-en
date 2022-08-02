@@ -1,10 +1,12 @@
 import { ReactComponent as MenuIcon } from "../../../images/menu.svg";
+import { ReactComponent as MenuClose } from "../../../images/close.svg";
+
 import UserInfo from "../UserInfo";
 import HeaderMenu from "../HeaderMenu";
 
 import styles from "./user-menu.module.css";
 
-function UserMenu({isLogin}) {
+function UserMenu({isLogin, onClick, isShowed}) {
 
     return (
         <div className={styles.wraper} >
@@ -12,7 +14,7 @@ function UserMenu({isLogin}) {
                 <div className={styles.userInfo} >
                     <UserInfo />
                 </div>
-                <MenuIcon className={styles.menuIcon} />
+                {isShowed ? <MenuClose onClick={onClick} className={styles.menuClose} /> : <MenuIcon onClick={onClick} className={styles.menuIcon} />}
             </div>
             <div className={styles.desktopMenu}>
                 <HeaderMenu isLogin={isLogin} />

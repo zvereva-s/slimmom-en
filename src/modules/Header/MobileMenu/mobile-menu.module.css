@@ -1,0 +1,59 @@
+.mobileContainer {
+    position: relative;
+    top: -40px;
+    width: 100%;
+    height: 100vh;
+    background-color: #264061;
+}
+
+.mobileMenu {
+    padding-top: 60px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    margin-bottom: 30px;
+}
+
+.link {
+    font-family: var(--ff);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.isActive {
+    composes: link;
+    color: white;
+
+}
+
+@media screen and (min-width: 768px) {
+    .mobileContainer {
+        top: 0;
+    }
+
+    .mobileMenu {
+        padding-top: 100px;
+    }
+
+    .link {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+    }
+    
+    
+}
+
+@media screen and (min-width: 1280px) {
+    .mobileContainer {
+        display: none;
+    }
+}

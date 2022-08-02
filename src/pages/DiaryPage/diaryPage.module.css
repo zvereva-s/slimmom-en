@@ -1,3 +1,6 @@
+.section-diary{
+    display: flex;
+}
 .title {
 
     font-style: normal;

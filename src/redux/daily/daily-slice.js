@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getDailyRate } from "./daily-operations";
+import { getDailyRate, getDailyRateByUserId } from "./daily-operations";
 import { pending, rejected } from 'services/utils/utils';
 
 const initialState = {
@@ -14,7 +14,12 @@ const dailySlice = createSlice({
     extraReducers: {
         [getDailyRate.pending]: pending,
         [getDailyRate.rejected]: rejected,
-        [getDailyRate.fulfilled]: (store, {payload})=>({...store, loading:false, userRate:payload}),
+        [getDailyRate.fulfilled]: (store, { payload }) => ({ ...store, loading: false, userRate: payload }),
+
+        [getDailyRateByUserId.pending]: pending,
+        [getDailyRateByUserId.rejected]: rejected,
+        [getDailyRateByUserId.fulfilled]: (store, { payload }) => ({ ...store, loading: false, userRate: payload }),
+
     }
 })
 

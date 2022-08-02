@@ -1,20 +1,3 @@
 .wrap {
     margin: 0 auto;
 }
-
-.whiteBtn {
-  padding-left: 57px;
-  padding-right: 57px;
-
-  border: 2px solid #fc842d;
-  background-color: #fff;
-  color: #fc842d;
-}
-
-
-.btn{
-    border: 2px solid #fc842d;
-    padding-left: 71px;
-        padding-right: 71px;
-        margin-bottom: 20px;
-}

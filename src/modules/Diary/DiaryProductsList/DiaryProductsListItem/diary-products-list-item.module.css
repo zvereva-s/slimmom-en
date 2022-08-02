@@ -1,0 +1,14 @@
+.span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+    letter-spacing: 0.04em;
+}
+
+.span:not(:last-child) {
+    padding-right: 8px;
+}
+
+.span:last-child {
+    padding-right: 17px;
+}

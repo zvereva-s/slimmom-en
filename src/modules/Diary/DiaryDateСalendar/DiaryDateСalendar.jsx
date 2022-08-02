@@ -1,17 +1,37 @@
 import { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 
-function DiaryDateCalendar() { 
-    const [value, onChange] = useState(new Date());
+import { useDispatch, useSelector } from 'react-redux';
 
-    console.log(value)
-    
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
+
+import { getDayInfo, searchProductInfo, addDayProduct, removeEatenProduct } from 'redux/diary/diary-operations';
+import { getDiaryState } from 'redux/diary/diary-selectors';
+
+
+function DiaryDateCalendar() {
+    const [startDate, setStartDate] = useState(new Date());
+
+  const date = startDate.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join("-");
+  
+    const dispatch = useDispatch();
+    // const diary = useSelector(getDiaryState);
+
+    function onGetDateInfo(date) {
+        dispatch(getDayInfo(date));
+    }
 
     return (
-    <div>
-            <Calendar onChange={onChange} value={value} calendarType="ISO 8601" />
-    </div>
-    )
-};
+      
+        <DatePicker
+      dateFormat="dd.MM.yyyy"
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+    />
+  );
+};;
+
 export default DiaryDateCalendar;

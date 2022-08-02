@@ -3,6 +3,7 @@ import {
   signupRequest,
   loginRequest,
   logoutRequest,
+  getCurrentRequest
 } from '../auth/auth-operations';
 import { pending, rejected } from 'services/utils/utils';
 
@@ -19,7 +20,7 @@ const fulfilled = (store, { payload }) => {
   store.loading = false;
   store.error = null;
   store.user = payload.user;
-  store.token = payload.token;
+  store.token = payload.accessToken;
   store.isLogin = true;
 };
 
@@ -34,7 +35,7 @@ const authSlice = createSlice({
       store.error = null;
       store.user = payload;
       store.token = payload.token;
-      store.isLogin = true;
+      store.isLogin = false;
     },
 
     [loginRequest.pending]: pending,
@@ -44,6 +45,10 @@ const authSlice = createSlice({
     [logoutRequest.pending]: pending,
     [loginRequest.rejected]: rejected,
     [logoutRequest.fulfilled]: () => ({ ...initialState }),
+
+    [getCurrentRequest.pending]: pending,
+    [getCurrentRequest.rejected]: rejected,
+    [getCurrentRequest.fulfilled]: (store, { payload }) => ({ ...store, loading: false, error: null, user: payload, isLogin: true, })
   },
 });
 export default authSlice.reducer;

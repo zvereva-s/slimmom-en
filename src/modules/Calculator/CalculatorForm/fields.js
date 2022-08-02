@@ -11,8 +11,8 @@ export const fields = {
     type: 'text',
     reqiured: true,
   },
-  currentWeight: {
-    name: 'currentWeight',
+  weight: {
+    name: 'weight',
     placeholder: 'Current Weight *',
     type: 'text',
     reqiured: true,

@@ -11,6 +11,10 @@
     display: block;
 }
 
+.menuClose {
+    width: 20px;
+}
+
 .desktopMenu {
     display: none;
 }
@@ -24,6 +28,10 @@
     }
 
     .menuIcon {
+        margin-left: 50px;
+    }
+
+    .menuClose {
         margin-left: 50px;
     }
     
@@ -46,6 +54,6 @@
     }
 
     .userInfo {
-       margin-bottom: -20px;
+       margin-bottom: -10px;
     }
 }

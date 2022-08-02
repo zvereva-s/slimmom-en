@@ -1,0 +1,1 @@
+export const getDailyInfo = store => store.dayli.userRate;

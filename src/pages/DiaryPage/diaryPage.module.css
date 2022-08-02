@@ -1,5 +1,4 @@
 .title {
-
     font-style: normal;
     font-weight: 700;
     font-size: 34px;
@@ -9,4 +8,33 @@
 
     margin-bottom: 60px;
     max-width: 608px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.summarySection {
+    background-color: var(--bg-color);
+}
+
+@media screen and (min-width: 1280px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1.5fr;        
+    }
+
+    .leftSide {
+        max-width: 760px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    .rightSide {
+        max-width: 550px;
+        padding: 0 15px;
+        margin: 0 auto;
+    
+    }
 }

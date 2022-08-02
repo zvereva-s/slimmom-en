@@ -1,7 +1,7 @@
 export const initialState = {
-  height: '',
-  age: '',
-  currentWeight: '',
-  desiredWeight: '',
-  blood: '',
+  weight: "",
+  height: "",
+  age: "",
+  desiredWeight: "",
+  bloodType: 1,
 };

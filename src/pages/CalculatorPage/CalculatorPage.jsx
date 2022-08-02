@@ -1,4 +1,4 @@
-import CalculatorForm from "modules/Calculator/CalculatorForm";
+import Calculator from 'modules/Calculator';
 import styles from './calculatorPage.module.css';
 
 
@@ -8,7 +8,7 @@ function CalculatorPage() {
             <div className="container">
                 <div className="section">
                 <h1 className={styles.title}>Calculate your daily calorie intake right now</h1>
-                <CalculatorForm />
+                <Calculator />
                 </div>
 
             </div>

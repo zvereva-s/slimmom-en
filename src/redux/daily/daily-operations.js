@@ -1,4 +1,5 @@
 import { createOperation } from 'services/utils/utils';
-import { postDailyRate } from '../../services/api/daily-rate';
+import { postDailyRate, postDailyRateByUserId } from 'services/api/daily-rate';
 
 export const getDailyRate = createOperation('daily/getRate', postDailyRate);
+export const getDailyRateByUserId = createOperation('daily/getRateById', postDailyRateByUserId);

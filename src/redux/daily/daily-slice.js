@@ -4,7 +4,6 @@ import { pending, rejected } from 'services/utils/utils';
 
 const initialState = {
     userRate: {},
-    
     loading: false,
     error: null,
 };

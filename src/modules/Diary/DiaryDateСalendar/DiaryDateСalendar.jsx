@@ -7,12 +7,10 @@ import styles from './diary-date-calendar.module.css'
 function DiaryDateCalendar() { 
     const [value, onChange] = useState(new Date());
 
-    console.log(value)
-
     return (
         
         <div>
-            <input className={styles.input} type="date" />
+            <input className={styles.input} type="date" value="2022-01-01" />
             
             {/* <Calendar onChange={onChange} value={value} calendarType="ISO 8601" /> */}
             

@@ -10,7 +10,7 @@ import styles from './calculator-form.module.css'
 const CalculatorForm = ({onSubmit}) => {
 
     const { state, handleChange, handleSubmit } = useForm({ onSubmit, initialState });
-    const {height, age, currentWeight, desiredWeight} = state
+    const { height, age, currentWeight, desiredWeight } = state;
     
 
     return (

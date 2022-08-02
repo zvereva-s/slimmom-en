@@ -30,6 +30,8 @@ export async function getCurrent(token) {
     try {
         setToken(token);
         const { data: result } = await instance.get('/user');
+
+        console.log(result);
         return result;
     }
     catch (error) {

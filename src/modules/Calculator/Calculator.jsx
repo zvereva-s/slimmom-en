@@ -33,7 +33,6 @@ function Calculator() {
 
   const onSubmitModal = () => {
     dispatch(logoutRequest());
-    
     navigate('/login', { replace: true });
   };
 

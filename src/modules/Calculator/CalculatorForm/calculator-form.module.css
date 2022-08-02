@@ -16,7 +16,10 @@ margin-bottom: 40px;
     display: inline-flex;
     align-items: center;
     padding-right: 24px;
+    
 }
+
+
 
 .span {
     text-align: center;
@@ -27,11 +30,6 @@ margin-bottom: 40px;
     line-height: 1.21;
 }
 
-.isActive {
-    @span;
-        font-weight: 700;
-        color: #FC842D;
-}
 
 .input {
     cursor: pointer;
@@ -47,7 +45,23 @@ margin-bottom: 40px;
     border-radius: 50%;
 }
 
-
-.input:checked {
+.input:checked{
     background-color: #FC842D;
+}
+
+.input:checked+.span{
+    font-weight: 700;
+    color: #FC842D;
+}
+
+.btn{
+    padding: 13px 25px;
+    border: none;
+    background: #FC842D;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    border-radius: 30px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
 }

@@ -1,8 +1,12 @@
 import useForm from "../../../shared/hooks/useForm";
 import TextField from "../../../shared/components/TextField";
 
+import Button from "../../../shared/components/Button/Button";
+
 import { initialState } from "./initialState";
 import { fields } from "./fields";
+
+import styles from './diary-add-product-form.module.css'
 
 const DiaryAddProductForm = ({ onSubmit }) => {
     
@@ -13,7 +17,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
         <form onSubmit={handleSubmit}>
             <TextField onChange={handleChange} value={productName} {...fields.productName} />
             <TextField onChange={handleChange} value={grams} {...fields.grams} />
-            <button type="submit">Add</button>
+            <Button className={styles.btn} type="submit" text="Add" />
         </form>
     )
 }

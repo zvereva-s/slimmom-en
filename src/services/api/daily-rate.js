@@ -11,8 +11,8 @@ export async function postDailyRate(obj) {
 } 
 
 
-export async function postDailyRateByUserId(userID, obj) {
-    const { data } = await instanceToken.post(`/daily-rate/${userID}`, obj);
-    return data;
+export async function postDailyRateByUserId({data,userId}) {
+    const { data:response } = await instanceToken.post(`/daily-rate/${userId}`, data);
+    return response;
 }
 

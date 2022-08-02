@@ -3,16 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import Modal from '../../shared/components/Modal';
 import CalculatorForm from 'modules/Calculator/CalculatorForm';
 import Button from 'shared/components/Button/Button';
-import { useNavigate } from "react-router-dom";
-import { getDailyRate } from '../../redux/daily/daily-operations';
+import { useNavigate } from 'react-router-dom';
+import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
+import { userId } from '../../redux/auth/auth-selectors';
 
 import styles from './calculator.module.css';
 
-function Calculator () {
+function Calculator() {
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   const { dailyRate, notAllowedProducts } = useSelector(getDailyInfo);
+  const idUser = useSelector(userId);
   const calories = dailyRate ? Math.floor(dailyRate) : 0;
   const foodNotEat = notAllowedProducts?.slice(0, 4);
   const renderArr = foodNotEat?.map((el, idx) => (
@@ -26,18 +28,20 @@ function Calculator () {
     setModalOpen(true);
   }, []);
 
-
   const onSubmitModal = () => {
-    navigate("/diary", { replace: true });
+    navigate('/diary', { replace: true });
   };
-
 
   const closeModal = useCallback(() => {
     setModalOpen(false);
   }, []);
 
   function onSubmit(data) {
-    dispatch(getDailyRate(data));
+    const obj = {
+      data: data,
+      userId: idUser,
+    };
+    dispatch(getDailyRateByUserId(obj));
     showModal();
   }
 

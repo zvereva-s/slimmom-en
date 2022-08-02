@@ -20,21 +20,23 @@ function Header() {
     };
 
     return (
-        <>
-            <header className={`${styles.header} container`}>
-                <nav className={styles.row}>
-                    <Logo isLogin={isLogin} />
-                    <div className={styles.line}></div>
-                    {isLogin ? <UserMenu onClick={onMenuBtnClick} isLogin={isLogin} isShowed={isShowed} /> : <HeaderMenu isLogin={isLogin} />}
-                </nav>
-            </header>
-            {isLogin && (
-                <div className={styles.mobileUserInfo} >
-                    <UserInfo />
+            <div  className={styles.outline} >
+                <div className="container" >
+                    <header className={styles.header} >
+                        <nav className={styles.row}>
+                            <Logo isLogin={isLogin} />
+                            <div className={styles.line}></div>
+                            {isLogin ? <UserMenu onClick={onMenuBtnClick} isLogin={isLogin} isShowed={isShowed} /> : <HeaderMenu isLogin={isLogin} />}
+                        </nav>
+                    </header>
                 </div>
-            )}
-            {isLogin && isShowed && <MobileMenu onClick={onMenuBtnClick} />}
-        </>
+                {isLogin && (
+                    <div className={styles.mobileUserInfo} >
+                        <UserInfo />
+                    </div>
+                )}
+                {isLogin && isShowed && <MobileMenu onClick={onMenuBtnClick} />}
+            </div>
     )
 };
 

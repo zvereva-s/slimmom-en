@@ -1,13 +1,20 @@
+import { useSelector, useDispatch } from "react-redux";
+
+import { auth } from "redux/auth/auth-selectors";
+import { logoutRequest } from "redux/auth/auth-operations";
+
 import Button from "shared/components/Button/Button";
 
 import styles from "./user-info.module.css";
 
 function UserInfo() {
-    const name = "Paul";
-
-    const onLogout = () => {
-        
-        return
+    
+    const { user } = useSelector(auth);
+    const name = user.username;
+    const dispatch = useDispatch();
+    
+    function onLogout(){
+        dispatch(logoutRequest())
     }
 
     return (

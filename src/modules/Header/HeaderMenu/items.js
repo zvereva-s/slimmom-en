@@ -23,10 +23,4 @@ export const items = [
         link: '/calculator',
         private: true,
     },
-    {
-        id: 5,
-        title: 'main Page',
-        link: '/home',
-        private: true,
-    },
 ]

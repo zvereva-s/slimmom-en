@@ -1,3 +1,5 @@
+import useAuth from "shared/hooks/useAuth";
+
 import HeaderMenu from "./HeaderMenu";
 import Logo from "../../shared/components/Logo";
 import UserMenu from "./UserMenu/UserMenu";
@@ -6,7 +8,7 @@ import UserInfo from "./UserInfo";
 import styles from "./header.module.css";
 
 function Header() { 
-    const isLogin = false;
+    const isLogin = useAuth();
 
     return (
         <>

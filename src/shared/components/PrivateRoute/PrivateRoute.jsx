@@ -5,7 +5,7 @@ function PrivateRoute() {
     const isLogin = useAuth();
 
     if (!isLogin) {
-        return <Navigate to='/main-page' />
+        return <Navigate to='/home' />
     }
     return <Outlet />
 }

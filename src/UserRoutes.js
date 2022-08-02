@@ -18,18 +18,18 @@ const UserRoutes = () => {
     return (
         <Suspense fallback={<Loader />}>
             <Routes>   
-                {/* <Route element={<PublicRoute />}> */}
+                <Route element={<PublicRoute />}>
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/home" element={<MainPage />} />
                     <Route path="/health-en" element={<MainPage />} />
                     <Route path="/" element={<MainPage />} />
-                {/* </Route> */}
+                </Route>
                 
-                {/* <Route element={<PrivateRoute />}> */}
+                <Route element={<PrivateRoute />}>
                 <Route path="/diary" element={<DiaryPage />} />
                 <Route path="/calculator"  element={<CalculatorPage />} />
-                {/* </Route> */}
+                </Route>
                 
                 
                 <Route path='*' element={<NotFoundPage />}/>

@@ -24,8 +24,9 @@ function DiaryDateCalendar() {
         dispatch(getDayInfo(date));
     }
 
-  return (
-      <DatePicker
+    return (
+      
+        <DatePicker
       dateFormat="dd.MM.yyyy"
       selected={startDate}
       onChange={(date) => setStartDate(date)}

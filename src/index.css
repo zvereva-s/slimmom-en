@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
 
 @import './shared/styles/common.module.css';
+@import './shared/styles/breakpoints.module.css';
 @import './shared/styles/variables.module.css';

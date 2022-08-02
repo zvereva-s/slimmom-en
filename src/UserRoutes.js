@@ -23,6 +23,8 @@ const UserRoutes = () => {
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/home" element={<MainPage />} />
                     <Route path="/health-en" element={<MainPage />} />
+                    <Route path="/" element={<MainPage />} />
+
                 </Route>
                 
                 <Route element={<PrivateRoute />}>

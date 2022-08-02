@@ -1,32 +1,26 @@
 export const items = [
     {
         id: 1,
-        title: 'Sing In',
+        title: 'sign in',
         link: '/login',
         private: false,
     },
     {
         id: 2,
-        title: 'Registration',
+        title: 'registration',
         link: '/register',
         private: false,
     },
     {
         id: 3,
-        title: 'Diary',
+        title: 'diary',
         link: '/diary',
         private: true,
     },
     {
         id: 4,
-        title: 'Calculator',
+        title: 'calculator',
         link: '/calculator',
         private: true,
-    },
-    {
-        id: 5,
-        title: 'Diary',
-        link: '/home',
-        private: false,
     },
 ]

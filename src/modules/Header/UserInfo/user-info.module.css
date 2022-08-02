@@ -1,0 +1,38 @@
+.info {
+    display: none;
+}
+
+.line {
+    display: block;
+    width: 2px;
+    height: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+    background-color: #E0E0E0;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #212121;
+}
+
+.btn {    
+    font-weight: 700;
+    font-size: 14px;
+    color: #9B9FAA;
+    background-color: inherit;
+    border: none;
+}
+
+@media screen and (min-width: 768px) {
+    .info {
+        display: flex;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (min-width: 1280px) {
+    
+}

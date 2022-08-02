@@ -1,0 +1,22 @@
+import { Link } from "react-router-dom";
+import {ReactComponent as LogoIcon} from "../../../images/logo.svg";
+import {ReactComponent as LogoText} from "../../../images/logo-text.svg";
+
+import styles from "./logo.module.css";
+
+function Logo() {
+    const isLogin = false;
+
+    return (
+        <Link to="/home">
+            <div className={styles.logoContainer}>
+                <LogoIcon className={styles.logo} />
+                <LogoText className={styles.logoText} />
+                {isLogin && <LogoText className={styles.logedText} />}
+                
+            </div>
+        </Link>
+    )
+};
+
+export default Logo;

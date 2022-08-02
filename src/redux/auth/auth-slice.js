@@ -20,7 +20,7 @@ const fulfilled = (store, { payload }) => {
   store.loading = false;
   store.error = null;
   store.user = payload.user;
-  store.token = payload.token;
+  store.token = payload.accessToken;
   store.isLogin = true;
 };
 

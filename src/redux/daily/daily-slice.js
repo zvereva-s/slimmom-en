@@ -18,7 +18,8 @@ const dailySlice = createSlice({
 
         [getDailyRateByUserId.pending]: pending,
         [getDailyRateByUserId.rejected]: rejected,
-        [getDailyRateByUserId.fulfilled]: (store, { payload }) => ({ ...store, loading: false, userRate: payload }),
+        [getDailyRateByUserId.fulfilled]: (store, { payload }) => {
+            return ({ ...store, loading: false, userRate: payload })},
 
     }
 })

@@ -23,10 +23,6 @@ const CalculatorForm = ({ onSubmit }) => {
     }));
   };
 
-    const { state, handleChange, handleSubmit } = useForm({ onSubmit, initialState });
-    const { height, age, currentWeight, desiredWeight } = state;
-    
-
   return (
     <form onSubmit={handleSubmit}>
       <TextField

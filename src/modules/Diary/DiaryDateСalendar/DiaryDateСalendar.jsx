@@ -1,21 +1,29 @@
 import { useState } from 'react';
-// import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './diary-date-calendar.module.css'
+import { getDayInfo, searchProductInfo, addDayProduct, removeEatenProduct } from 'redux/diary/diary-operations';
+import { getDiaryState } from 'redux/diary/diary-selectors';
 
-function DiaryDateCalendar() { 
-    const [value, onChange] = useState(new Date());
+
+
+
+function DiaryDateCalendar() {
+    const dispatch = useDispatch();
+    const diary = useSelector(getDiaryState);
+
+    const dateTest = {
+        date: '2022-02-02',
+    }
+
+    function onGetDateInfo(dateTest) {
+        dispatch(getDayInfo(dateTest));
+    }
+
 
     return (
-        
-        <div>
-            <input className={styles.input} type="date" value="2022-01-01" />
-            
-            {/* <Calendar onChange={onChange} value={value} calendarType="ISO 8601" /> */}
-            
-        </div>
-        
+        <>
+            <h1 onClick={()=>onGetDateInfo(dateTest)}>02-02-2022</h1>
+        </>
     )
-};
+ };
 export default DiaryDateCalendar;

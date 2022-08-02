@@ -35,7 +35,7 @@ const authSlice = createSlice({
       store.error = null;
       store.user = payload;
       store.token = payload.token;
-      store.isLogin = true;
+      store.isLogin = false;
     },
 
     [loginRequest.pending]: pending,

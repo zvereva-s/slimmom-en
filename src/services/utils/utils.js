@@ -22,10 +22,9 @@ export const rejected = (store, { payload }) => ({
   ...store,
   loading: false,
   error: payload,
+
   removeLoading: false,
+  addLoading: false,
 });
 
-// export const getErrorMessage = (error) => {
-//     const { response: { data: { message } } } = error;
-//     return message;
-// }
+

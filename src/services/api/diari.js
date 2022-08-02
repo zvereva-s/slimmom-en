@@ -1,5 +1,14 @@
 import instanceToken from './auth';
 
+export async function searchProductInfo(product) {
+    const { data } = await instanceToken.get('/product', {
+        params: {
+            search: product,
+        }
+    });
+    return data;
+}
+
 export async function postDayProduct(product) {
     const { data } = await instanceToken.post('/day', product);
     return data;

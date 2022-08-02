@@ -30,7 +30,7 @@
     .mobileUserInfo {
         display: none;
     }
-    
+
 }
 
 @media screen and (min-width: 1280px) {
@@ -56,6 +56,10 @@
     }
 
     .menuIcon {
+        display: none;
+    }
+
+    .mobileMenu {
         display: none;
     }
 }

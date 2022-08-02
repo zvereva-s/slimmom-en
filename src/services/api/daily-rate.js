@@ -5,6 +5,6 @@ const instance = axios.create({
 });
 
 export async function postDailyRate(data) {
-    const { response } = await instance.post('/daily-rate', data);
+    const { data: response } = await instance.post('/daily-rate', data);
     return response;
 } 

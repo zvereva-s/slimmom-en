@@ -2,11 +2,17 @@
 
     font-style: normal;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 18px;
     line-height: 41px;
 
     color: var(--color-dark);
 
     margin-bottom: 60px;
     max-width: 608px;
+}
+
+@media screen and (min-width: 768px) {
+    .title{
+        font-size: 30px;
+    }
 }

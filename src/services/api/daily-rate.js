@@ -4,7 +4,7 @@ const instance = axios.create({
     baseURL: 'https://slimmom-backend.goit.global/'
 });
 
-export async function postDailyRate(data) {
-    const { response } = await instance.post('/daily-rate', data);
-    return response;
+export async function postDailyRate(obj) {
+    const { data } = await instance.post('/daily-rate', obj);
+    return data;
 } 

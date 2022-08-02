@@ -2,12 +2,14 @@ import { memo } from 'react'
 
 import PropTypes from "prop-types";
 
+import Button from 'shared/components/Button/Button';
+
 
  
 function DiaryProductListItem({ product, grams, kcal, removeProduct, id }) { 
     return (
-        <li><span>{product}</span><span>{grams}</span><span>{kcal}</span>
-        <button onClick={()=> removeProduct(id)}>X</button>
+        <li><span>{product}</span><span>{`${grams} g`}</span><span>{`${kcal} kcal`}</span>
+        <Button type={'button'} onClick={()=> removeProduct(id)}>X</Button>
         </li>
     )
 };
@@ -30,5 +32,5 @@ DiaryProductListItem.propTypes = {
 }
 
 
-export default DiaryProductListItem;
+export default memo(DiaryProductListItem);
 

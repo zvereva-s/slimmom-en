@@ -1,5 +1,8 @@
 import Diary from 'modules/Diary';
 import Summary from 'modules/Summary';
+import layer from '../../images/desktop/layer-1.png';
+import tabletLayer from '../../images/tablet/layer-1.png';
+
 import styles from './diaryPage.module.css';
 
 function DiaryPage() {
@@ -16,6 +19,16 @@ function DiaryPage() {
             <Summary />
           </div>
         </section>
+        <img
+          src={layer}
+          className={styles.layer}
+          alt="layer"
+        />
+        <img
+          src={tabletLayer}
+          className={styles.tabletLayer}
+          alt="tabletLayer"
+        />
       </div>
     </main>
   );

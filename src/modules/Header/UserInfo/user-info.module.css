@@ -23,6 +23,7 @@
     color: #9B9FAA;
     background-color: inherit;
     border: none;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

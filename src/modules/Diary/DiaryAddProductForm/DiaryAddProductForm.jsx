@@ -1,6 +1,4 @@
-
 import { useState, useEffect } from 'react';
-
 
 import useForm from '../../../shared/hooks/useForm';
 import { searchProductInfo } from 'services/api/diari';
@@ -28,9 +26,16 @@ const DiaryAddProductForm = ({ onSubmit }) => {
   });
 
   const [valueFromList, setValueFromList] = useState('');
+  const [diplayList, setDiplayList] = useState(true);
 
   const handleInput = ({ target }) => {
     setValueFromList(target.value);
+  };
+  const onFocus = () => setDiplayList(true);
+
+  const handleOption = e => {
+    setDiplayList(false);
+    handleInput(e);
   };
 
   useEffect(() => {
@@ -58,6 +63,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
       }
     };
 
+    if (!valueFromList) return;
 
     getSearchList(valueFromList);
   }, [valueFromList]);
@@ -76,22 +82,25 @@ const DiaryAddProductForm = ({ onSubmit }) => {
           placeholder="Enter product name"
           value={valueFromList}
           required
+          onFocus={onFocus}
         />
-        <datalist className={styles.datalist} id="productSearch">
-          {products.items.length > 0 &&
-            products.items.map(product => (
-              <option
-                className={styles.item}
-                onClick={handleInput}
-                value={product.title.ru}
-                key={product._id}
-              >
-                {product.title.ru}
-              </option>
-            ))}
-        </datalist>
-      </div>
 
+        {diplayList && (
+          <datalist className={styles.datalist} id="productSearch">
+            {products.items.length > 0 &&
+              products.items.map(product => (
+                <option
+                  className={styles.item}
+                  onClick={handleOption}
+                  value={product.title.ru}
+                  key={product._id}
+                >
+                  {product.title.ru}
+                </option>
+              ))}
+          </datalist>
+        )}
+      </div>
 
       <TextField onChange={handleChange} value={grams} {...fields.grams} />
       <Button className={btnStyles.add} type="submit" text="Add" />

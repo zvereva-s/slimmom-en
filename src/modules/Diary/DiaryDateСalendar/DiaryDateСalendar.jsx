@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { convertDate, dateRevers } from 'services/utils/utils';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -15,38 +15,23 @@ import {
 import { getDiaryState } from 'redux/diary/diary-selectors';
 
 function DiaryDateCalendar() {
-  const [startDate, setStartDate] = useState(new Date());
 
-  
+  const { dateInfo } = useSelector(getDiaryState);
 
   const dispatch = useDispatch();
   
   function onGetDateInfo(date) {
-    setStartDate(date);
-    
-    const updDate = startDate
-    .toLocaleDateString()
-    .replaceAll('.', '-')
-    .split('-')
-    .reverse()
-      .join('-');
-    
-    const obj = {
-      date: updDate,
-    }
-    
-    dispatch(getDayInfo(obj));
+    const newDate = dateRevers(date)
+   
+    dispatch(getDayInfo(newDate));
   }
-
-  
-
 
   return (
     <DatePicker
       dateFormat="dd.MM.yyyy"
-      selected={startDate}
+      selected={convertDate(dateInfo.date)}
       onChange={date => onGetDateInfo(date)}
-      // onClick={()=>onGetDateInfo()}
+      // onClick={date => onGetDateInfo(date)}
     />
   );
 }

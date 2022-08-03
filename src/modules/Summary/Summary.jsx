@@ -7,16 +7,8 @@ import styles from './summary.module.css';
 
 function Summary() { 
 
-    const dateDefault = '01-07-2022';
-    let date = null;
-
     const { dateInfo } = useSelector(getDiaryState);
 
-    if (!dateInfo.date) {
-        date = dateDefault;
-    } else {
-        date = dateInfo.date.date;
-    }
 
     const items = dateInfo.response ? dateInfo.response : [];
 
@@ -25,7 +17,7 @@ function Summary() {
     return (
         <div className={styles.wrapper}>
             <div>
-                <h3 className={styles.title}>Summary for {date} </h3>
+                <h3 className={styles.title}>Summary for {dateInfo.date.replaceAll('-', '/')} </h3>
                 <SummaryList items={items} />
             </div>
             <div>
@@ -38,6 +30,6 @@ function Summary() {
 
 export default Summary;
 
-Summary.defaultProps = {
-    items: [],
-}
+// Summary.defaultProps = {
+//     items: [],
+// }

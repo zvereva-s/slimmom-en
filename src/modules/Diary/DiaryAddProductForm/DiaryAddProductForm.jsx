@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import useForm from '../../../shared/hooks/useForm';
 import { searchProductInfo } from 'services/api/diari';
@@ -10,18 +10,27 @@ import { initialState } from './initialState';
 import { fields } from './fields';
 
 import btnStyles from '../../../shared/styles/buttons.module.css';
+import styles from './diary-add-product.module.css';
 
 const DiaryAddProductForm = ({ onSubmit }) => {
-
   const { state, handleChange, handleSubmit } = useForm({
     onSubmit,
     initialState,
   });
   const { grams } = state;
 
-  const onSearchProduct = ({ target }) => {
-    const { value } = target;
-
+  const [products, setProducts] = useState({
+    items: [],
+    loading: false,
+    error: null,
+  });
+  
+  const [valueFromList, setValueFromList] = useState('');
+  const handleInput = ({ target }) => {
+    setValueFromList(target.value);
+  };
+  
+  useEffect(() => {
     const getSearchList = async value => {
       setProducts(prevState => ({
         ...prevState,
@@ -45,28 +54,37 @@ const DiaryAddProductForm = ({ onSubmit }) => {
         }));
       }
     };
-    getSearchList(value);
-  };
-
-  const onAddProduct = () => {};
-
-  const [products, setProducts] = useState({
-    items: [],
-    loading: false,
-    error: null,
-  });
-
-  console.log(products);
-
+    getSearchList(valueFromList);
+  }, [valueFromList]);
   return (
     <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor='1'></label>
-                    <input className='input' id='1' list="products" type="text" name="productName" onChange={onSearchProduct} placeholder='Enter product name' required />
-                    <datalist className="datalist" id="productSearch">
-                    {products.length && products.map(product => <option value={product.title.ru} key={product._id}></option>)}
-                    </datalist>
-        </div>
+      <div>
+        <label htmlFor="1"></label>
+        <input
+          className="input"
+          id="1"
+          list="products"
+          type="text"
+          name="productName"
+          onChange={handleInput}
+          placeholder="Enter product name"
+          value={valueFromList}
+          required
+        />
+        <datalist className={styles.datalist} id="productSearch">
+          {products.items.length &&
+            products.items.map(product => (
+              <option
+                className={styles.item}
+                onClick={handleInput}
+                value={product.title.ru}
+                key={product._id}
+              >
+                {product.title.ru}
+              </option>
+            ))}
+        </datalist>
+      </div>
 
       <TextField onChange={handleChange} value={grams} {...fields.grams} />
       <Button className={btnStyles.add} type="submit" text="Add" />

@@ -6,7 +6,6 @@ import Button from 'shared/components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 
 import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
-import {logoutRequest} from 'redux/auth/auth-operations.js'
 
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
 import { userId } from '../../redux/auth/auth-selectors';
@@ -49,7 +48,7 @@ function Calculator() {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <h2 className={styles.modal__title}>

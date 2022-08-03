@@ -29,6 +29,16 @@
     background-color: var(--bg-color);
 }
 
+@media screen and (max-width: 767px) {
+    .layer {
+        display: none;
+    }
+
+    .tabletLayer {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .leftSide {
         width: 610px;

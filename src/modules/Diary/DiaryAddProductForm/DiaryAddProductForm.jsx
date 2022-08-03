@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+
+import { useState, useEffect, useCallback } from 'react';
+import { DebounceInput } from 'react-debounce-input';
+
 
 import useForm from '../../../shared/hooks/useForm';
 import useDate from 'shared/hooks/useDate';
@@ -56,12 +58,12 @@ const DiaryAddProductForm = () => {
   const handleInput = ({ target }) => {
     setValueFromList(target.value);
   };
-  const onFocus = () => setDiplayList(true);
+  const onFocus = useCallback(() => setDiplayList(true));
 
-  const handleOption = e => {
+  const handleOption = useCallback(e => {
     setDiplayList(false);
     handleInput(e);
-  };
+  });
 
   useEffect(() => {
     const getSearchList = async value => {
@@ -98,7 +100,9 @@ const DiaryAddProductForm = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="1"></label>
-        <input
+        <DebounceInput
+          minLength={2}
+          debounceTimeout={300}
           className={styles.input}
           id="1"
           list="products"
@@ -111,9 +115,7 @@ const DiaryAddProductForm = () => {
           required
           onFocus={onFocus}
         />
-
-
-        {diplayList && (
+        {diplayList && valueFromList && (
           <datalist className={styles.datalist} id="productSearch">
             {products.items.length > 0 &&
               products.items.map(product => (

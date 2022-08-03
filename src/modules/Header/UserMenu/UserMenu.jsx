@@ -2,7 +2,6 @@ import { ReactComponent as MenuIcon } from "../../../images/menu.svg";
 import { ReactComponent as MenuClose } from "../../../images/close.svg";
 
 import UserInfo from "../UserInfo";
-import HeaderMenu from "../HeaderMenu";
 
 import styles from "./user-menu.module.css";
 
@@ -15,9 +14,6 @@ function UserMenu({isLogin, onClick, isShowed}) {
                     <UserInfo />
                 </div>
                 {isShowed ? <MenuClose onClick={onClick} className={styles.menuClose} /> : <MenuIcon onClick={onClick} className={styles.menuIcon} />}
-            </div>
-            <div className={styles.desktopMenu}>
-                <HeaderMenu isLogin={isLogin} />
             </div>
         </div>
     )

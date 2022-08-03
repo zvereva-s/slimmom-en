@@ -7,14 +7,14 @@ import { initialState } from "./initialState";
 import { fields } from "./fields";
 
 import btnStyles from '../../../shared/styles/buttons.module.css'
-
+import styles from "./diary-add-product-form.module.css";
 const DiaryAddProductForm = ({ onSubmit }) => {
     
     const { state, handleChange, handleSubmit } = useForm({ onSubmit, initialState });
     const { productName, grams } = state;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <TextField onChange={handleChange} value={productName} {...fields.productName} />
             <TextField onChange={handleChange} value={grams} {...fields.grams} />
             <Button className={btnStyles.add} type="submit" text="Add" />

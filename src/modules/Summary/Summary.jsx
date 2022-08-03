@@ -30,7 +30,7 @@ function Summary() {
             </div>
             <div>
                 <h3 className={styles.title}>Food not recommended</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ab asperiores qui fugiat sint nisi odit placeat, ad ipsa tempora vero repellendus molestiae assumenda sequi voluptatum quisquam! Hic, ratione unde?</p>
+                <p className={styles.foodList}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ab asperiores qui fugiat sint nisi odit placeat, ad ipsa tempora vero repellendus molestiae assumenda sequi voluptatum quisquam! Hic, ratione unde? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ab asperiores qui fugiat sint nisi odit placeat, ad ipsa tempora vero repellendus molestiae assumenda sequi voluptatum quisquam! Hic, ratione unde? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ab asperiores qui fugiat sint nisi odit placeat, ad ipsa tempora vero repellendus molestiae assumenda sequi voluptatum quisquam! Hic, ratione unde?</p>
                 <ul>{elements}</ul>
             </div>
         </div>

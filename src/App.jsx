@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { getCurrentRequest } from 'redux/auth/auth-operations';
 
+import BackGround from "./modules/BackGround";
 import UserRoutes from './UserRoutes';
 import Header from './modules/Header';
 import Notification from 'shared/components/Notification';
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <>
+      <BackGround />
       <Header />
       <UserRoutes />
       <Notification />

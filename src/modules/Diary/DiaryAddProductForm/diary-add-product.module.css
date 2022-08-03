@@ -5,9 +5,14 @@
   max-width: 500px;
   margin-top: 5px;
   margin-bottom: 10px;
+  position: absolute;
+  background-color: #fff;
+  z-index: 10;
 }
 .item {
   cursor: pointer;
+  background-color: #fff;
+
 }
 .item:hover {
   background-color: #fc842d;

@@ -18,8 +18,13 @@
 
 .add {
   composes: button;
+  margin: 0 auto;
   padding-left: 46px;
   padding-right: 46px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  width: 176px;
+  height: 44px;
 }
 
 .login {
@@ -28,6 +33,16 @@
   padding-left: 71px;
   padding-right: 71px;
   margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .login {
+    padding: 13px 50px;
+    margin: 0;
+    margin-right: 32px;
+    width: 181px;
+    height: 44px;
+  }
 }
 
 .register {
@@ -40,4 +55,12 @@
   color: #fc842d;
 
   box-shadow: none;
+}
+
+@media screen and (min-width: 768px) {
+  .register {
+    padding: 13px 37px;
+    width: 181px;
+    height: 44px;
+  }
 }

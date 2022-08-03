@@ -24,12 +24,13 @@ const DiaryAddProductForm = ({ onSubmit }) => {
     loading: false,
     error: null,
   });
-  
+
   const [valueFromList, setValueFromList] = useState('');
+
   const handleInput = ({ target }) => {
     setValueFromList(target.value);
   };
-  
+
   useEffect(() => {
     const getSearchList = async value => {
       setProducts(prevState => ({
@@ -56,12 +57,13 @@ const DiaryAddProductForm = ({ onSubmit }) => {
     };
     getSearchList(valueFromList);
   }, [valueFromList]);
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="1"></label>
         <input
-          className="input"
+          className={styles.input}
           id="1"
           list="products"
           type="text"
@@ -72,7 +74,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
           required
         />
         <datalist className={styles.datalist} id="productSearch">
-          {products.items.length &&
+          {products.items.length > 0 &&
             products.items.map(product => (
               <option
                 className={styles.item}
@@ -94,8 +96,3 @@ const DiaryAddProductForm = ({ onSubmit }) => {
 
 export default DiaryAddProductForm;
 
-/* 
-<datalist className="datalist" id="productSearch">
-{productsVariants && productsVariants.map(product => <option value={product.title.ru} key={product._id} />)}
-                </datalist>
-                */

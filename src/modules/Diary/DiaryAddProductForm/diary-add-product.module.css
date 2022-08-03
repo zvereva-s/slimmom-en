@@ -2,10 +2,28 @@
   display: block;
   max-height: 200px;
   overflow-y: scroll;
+  max-width: 500px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
-.item{
-    cursor: pointer
+.item {
+  cursor: pointer;
 }
 .item:hover {
-    background-color: aqua;
+  background-color: #fc842d;
+  color: #fff;
+}
+.input {
+  width: 240px;
+  height: 24px;
+  padding-bottom: 8px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 32px;
+  font-family: var(--ff);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #9b9faa;
 }

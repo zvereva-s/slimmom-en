@@ -5,12 +5,12 @@ import DiaryProductsListItem from './DiaryProductsListItem';
 import styles from "./diary-product-list.module.css";
 
 function DiaryProductList({ diary, removeProduct }) {
-    const diaryElement = diary.map(({ _id, product, grams, kcal }) => (
+    const diaryElement = diary.map(({ id, title, weight, kcal }) => (
         <DiaryProductsListItem
-            key={_id}
+            key={id}
             removeProduct={removeProduct}
-            product={product}
-            grams={grams}
+            product={title}
+            grams={weight}
             kcal={kcal}
         />
     )) 
@@ -25,16 +25,16 @@ DiaryProductList.defaultProps = {
     removeProduct: ()=>{},
 }
 
-DiaryProductList.propTypes = {
-    removeProduct: PropTypes.func,
-    diary: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string.isRequired,
-            product: PropTypes.string.isRequired,
-            grams: PropTypes.string.isRequired,
-            kcal: PropTypes.string.isRequired,
-        })
-    ),
-}
+// DiaryProductList.propTypes = {
+//     removeProduct: PropTypes.func,
+//     diary: PropTypes.objectOf(
+//         PropTypes.shape({
+//             _id: PropTypes.string.isRequired,
+//             product: PropTypes.string.isRequired,
+//             grams: PropTypes.string.isRequired,
+//             kcal: PropTypes.string.isRequired,
+//         })
+//     ),
+// }
 
 export default DiaryProductList;

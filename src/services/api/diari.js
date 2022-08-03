@@ -11,7 +11,6 @@ export async function searchProductInfo(product) {
 
 export async function postDayProduct(product) {
   const { data } = await instanceToken.post('/day', product);
-
   return data;
 }
 export async function deleteEatenProduct(product) {

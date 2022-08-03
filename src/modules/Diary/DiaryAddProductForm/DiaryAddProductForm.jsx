@@ -1,9 +1,13 @@
+
 import { useState, useEffect, useCallback } from 'react';
 import { DebounceInput } from 'react-debounce-input';
 
 
 import useForm from '../../../shared/hooks/useForm';
+import useDate from 'shared/hooks/useDate';
 import { searchProductInfo } from 'services/api/diari';
+
+import { addDayProduct } from 'redux/diary/diary-operations';
 
 import TextField from '../../../shared/components/TextField';
 import Button from '../../../shared/components/Button/Button';
@@ -15,21 +19,41 @@ import btnStyles from '../../../shared/styles/buttons.module.css';
 import styles from './diary-add-product.module.css';
 
 
-const DiaryAddProductForm = ({ onSubmit }) => {
-  const { state, handleChange, handleSubmit } = useForm({
-    onSubmit,
-    initialState,
+const DiaryAddProductForm = () => {
+  const { state, handleChange, reset} = useForm({
+    initialState
   });
   const { grams } = state;
+
+  const dispatch = useDispatch();
 
   const [products, setProducts] = useState({
     items: [],
     loading: false,
     error: null,
   });
-
+ 
   const [valueFromList, setValueFromList] = useState('');
   const [diplayList, setDiplayList] = useState(true);
+
+  const { items } = products;
+
+  const product = {
+    date: useDate(),
+    productId: items.length && items.find(el => el.title.ru === valueFromList)?._id,
+    weight: Number(grams),
+  }
+
+  const onAddProduct = (product) => {
+    dispatch(addDayProduct(product))
+  } 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddProduct(product);
+    setValueFromList("")
+    reset()
+  };
 
   const handleInput = ({ target }) => {
     setValueFromList(target.value);

@@ -102,6 +102,10 @@ div.react-datepicker__input-container input {
   margin-bottom: 32px;
 }
 
+div.react-datepicker__mounth-container{
+z-index: 999;
+}
+
 @media screen and (min-width: 768px) {
   div.react-datepicker__input-container input{
 background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 70% no-repeat;

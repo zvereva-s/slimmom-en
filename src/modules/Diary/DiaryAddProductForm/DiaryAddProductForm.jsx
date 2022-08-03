@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import Select from 'react-select';
 
-
 import useForm from '../../../shared/hooks/useForm';
 import { searchProductInfo } from 'services/api/diari';
 
@@ -105,3 +104,4 @@ const DiaryAddProductForm = ({ onSubmit }) => {
 };
 
 export default DiaryAddProductForm;
+

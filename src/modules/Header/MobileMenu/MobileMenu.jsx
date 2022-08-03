@@ -2,7 +2,6 @@ import { createPortal } from "react-dom";
 import { NavLink } from 'react-router-dom';
 
 import styles from "./mobile-menu.module.css"
-import "./mobile-menu.css"
 
 import { items } from '../HeaderMenu/items';
 
@@ -28,7 +27,7 @@ function MobileMenu({onClick}) {
   return (
     createPortal(
       (
-        <div id='mobile-menu' className='menu-box'>
+        <div className={styles.overlay} >
           <div className={styles.mobileContainer} >
               <ul className={styles.mobileMenu} > 
                  {elements}

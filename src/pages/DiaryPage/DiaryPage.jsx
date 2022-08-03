@@ -9,9 +9,8 @@ function DiaryPage() {
   return (
     <main>
       <div className={styles.wrapper} >
-        <section className="section" >
+        <section className={styles.section} >
           <div className={styles.leftSide} >
-            <h1 className={styles.title}>Diary Page</h1>
             <Diary />
           </div>
         </section>

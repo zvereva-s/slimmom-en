@@ -1,5 +1,7 @@
 .wrapper {
+    width: 280px;
     padding: 40px 20px;
+    margin: 0 auto;
 }
 
 .title {
@@ -10,16 +12,26 @@
     margin-bottom: 20px;
 }
 
+.foodList {
+    max-height: 200px;
+    padding-right: 10px;
+    overflow: scroll;
+}
+
 @media screen and (min-width: 768px) {
     .wrapper {
+        width: 610px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 60px;
+        margin: 0;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .wrapper {
+        padding-top: 70px;
+        padding-left: 90px;
         display: flex;
         flex-direction: column;
         width: 270px;

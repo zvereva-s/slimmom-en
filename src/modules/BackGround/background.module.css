@@ -1,0 +1,11 @@
+@media screen and (min-width: 1280px) {
+    .BackGround {
+        position: absolute;
+        background: var(--bg-color);
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        width: 40%;
+        height: 100vh;
+    }
+}

@@ -5,6 +5,10 @@
     letter-spacing: 0.04em;
 }
 
+.kcal {
+    font-size: 11px;
+}
+
 .span:not(:last-child) {
     padding-right: 8px;
 }
@@ -12,3 +16,48 @@
 .span:last-child {
     padding-right: 17px;
 }
+
+.deleteBtn {
+    width: 15px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-dark);
+}
+
+.item  > span {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.item:not(:last-child) {
+    padding-bottom: 20px;
+}
+
+.span:last-child {
+    padding-right: 17px;
+}
+
+@media screen and (min-width: 768px) {
+    .span:not(:last-child) {
+        padding-bottom: 20px;
+    }
+    
+    .span:not(:last-child) {
+        text-align: end;
+        width: 106px;
+    }
+
+    .span:first-child {
+        text-align: left;
+        width: 240px;
+    }
+
+    .deleteBtn {
+        width: 18px;
+    }
+  }

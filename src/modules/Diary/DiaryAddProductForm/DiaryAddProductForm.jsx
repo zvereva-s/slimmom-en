@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Select from 'react-select';
 
 import useForm from '../../../shared/hooks/useForm';
 import { searchProductInfo } from 'services/api/diari';
@@ -12,7 +13,6 @@ import { fields } from './fields';
 import btnStyles from '../../../shared/styles/buttons.module.css';
 
 const DiaryAddProductForm = ({ onSubmit }) => {
-
   const { state, handleChange, handleSubmit } = useForm({
     onSubmit,
     initialState,
@@ -48,26 +48,30 @@ const DiaryAddProductForm = ({ onSubmit }) => {
     getSearchList(value);
   };
 
-  const onAddProduct = () => {};
-
   const [products, setProducts] = useState({
     items: [],
     loading: false,
     error: null,
   });
 
-  console.log(products);
+    const options = products.items.map(el => ({ value: el.title.ru, label: el.title.ru }));
+    
 
+    
   return (
-    <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit}>
+          {/* <div>
             <label htmlFor='1'></label>
                     <input className='input' id='1' list="products" type="text" name="productName" onChange={onSearchProduct} placeholder='Enter product name' required />
                     <datalist className="datalist" id="productSearch">
-                    {products.length && products.map(product => <option value={product.title.ru} key={product._id}></option>)}
+                    {products.length && products.items.map(item => <option value={item.title.ru} key={item._id}></option>)}
                     </datalist>
-        </div>
-
+        </div> */}
+          <div>
+              <input onChange={onSearchProduct} name='productName' />
+              <Select options={options} />
+         </div>
+        
       <TextField onChange={handleChange} value={grams} {...fields.grams} />
       <Button className={btnStyles.add} type="submit" text="Add" />
     </form>
@@ -75,9 +79,3 @@ const DiaryAddProductForm = ({ onSubmit }) => {
 };
 
 export default DiaryAddProductForm;
-
-/* 
-<datalist className="datalist" id="productSearch">
-{productsVariants && productsVariants.map(product => <option value={product.title.ru} key={product._id} />)}
-                </datalist>
-                */

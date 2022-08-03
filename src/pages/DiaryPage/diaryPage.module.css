@@ -13,6 +13,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .summarySection {
@@ -36,5 +37,27 @@
         padding: 0 15px;
         margin: 0 auto;
     
+    }
+
+    .layer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .tabletLayer{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .layer {
+        display: none;
+    }
+
+    .tabletLayer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
 }

@@ -1,18 +1,172 @@
+.wrapper {
+    position: relative;
+}
+
+/* .section {
+    padding-top: 32px;
+    padding-bottom: 100px;
+} */
+
+@media screen and (max-width: 767px) {
+    .section {
+        padding-top: 32px;
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding-top: 160px;
+        padding-bottom: 398px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .section {
+        padding-top: 67px;
+        padding-bottom: 0;
+    }
+}
+
 .title {
 
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
-    line-height: 41px;
+    line-height: 1.4;
 
     color: var(--color-dark);
 
-    margin-bottom: 60px;
+    margin-bottom: 32px;
     max-width: 608px;
 }
 
 @media screen and (min-width: 768px) {
     .title{
-        font-size: 30px;
+        margin-bottom: 68px;
+        font-size: 34px;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .vector {
+        display: none;
+    }
+
+    .strawberry {
+        display: none;
+    }
+
+    .banana {
+        display: none;
+    }
+
+    .layer {
+        display: none;
+    }
+
+    .tablenVector {
+        display: none;
+    }
+
+    .tabletStrawberry {
+        display: none;
+    }
+
+    .tabletBanana {
+        display: none;
+    }
+
+    .tabletLayer {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .vector {
+        position: absolute;
+        /* top: -53px; */
+        top: -150px;
+        right: 0;
+    }
+
+    .strawberry {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .banana {
+        position: absolute;
+        top: -200px;
+        right: 0;
+    }
+
+    .layer {
+        position: absolute;
+        /* top: -240px; */
+        bottom: 30px;
+        right: 190px;
+    }
+
+    .tablenVector {
+        display: none;
+    }
+
+    .tabletStrawberry {
+        display: none;
+    }
+
+    .tabletBanana {
+        display: none;
+    }
+
+    .tabletLayer {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .vector {
+        display: none;
+    }
+
+    .strawberry {
+        display: none;
+    }
+
+    .banana {
+        display: none;
+    }
+
+    .layer {
+        display: none;
+    }
+
+    .tablenVector {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .tabletStrawberry {
+        position: absolute;
+        bottom: 180px;
+        right: 20px;
+    }
+
+    .tabletBanana {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+    }
+
+    .tabletLayer {
+        position: absolute;
+        bottom: 0;
+        right: 175px;
+        z-index: 0;
     }
 }

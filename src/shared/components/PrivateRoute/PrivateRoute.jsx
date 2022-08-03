@@ -11,3 +11,9 @@ function PrivateRoute() {
 }
 
 export default PrivateRoute;
+
+
+/* 
+ при повторном заходить на логин
+ на первом на хоме
+*/

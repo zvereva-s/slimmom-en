@@ -10,13 +10,15 @@ import MobileMenu from "./MobileMenu";
 
 import styles from "./header.module.css";
 
+
 function Header() { 
     const [isShowed, changeShowed] = useState(false);
 
     const isLogin = useAuth();
 
     const onMenuBtnClick = () => {
-        changeShowed( isShowed ? false : true)
+        changeShowed( isShowed ? false : true);
+        console.log(isShowed);
     };
 
     return (
@@ -35,7 +37,7 @@ function Header() {
                         <UserInfo />
                     </div>
                 )}
-                {isLogin && isShowed && <MobileMenu onClick={onMenuBtnClick} />}
+                {isShowed && <MobileMenu onClick={onMenuBtnClick} />}
             </div>
     )
 };

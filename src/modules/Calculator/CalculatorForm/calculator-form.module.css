@@ -77,5 +77,6 @@ margin-bottom: 40px;
         margin: 0 auto;
         width: 210px;
         height: 43px;
+        cursor: pointer;
     }
 }

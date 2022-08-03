@@ -48,7 +48,7 @@ function Calculator() {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <h2 className={styles.modal__title}>

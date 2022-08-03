@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import useAuth from 'shared/hooks/useAuth';
 
 import { getCurrentRequest } from 'redux/auth/auth-operations';
 
@@ -14,13 +15,14 @@ import Notification from 'shared/components/Notification';
 function App() {
   const dispatch = useDispatch();
 
+  const isLogin = useAuth();
   useEffect(() => {
     dispatch(getCurrentRequest())
   }, [dispatch]);
 
   return (
     <>
-      <BackGround />
+      {isLogin && <BackGround />}
       <Header />
       <UserRoutes />
       <Notification />

@@ -17,9 +17,15 @@ function Header() {
     const isLogin = useAuth();
 
     const onMenuBtnClick = () => {
-        changeShowed( isShowed ? false : true);
-        console.log(isShowed);
+        isShowed ? changeShowed( false) : changeShowed( true);
     };
+
+    window.addEventListener('resize', () => {
+        let width = window.innerWidth;
+        if (width > "1280") {
+            changeShowed(false)
+        }
+    });
 
     return (
             <div  className={styles.outline} >
@@ -28,6 +34,9 @@ function Header() {
                         <nav className={styles.row}>
                             <Logo isLogin={isLogin} />
                             <div className={styles.line}></div>
+                            {isLogin && <div className={styles.desktopMenu}>
+                                <HeaderMenu isLogin={isLogin} />
+                            </div>}
                             {isLogin ? <UserMenu onClick={onMenuBtnClick} isLogin={isLogin} isShowed={isShowed} /> : <HeaderMenu isLogin={isLogin} />}
                         </nav>
                     </header>

@@ -1,0 +1,44 @@
+[
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product1"
+    },
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product2"
+    },
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product3"
+    },
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product4"
+    },
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product5"
+    },
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product6"
+    },
+    {
+        "product": "corn flakes",
+        "grams": "100",
+        "kcal":"350",
+        "_id": "product7"
+    }
+]

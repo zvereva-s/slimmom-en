@@ -24,6 +24,7 @@ const UserRoutes = () => {
                     <Route path="/home" element={<MainPage />} />
                     <Route path="/health-en" element={<MainPage />} />
                     <Route path="/" element={<MainPage />} />
+
                 </Route>
                 
                 <Route element={<PrivateRoute />}>

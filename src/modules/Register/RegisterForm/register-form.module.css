@@ -1,3 +1,18 @@
-.wrap {
+@media screen and (max-width: 767px) {
+    .wrap {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
+    width: 182px;
+    height: 44px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .wrap {
+        display: flex;
+
+        width: 181px;
+        height: 44px;
+    }
 }

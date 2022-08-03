@@ -2,21 +2,17 @@ import { memo } from 'react';
 
 import PropTypes from 'prop-types';
 
-import Button from 'shared/components/Button/Button';
-
 import { ReactComponent as DeleteProduct } from '../../../../images/close.svg';
 
 import styles from './diary-products-list-item.module.css';
 
 function DiaryProductListItem({ product, grams, kcal, removeProduct, _id }) {
   return (
-    <li>
+    <li className={styles.item}>
       <span className={styles.span}>{product}</span>
       <span className={styles.span}>{`${grams} g`}</span>
-      <span className={styles.span}>{`${kcal} kcal`}</span>
-      <Button type={'button'} onClick={() => removeProduct(_id)}>
-        <DeleteProduct />
-      </Button>
+      <span className={styles.span}>{kcal} <span className={styles.kcal}>kcal</span></span>
+        <DeleteProduct className={styles.deleteBtn} onClick={() => removeProduct(_id)} />
     </li>
   );
 }

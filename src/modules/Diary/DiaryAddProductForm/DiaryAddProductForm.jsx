@@ -1,4 +1,6 @@
+
 import { useState, useEffect } from 'react';
+
 
 import useForm from '../../../shared/hooks/useForm';
 import { searchProductInfo } from 'services/api/diari';
@@ -55,6 +57,8 @@ const DiaryAddProductForm = ({ onSubmit }) => {
         }));
       }
     };
+
+
     getSearchList(valueFromList);
   }, [valueFromList]);
 
@@ -88,6 +92,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
         </datalist>
       </div>
 
+
       <TextField onChange={handleChange} value={grams} {...fields.grams} />
       <Button className={btnStyles.add} type="submit" text="Add" />
     </form>
@@ -95,4 +100,3 @@ const DiaryAddProductForm = ({ onSubmit }) => {
 };
 
 export default DiaryAddProductForm;
-

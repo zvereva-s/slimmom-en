@@ -32,8 +32,7 @@ function Calculator() {
   }, []);
 
   const onSubmitModal = () => {
-    dispatch(logoutRequest());
-    navigate('/login', { replace: true });
+    navigate('/diary', { replace: true }); 
   };
 
   const closeModal = useCallback(() => {

@@ -6,6 +6,7 @@ import tabletLayer from '../../images/tablet/layer-1.png';
 import styles from './diaryPage.module.css';
 
 function DiaryPage() {
+
   return (
     <main>
       <div className={styles.wrapper} >

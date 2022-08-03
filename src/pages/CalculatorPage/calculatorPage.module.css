@@ -24,6 +24,10 @@
     max-width: 608px;
 }
 
+.summarySection {
+    background-color: var(--bg-color);
+}
+
 @media screen and (min-width: 768px) {
     .title {
         margin-bottom: 68px;
@@ -54,6 +58,25 @@
     .section {
         padding-top: 67px;
         padding-bottom: 111px;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 3fr 2fr;        
+        margin: 0 auto;
+    }
+
+    .leftSide {
+        display: flex;
+        flex-direction: column;
+        width: 560px;
+        margin-right: 120px;
+        margin-left: auto;
+    }
+
+    .rightSide {
+        max-width: 550px;
+        padding: 0 15px;    
     }
 }
 

@@ -43,6 +43,10 @@
     width: 181px;
     height: 44px;
   }
+
+  .add {
+    display: none;
+  }
 }
 
 .register {

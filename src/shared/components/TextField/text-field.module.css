@@ -12,3 +12,8 @@
     line-height: 1.21;
     color: #9B9FAA;
 }
+
+.inputGrams {
+    composes: input;
+    width: 106px;
+}

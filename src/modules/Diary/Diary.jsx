@@ -2,6 +2,7 @@ import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
 import DiaryDateCalendar from "./DiaryDateСalendar";
 import DiaryProductsList from "./DiaryProductsList";
 import { ReactComponent as AddBtn } from "../../images/add.svg";
+import Button from '../../shared/components/Button';
 
 import styles from "./diary.module.css";
 
@@ -15,10 +16,10 @@ function Diary() {
             <DiaryDateCalendar />
             <DiaryAddProductForm />
             <DiaryProductsList diary={initialList} />
-            <div className={styles.btnOutline}>
-            <AddBtn className={styles.AddBtn} />
+            <Button className={styles.btnOutline} type={'button'} onClick={removeProduct} >
+                <AddBtn className={styles.AddBtn} />
+            </Button>
 
-            </div>
         </>
     )
  };

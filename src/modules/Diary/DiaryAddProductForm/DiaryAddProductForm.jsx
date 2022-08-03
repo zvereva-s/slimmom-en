@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DebounceInput } from 'react-debounce-input';
-import Select from 'react-select';
 
 
 import useForm from '../../../shared/hooks/useForm';

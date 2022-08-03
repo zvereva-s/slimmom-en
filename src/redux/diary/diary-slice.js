@@ -20,7 +20,10 @@ const diarySlice = createSlice({
     extraReducers: {
         [getDayInfo.pending]: pending,
         [getDayInfo.rejected]: rejected,
-        [getDayInfo.fulfilled]: (store, { payload }) => ({...store, loading: false, error: null, dateInfo: payload }),
+        [getDayInfo.fulfilled]: (store, { payload }) => {
+            console.log('payload', payload);
+            return ({...store, loading: false, error: null, dateInfo: payload
+    })},
         
         [searchProductInfo.pending]: pending,
         [searchProductInfo.rejected]: rejected,

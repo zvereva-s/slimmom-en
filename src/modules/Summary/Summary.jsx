@@ -1,36 +1,35 @@
+import { useSelector } from "react-redux";
+import { getDiaryState } from 'redux/diary/diary-selectors';
+
 import SummaryList from "./SummaryList";
 
 import styles from './summary.module.css';
 
 function Summary() { 
 
-    const formatDate = () => {
-        const d = new Date();
-        let month = '' + (d.getMonth() + 1);
-        let day = '' + d.getDate();
-        let year = d.getFullYear();
-    
-        if (month.length < 2) 
-            month = '0' + month;
-        if (day.length < 2) 
-            day = '0' + day;
-    
-        return [day, month, year ].join('/');
-    };
+    const dateDefault = '01-07-2022';
+    let date = null;
 
-    const date = formatDate();
-    const items = [];
+    const { dateInfo } = useSelector(getDiaryState);
+
+    if (!dateInfo.date) {
+        date = dateDefault;
+    } else {
+        date = dateInfo.date.date;
+    }
+
+    const items = dateInfo.response ? dateInfo.response : [];
+
     const elements = [].map(el => <li></li>);
 
     return (
         <div className={styles.wrapper}>
             <div>
-                <h3 className={styles.title}>Summary for {date}</h3>
+                <h3 className={styles.title}>Summary for {date} </h3>
                 <SummaryList items={items} />
             </div>
             <div>
                 <h3 className={styles.title}>Food not recommended</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ab asperiores qui fugiat sint nisi odit placeat, ad ipsa tempora vero repellendus molestiae assumenda sequi voluptatum quisquam! Hic, ratione unde?</p>
                 <ul>{elements}</ul>
             </div>
         </div>
@@ -38,3 +37,7 @@ function Summary() {
 };
 
 export default Summary;
+
+Summary.defaultProps = {
+    items: [],
+}

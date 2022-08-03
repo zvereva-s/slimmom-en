@@ -4,7 +4,10 @@ import Modal from '../../shared/components/Modal';
 import CalculatorForm from 'modules/Calculator/CalculatorForm';
 import Button from 'shared/components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+
 import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
+import {logoutRequest} from 'redux/auth/auth-operations.js'
+
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
 import { userId } from '../../redux/auth/auth-selectors';
 
@@ -29,7 +32,7 @@ function Calculator() {
   }, []);
 
   const onSubmitModal = () => {
-    navigate('/diary', { replace: true });
+    navigate('/diary', { replace: true }); 
   };
 
   const closeModal = useCallback(() => {

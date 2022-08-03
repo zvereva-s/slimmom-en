@@ -6,6 +6,10 @@
     border-bottom: 2px solid #E0E0E0;
 }
 
+.desktopMenu {
+    display: none;
+}
+
 .row {
     display: flex;
     justify-content:space-between;
@@ -49,6 +53,10 @@
         display: flex;
         justify-content:flex-start;
         align-items: flex-end;
+    }
+
+    .desktopMenu {
+        display: flex;
     }
 
     .line {

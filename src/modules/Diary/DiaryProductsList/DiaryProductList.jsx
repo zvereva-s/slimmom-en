@@ -2,19 +2,21 @@ import PropTypes from 'prop-types';
 
 import DiaryProductsListItem from './DiaryProductsListItem';
 
+import styles from "./diary-product-list.module.css";
+
 function DiaryProductList({ diary, removeProduct }) {
     const diaryElement = diary.map(({ _id, product, grams, kcal }) => (
         <DiaryProductsListItem
             key={_id}
             removeProduct={removeProduct}
             product={product}
-            prams={grams}
+            grams={grams}
             kcal={kcal}
         />
     )) 
 
     return (
-        <ul>{diaryElement}</ul>
+        <ul className={styles.list}>{diaryElement}</ul>
     )
  };
 

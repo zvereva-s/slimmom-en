@@ -15,10 +15,6 @@
     width: 20px;
 }
 
-.desktopMenu {
-    display: none;
-}
-
 @media screen and (min-width: 768px) {
     .userInfo {
         padding-right: 20px;
@@ -42,8 +38,8 @@
         display: none;
     }
     
-    .desktopMenu {
-        display: flex;
+    .menuClose {
+        display: none;
     }
 
     .wraper {

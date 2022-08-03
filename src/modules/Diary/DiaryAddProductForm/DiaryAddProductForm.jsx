@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DebounceInput } from 'react-debounce-input';
+import Select from 'react-select';
+
 import useForm from '../../../shared/hooks/useForm';
 import { searchProductInfo } from 'services/api/diari';
 
@@ -11,6 +13,7 @@ import { fields } from './fields';
 
 import btnStyles from '../../../shared/styles/buttons.module.css';
 import styles from './diary-add-product.module.css';
+
 
 const DiaryAddProductForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({
@@ -68,6 +71,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
     getSearchList(valueFromList);
   }, [valueFromList]);
 
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -82,10 +86,10 @@ const DiaryAddProductForm = ({ onSubmit }) => {
           name="productName"
           onChange={handleInput}
           placeholder="Enter product name"
-          required
           value={valueFromList}
-          onFocus={onFocus}
           autoComplete="off"
+          required
+          onFocus={onFocus}
         />
         {diplayList && valueFromList && (
           <datalist className={styles.datalist} id="productSearch">
@@ -111,3 +115,4 @@ const DiaryAddProductForm = ({ onSubmit }) => {
 };
 
 export default DiaryAddProductForm;
+

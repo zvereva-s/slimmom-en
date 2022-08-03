@@ -27,4 +27,11 @@ export const rejected = (store, { payload }) => ({
   addLoading: false,
 });
 
+export const dateRevers = date =>
+  date.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join('-');
 
+export const convertDate = date => {
+  const [year, mounth, day] = date.split('-');
+  const newDate = new Date(year, mounth - 1, day);
+  return newDate;
+};

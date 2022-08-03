@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import Select from 'react-select';
 
 
 import useForm from '../../../shared/hooks/useForm';
@@ -13,6 +14,7 @@ import { fields } from './fields';
 
 import btnStyles from '../../../shared/styles/buttons.module.css';
 import styles from './diary-add-product.module.css';
+
 
 const DiaryAddProductForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({
@@ -62,6 +64,7 @@ const DiaryAddProductForm = ({ onSubmit }) => {
     getSearchList(valueFromList);
   }, [valueFromList]);
 
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -75,8 +78,10 @@ const DiaryAddProductForm = ({ onSubmit }) => {
           onChange={handleInput}
           placeholder="Enter product name"
           value={valueFromList}
+          autoComplete="off"
           required
         />
+        {/* <Select /> */}
         <datalist className={styles.datalist} id="productSearch">
           {products.items.length > 0 &&
             products.items.map(product => (

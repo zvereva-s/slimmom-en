@@ -90,10 +90,9 @@ function Diary() {
             <div className={styles.hideForm}>
                 <DiaryAddProductForm />
             </div>
-            <DiaryProductsList diary={initialList} removeProduct={onRemoveProduct} />
-
+        
             <DiaryAddProductForm />
-            <DiaryProductsList diary={elements} />
+            <DiaryProductsList diary={elements} emoveProduct={onRemoveProduct}/>
 
             <AddButton onClick={openModal} />
             {isShowed && <DiaryMobileMenu onClick={closeModal} type='button' />}

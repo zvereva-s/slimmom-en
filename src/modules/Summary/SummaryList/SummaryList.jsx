@@ -20,7 +20,7 @@ function SummaryList({ items }) {
             </li>
             <li className={styles.item}>
                 <p className={styles[`itemtitle`]}>n% of normal</p>
-                <p className={styles[`item-total`]}>{percentsOfDailyRate} kcal</p>
+                <p className={styles[`item-total`]}>{ parseInt(percentsOfDailyRate)} %{"  "}</p>
             </li>
        </ul>
     )

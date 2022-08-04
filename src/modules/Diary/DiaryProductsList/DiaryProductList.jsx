@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import DiaryProductsListItem from './DiaryProductsListItem';
 
@@ -13,9 +13,7 @@ function DiaryProductList({ diary, removeProduct }) {
             product={title}
             grams={weight}
             id={id}
-
             kcal={updKcal}
-
         />
     })
 

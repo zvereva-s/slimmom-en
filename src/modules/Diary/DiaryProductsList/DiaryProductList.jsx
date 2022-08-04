@@ -11,7 +11,7 @@ function DiaryProductList({ diary, removeProduct }) {
             removeProduct={removeProduct}
             product={title}
             grams={weight}
-            kcal={kcal}
+            kcal={kcal.toFixed(0)}
         />
     )) 
 

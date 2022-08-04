@@ -20,21 +20,22 @@ function Summary() {
             percentsOfDailyRate: 0
         }
 
-        if (product.daySummary) {
-            return product.daySummary
-        } else if (product.newSummary) {
-            return product.newSummary
-        } 
+        // if (product.daySummary) {
+        //     return product.daySummary
+        // } else if (product.newSummary) {
+        //     return product.newSummary
+        // } 
         
         return obj;
     }
 
     const summaryItems = product.daySummary;
-    console.log(typeof(summaryItems));
+    // console.log(typeof(summaryItems));
 
     const items = getSummaryItems();
 
-    const elements = notAllowedProducts.length ? notAllowedProducts.map(el => <span>{el}{", "}</span>) : [];
+    // const elements = notAllowedProducts.length ? notAllowedProducts.map(el => <span>{el}{", "}</span>) : [];
+    const elements = []
 
     return (
         <div className={styles.wrapper}>

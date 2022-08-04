@@ -24,8 +24,8 @@ import DiaryMobileMenu from './DiaryMobileMenu';
 import Button from '../../shared/components/Button';
 import AddButton from 'shared/components/Button/MobileAddButton';
 
-import { ReactComponent as AddBtn } from '../../images/add.svg';
-import { ReactComponent as BackBtn } from 'images/back.svg';
+import { ReactComponent as AddBtn } from '../../images/icons/add.svg';
+import { ReactComponent as BackBtn } from 'images/icons/back.svg';
 import styles from './diary.module.css';
 
 function Diary() {

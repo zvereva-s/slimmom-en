@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 
 import DiaryAddProductForm from "../DiaryAddProductForm";
-import { ReactComponent as BackBtn } from "images/back.svg";
+import { ReactComponent as BackBtn } from "images/icons/back.svg";
 
 import styles from "./diary-mobile-menu.module.css"
 

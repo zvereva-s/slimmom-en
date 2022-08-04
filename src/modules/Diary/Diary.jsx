@@ -1,104 +1,101 @@
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
+import useDate from 'shared/hooks/useDate';
 
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-
-import useDate from "shared/hooks/useDate";
-
-
-import { getDiaryState } from "redux/diary/diary-selectors";
-import { removeEatenProduct } from "redux/diary/diary-operations";
+import { getDiaryState } from 'redux/diary/diary-selectors';
+import { removeEatenProduct } from 'redux/diary/diary-operations';
+import { getDayInfo } from 'redux/diary/diary-operations';
+import { startDay } from 'redux/diary/diary-selectors';
 
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
-import { diaryDay, diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
+import {
+  diaryDay,
+  diaryDayLast,
+  diaryDayEatenProducts,
+} from 'redux/diary/diary-selectors';
 
-
-import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
-import DiaryDateCalendar from "./DiaryDateСalendar";
-import DiaryProductsList from "./DiaryProductsList";
-import DiaryMobileMenu from "./DiaryMobileMenu";
+import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
+import DiaryDateCalendar from './DiaryDateСalendar';
+import DiaryProductsList from './DiaryProductsList';
+import DiaryMobileMenu from './DiaryMobileMenu';
 
 import Button from '../../shared/components/Button';
-import AddButton from "shared/components/Button/MobileAddButton";
+import AddButton from 'shared/components/Button/MobileAddButton';
 
-import initialList from "./initialList";
-
-import { ReactComponent as AddBtn } from "../../images/add.svg";
-import { ReactComponent as BackBtn } from "images/back.svg";
-import styles from "./diary.module.css";
-
+import { ReactComponent as AddBtn } from '../../images/add.svg';
+import { ReactComponent as BackBtn } from 'images/back.svg';
+import styles from './diary.module.css';
 
 function Diary() {
-    const [isShowed, changeShowed] = useState(false);
-    const bodyEl = document.querySelector("body");    
+  const date = useSelector(startDay);
+  const [isShowed, changeShowed] = useState(false);
+  const bodyEl = document.querySelector('body');
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const openModal = () => {
-        changeShowed(true);
-        window.scrollTo(0, 0)
-        bodyEl.classList.add('stop-scrolling')
-    };
+  const openModal = () => {
+    changeShowed(true);
+    window.scrollTo(0, 0);
+    bodyEl.classList.add('stop-scrolling');
+  };
 
-    const closeModal = () => {
-        changeShowed(false);
-        bodyEl.classList.remove('stop-scrolling')
-    };
+  const closeModal = () => {
+    changeShowed(false);
+    bodyEl.classList.remove('stop-scrolling');
+  };
 
-    window.addEventListener('resize', () => {
-        let width = window.innerWidth;
-        if (width > "768") {
-            changeShowed(false)
-        }
-    });
-
-
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    const prevPageLocation = location.state?.prevPageLocation || "/";
-    const goBack = () => navigate(prevPageLocation);  
-
-
-    const data = useDate();
-
-    const onRemoveProduct = (id) => {
-        dispatch(removeEatenProduct(id))
+  window.addEventListener('resize', () => {
+    let width = window.innerWidth;
+    if (width > '768') {
+      changeShowed(false);
     }
+  });
 
-    const currentData = useDate();
-    const lastDay = useSelector(diaryDayLast);  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const prevPageLocation = location.state?.prevPageLocation || '/';
+  const goBack = () => navigate(prevPageLocation);
 
-    const listEatenProductsUserDays = useSelector(eatenProductsUser);
-    const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
+  const data = useDate();
 
-    const listEatenProductsUser = listEatenProductsUserDays ? listEatenProductsUserDays.find(el => el.date === currentData)?.eatenProducts : [];
+  const onRemoveProduct = id => {
+    dispatch(removeEatenProduct(id));
+  };
 
-    
-    let elements = listEatenProductsUser;
+  const currentData = useDate();
+  const lastDay = useSelector(diaryDayLast);
 
-    if (listEatenProductsDiary && (currentData === lastDay)) {
-        elements = listEatenProductsDiary;
-    }
+  const listEatenProductsUserDays = useSelector(eatenProductsUser);
+  const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
 
+  const listEatenProductsUser = listEatenProductsUserDays
+    ? listEatenProductsUserDays.find(el => el.date === currentData)
+        ?.eatenProducts
+    : [];
 
-    return (
-        <>
-            <DiaryDateCalendar />
+  let elements = listEatenProductsUser;
 
-            <div className={styles.hideForm}>
-                <DiaryAddProductForm />
-            </div>
-            <DiaryProductsList diary={initialList} removeProduct={onRemoveProduct} />
+  if (listEatenProductsDiary && currentData === lastDay) {
+    elements = listEatenProductsDiary;
+  }
 
-            <DiaryAddProductForm />
-            <DiaryProductsList diary={elements} />
+  useEffect(() => {
+    dispatch(getDayInfo(date));
+  }, []);
+  return (
+    <>
+      <DiaryDateCalendar />
 
-            <AddButton onClick={openModal} />
-            {isShowed && <DiaryMobileMenu onClick={closeModal} type='button' />}
-            {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}
-        </>
-    )
- };
+      <div className={styles.hideForm}>
+        <DiaryAddProductForm />
+      </div>
+      <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
+      <AddButton onClick={openModal} />
+      {isShowed && <DiaryMobileMenu onClick={closeModal} type="button" />}
+      {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}
+    </>
+  );
+}
 export default Diary;

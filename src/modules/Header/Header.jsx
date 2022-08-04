@@ -8,9 +8,6 @@ import UserMenu from "./UserMenu/UserMenu";
 import UserInfo from "./UserInfo";
 import MobileMenu from "./MobileMenu";
 
-import useAuth from "shared/hooks/useAuth";
-import Logo from "../../shared/components/Logo";
-
 import styles from "./header.module.css";
 
 

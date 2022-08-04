@@ -2,42 +2,17 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import useDate from 'shared/hooks/useDate';
-
-
-import { useState} from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-
-import { removeEatenProduct } from "redux/diary/diary-operations";
-
-import { getDiaryState } from 'redux/diary/diary-selectors';
-import { removeEatenProduct } from 'redux/diary/diary-operations';
-import { getDayInfo } from 'redux/diary/diary-operations';
-import { startDay } from 'redux/diary/diary-selectors';
-
-
-import { diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
-import { eatenProductsUser } from 'redux/auth/auth-selectors';
-
-
-import useDate from "shared/hooks/useDate";
-import AddButton from "shared/components/Button/MobileAddButton";
-
-import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
-import DiaryDateCalendar from "./DiaryDateСalendar";
-import DiaryProductsList from "./DiaryProductsList";
-import DiaryMobileMenu from "./DiaryMobileMenu";
-
-
-import { ReactComponent as BackBtn } from "images/back.svg";
-import styles from "./diary.module.css";
-=======
 import {
+  startDay,
   diaryDay,
   diaryDayLast,
   diaryDayEatenProducts,
 } from 'redux/diary/diary-selectors';
+// import { startDay } from 'redux/diary/diary-selectors';
+import { eatenProductsUser } from 'redux/auth/auth-selectors';
+
+import { removeEatenProduct } from 'redux/diary/diary-operations';
+import { getDayInfo } from 'redux/diary/diary-operations';
 
 import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
 import DiaryDateCalendar from './DiaryDateСalendar';
@@ -46,6 +21,7 @@ import DiaryMobileMenu from './DiaryMobileMenu';
 
 import Button from '../../shared/components/Button';
 import AddButton from 'shared/components/Button/MobileAddButton';
+import useDate from "shared/hooks/useDate";
 
 import { ReactComponent as AddBtn } from '../../images/icons/add.svg';
 import { ReactComponent as BackBtn } from 'images/icons/back.svg';
@@ -78,10 +54,10 @@ function Diary() {
 
   });
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const prevPageLocation = location.state?.prevPageLocation || '/';
-  const goBack = () => navigate(prevPageLocation);
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const prevPageLocation = location.state?.prevPageLocation || '/';
+  // const goBack = () => navigate(prevPageLocation);
 
   const data = useDate();
 

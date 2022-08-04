@@ -24,7 +24,7 @@ RadioField.defaultProps = {
   onChange: () => {},
 };
 
-RadioField.pdopTypes = {
+RadioField.propTypes = {
   num: PropTypes.string,
   htmlFor: PropTypes.string,
   id: PropTypes.string.isRequired,

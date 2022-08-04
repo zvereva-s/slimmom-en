@@ -64,7 +64,6 @@
     font-size: 14px;
     line-height: 17px;
     display: block;
-    cursor: pointer;
   }
   .modalBtn:active{
     color: #fc842d;

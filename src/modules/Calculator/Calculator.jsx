@@ -1,14 +1,15 @@
 import { useState, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Modal from '../../shared/components/Modal';
-import CalculatorForm from 'modules/Calculator/CalculatorForm';
-import Button from 'shared/components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
 
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
 import { userId } from '../../redux/auth/auth-selectors';
+
+import Modal from '../../shared/components/Modal';
+import CalculatorForm from 'modules/Calculator/CalculatorForm';
+import Button from 'shared/components/Button/Button';
 
 import styles from './calculator.module.css';
 

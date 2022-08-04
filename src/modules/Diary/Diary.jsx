@@ -1,21 +1,27 @@
-// import { useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import { getDiaryState } from "redux/diary/diary-selectors";
-import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
 
-import { ReactComponent as BackBtn } from "images/back.svg";
+
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import useDate from "shared/hooks/useDate";
+
+import { getDiaryState } from "redux/diary/diary-selectors";
+
 import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
 import DiaryDateCalendar from "./DiaryDateСalendar";
 import DiaryProductsList from "./DiaryProductsList";
-import AddButton from "shared/components/Button/MobileAddButton";
 import DiaryMobileMenu from "./DiaryMobileMenu";
 
-import styles from "./diary.module.css";
+import Button from '../../shared/components/Button';
+import AddButton from "shared/components/Button/MobileAddButton";
 
 import initialList from "./initialList";
-import useAuthState from "shared/hooks/useAuthState";
-import useDate from "shared/hooks/useDate";
+
+import { ReactComponent as AddBtn } from "../../images/add.svg";
+import { ReactComponent as BackBtn } from "images/back.svg";
+import styles from "./diary.module.css";
+
 
 function Diary() {
     const [isShowed, changeShowed] = useState(false);
@@ -45,23 +51,8 @@ function Diary() {
     const goBack = () => navigate(prevPageLocation);  
 
     const data = useDate();
-    const { user: { days } } = useAuthState();
+ 
 
-    // const {product} = useSelector(getDiaryState)
-
-    // let eatenProdactsOnDate = product?.day.eatenProducts
-    // const dateInDiary = product?.day.date
-  
-    // let eatenProductsByUser = days.find(({ date }) => date === data).eatenProducts;
-
-    // console.log("eatenProductsByUser", eatenProductsByUser);
-    // console.log("eatenProdactsOnDate", eatenProdactsOnDate);
-
-
-//     let elements =eatenProductsByUser;
-//     if ((data === dateInDiary) && (eatenProdactsOnDate.length > eatenProductsByUser)) {
-//     return elements = eatenProdactsOnDate
-// }
     
     return (
         <>

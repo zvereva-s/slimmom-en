@@ -1,21 +1,19 @@
 import useForm from '../../../shared/hooks/useForm';
-import TextField from '../../../shared/components/TextField';
 
 import { initialState } from './initialState';
 import { fields } from './fields';
+
 import Button from 'shared/components/Button/Button';
+import TextField from '../../../shared/components/TextField';
 
 import styles from './calculator-form.module.css';
 
-const CalculatorForm = ({ onSubmit }) => {
+function CalculatorForm({ onSubmit }) {
   const { state, handleChange, handleSubmit, setState } = useForm({
     onSubmit,
     initialState,
   });
-  
   const { height, age, weight, desiredWeight } = state;
-  // const { state, handleChange, handleSubmit } = useForm({ onSubmit, initialState });
-  // const { height, age, currentWeight, desiredWeight } = state;
 
   const handleChangeRadio = ({ target }) => {
     const { value } = target;
@@ -24,7 +22,6 @@ const CalculatorForm = ({ onSubmit }) => {
       bloodType: Number(value),
     }));
   };
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -97,6 +94,6 @@ const CalculatorForm = ({ onSubmit }) => {
       <Button className={styles.btn} text="Start losing weight" type="submit" />
     </form>
   );
-};
+}
 
 export default CalculatorForm;

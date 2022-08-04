@@ -101,6 +101,7 @@
         position: absolute;
         bottom: -350px;
         right: 0;
+        z-index: -1;
     }
 
     .tabletLayer {
@@ -119,7 +120,7 @@
 
     .tabletLayer {
         position: absolute;
-        bottom: -532px;
+        bottom: -662px;
         right: 0;
     }
 }

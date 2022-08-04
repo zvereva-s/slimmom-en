@@ -19,7 +19,7 @@ const LoginForm = ({ onSubmit }) => {
     <>
       <form onSubmit={handleSubmit}>
         <TextField onChange={handleChange} value={email} {...fields.email} />
-        <TextField
+        <TextField className={styles.input}
           onChange={handleChange}
           value={password}
           {...fields.password}

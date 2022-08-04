@@ -17,8 +17,8 @@ function CalculatorPage() {
             </h1>
             <Calculator />
           </div> */}
-        <section className={styles.section} >
-          <div className={styles.leftSide} >
+        <section className={styles.section}>
+          <div className={styles.leftSide}>
             <h1 className={styles.title}>
               Calculate your daily calorie intake right now
             </h1>
@@ -30,17 +30,9 @@ function CalculatorPage() {
             <Summary />
           </div>
         </section>
-        </div>
-        <img
-          src={layer}
-          className={styles.layer}
-          alt="layer"
-        />
-        <img
-          src={tabletLayer}
-          className={styles.tabletLayer}
-          alt="tabletLayer"
-        />
+      </div>
+      <img src={layer} className={styles.layer} alt="layer" />
+      <img src={tabletLayer} className={styles.tabletLayer} alt="tabletLayer" />
       {/* </div> */}
     </main>
   );

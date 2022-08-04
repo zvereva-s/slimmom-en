@@ -1,5 +1,5 @@
-import {ReactComponent as AddBtn} from "images/icons/add.svg";
 import Button from "../Button";
+import {ReactComponent as AddBtn} from "images/icons/add.svg";
 
 
 import styles from "./mobile-add-button.module.css";

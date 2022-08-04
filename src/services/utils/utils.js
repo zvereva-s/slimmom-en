@@ -10,7 +10,7 @@ export const createOperation = (name, request, condition) => {
         return response;
       } catch (error) {
         NotificationManager.error(`Something goes wrong...`);
-        return rejectWithValue(error);
+        return rejectWithValue(error.message);
       }
     },
     { condition }
@@ -18,14 +18,7 @@ export const createOperation = (name, request, condition) => {
 };
 
 export const pending = store => ({ ...store, loading: true, error: null });
-export const rejected = (store, { payload }) => ({
-  ...store,
-  loading: false,
-  error: payload,
-
-  removeLoading: false,
-  addLoading: false,
-});
+export const rejected = (store, { payload }) => ({...store, loading: false, isLogin: false, error: {...payload.status, ...payload.statusText}});
 
 export const dateRevers = date =>
   date.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join('-');

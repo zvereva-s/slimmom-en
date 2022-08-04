@@ -6,13 +6,13 @@ import { ReactComponent as DeleteProduct } from '../../../../images/close.svg';
 
 import styles from './diary-products-list-item.module.css';
 
-function DiaryProductListItem({ product, grams, kcal, removeProduct, _id }) {
+function DiaryProductListItem({ product, grams, kcal, removeProduct, id }) {
   return (
     <li className={styles.item}>
       <span className={styles.span}>{product}</span>
       <span className={styles.span}>{`${grams} g`}</span>
       <span className={styles.span}>{kcal} <span className={styles.kcal}>kcal</span></span>
-        <DeleteProduct className={styles.deleteBtn} onClick={() => removeProduct(_id)} />
+        <DeleteProduct className={styles.deleteBtn} onClick={() => removeProduct(id)} />
     </li>
   );
 }
@@ -22,7 +22,7 @@ DiaryProductListItem.defaultProps = {
   grams: '',
   kcal: '',
   removeProduct: () => {},
-  _id: '',
+  id: '',
 };
 
 // DiaryProductListItem.propTypes = {

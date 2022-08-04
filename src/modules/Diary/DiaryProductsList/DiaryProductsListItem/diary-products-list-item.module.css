@@ -14,7 +14,8 @@
 }
 
 .deleteBtn {
-    width: 15px;
+    cursor: pointer;
+    width: 15px;  
 }
 
 .item {
@@ -33,6 +34,13 @@
 .item:not(:last-child) {
     padding-bottom: 20px;
 }
+
+
+@media screen and (max-width: 767px) {
+    .span:first-child {
+        width: 130px;
+    }
+  }
 
 @media screen and (min-width: 768px) {
     .span:not(:last-child) {

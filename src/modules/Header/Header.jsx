@@ -31,8 +31,8 @@ function Header() {
     isShowed ? bodyEl.classList.add('stop-scrolling') : bodyEl.classList.remove('stop-scrolling');
 
     return (
-            <div  className={styles.outline} >
-                <div className="container" >
+            <div  className={`${styles.outline} ${styles.container}`} >
+                <div >
                     <header className={styles.header} >
                         <nav className={styles.row}>
                             <Logo isLogin={isLogin} />

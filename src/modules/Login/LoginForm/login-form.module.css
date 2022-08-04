@@ -1,3 +1,7 @@
+.input{
+    margin-bottom: 60px;
+}
+
 @media screen and (max-width: 767px) {
     .wrap {
         display: flex;

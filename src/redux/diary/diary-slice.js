@@ -10,10 +10,8 @@ import { pending, rejected } from 'services/utils/utils';
 import { dateRevers } from 'services/utils/utils';
 
 const initialState = {
-  search: [],
   product: {},
   dateInfo: { date: dateRevers(new Date()) },
-  eatenProducts: [],
 
   loading: false,
   removeLoading: false,
@@ -46,7 +44,8 @@ const diarySlice = createSlice({
       ...store,
       loading: false,
       error: null,
-      eatenProducts: [...payload],
+      product: { ...payload },
+      addLoading: false,
     }),
 
     [removeEatenProduct.pending]: pending,

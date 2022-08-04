@@ -19,9 +19,11 @@ function UserInfo() {
 
     return (
         <>
-            <p className={styles.name} >{name}</p>
-            <div className={styles.line}></div>
-            <Button className={styles.btn} type="button" onClick={onLogout} text="exit"  />
+            <div className={styles.userBar} >
+                <p className={styles.name} >{name}</p>
+                <div className={styles.line}></div>
+                <Button className={styles.btn} type="button" onClick={onLogout} text="exit"  />
+            </div>
         </>
     )
 }

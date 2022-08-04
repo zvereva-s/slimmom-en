@@ -1,32 +1,76 @@
-import { useDispatch } from "react-redux";
+// import { useSelector } from "react-redux";
+// import { useEffect } from "react";
+// import { getDiaryState } from "redux/diary/diary-selectors";
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-import { addDayProduct } from 'redux/diary/diary-operations';
-
+import { ReactComponent as BackBtn } from "images/back.svg";
 import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
 import DiaryDateCalendar from "./DiaryDateСalendar";
 import DiaryProductsList from "./DiaryProductsList";
-import { ReactComponent as AddBtn } from "../../images/add.svg";
-import Button from '../../shared/components/Button';
+import AddButton from "shared/components/Button/MobileAddButton";
+import DiaryMobileMenu from "./DiaryMobileMenu";
 
 import styles from "./diary.module.css";
 
 import initialList from "./initialList";
+import useAuthState from "shared/hooks/useAuthState";
+import useDate from "shared/hooks/useDate";
 
 function Diary() {
-    const dispatch = useDispatch();
+    const [isShowed, changeShowed] = useState(false);
+    const bodyEl = document.querySelector("body");    
 
-    const removeProduct = () => { };
-   
+    const openModal = () => {
+        changeShowed(true);
+        window.scrollTo(0, 0)
+        bodyEl.classList.add('stop-scrolling')
+    };
 
+    const closeModal = () => {
+        changeShowed(false);
+        bodyEl.classList.remove('stop-scrolling')
+    };
+
+    window.addEventListener('resize', () => {
+        let width = window.innerWidth;
+        if (width > "768") {
+            changeShowed(false)
+        }
+    });
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const prevPageLocation = location.state?.prevPageLocation || "/";
+    const goBack = () => navigate(prevPageLocation);  
+
+    const data = useDate();
+    const { user: { days } } = useAuthState();
+
+    // const {product} = useSelector(getDiaryState)
+
+    // let eatenProdactsOnDate = product?.day.eatenProducts
+    // const dateInDiary = product?.day.date
+  
+    // let eatenProductsByUser = days.find(({ date }) => date === data).eatenProducts;
+
+    // console.log("eatenProductsByUser", eatenProductsByUser);
+    // console.log("eatenProdactsOnDate", eatenProdactsOnDate);
+
+
+//     let elements =eatenProductsByUser;
+//     if ((data === dateInDiary) && (eatenProdactsOnDate.length > eatenProductsByUser)) {
+//     return elements = eatenProdactsOnDate
+// }
+    
     return (
         <>
             <DiaryDateCalendar />
-
             <DiaryAddProductForm />
             <DiaryProductsList diary={initialList} />
-            <Button className={styles.btnOutline} type={'button'} onClick={removeProduct} >
-                <AddBtn className={styles.AddBtn} />
-            </Button>
+            <AddButton onClick={openModal} />
+            {isShowed && <DiaryMobileMenu onClick={closeModal} />}
+            {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}
         </>
     )
  };

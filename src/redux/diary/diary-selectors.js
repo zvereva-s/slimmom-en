@@ -32,3 +32,10 @@ export const diaryDayEatenProducts = ({ diary }) => {
   }
   return false;
 };
+
+export const diaryDayId = ({ diary }) => {
+  if (diary.dateInfo) {
+    return diary.dateInfo.response?.id;
+  }
+  return false;
+}

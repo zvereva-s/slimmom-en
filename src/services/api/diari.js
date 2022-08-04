@@ -14,7 +14,7 @@ export async function postDayProduct(product) {
   return data;
 }
 export async function deleteEatenProduct(product) {
-  const { data } = await instanceToken.delete('/day', product);
+  const { data } = await instanceToken.delete('/day',{data: product} );
   return data;
 }
 export async function fetchDayInfo(date) {

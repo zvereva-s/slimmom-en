@@ -4,14 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import useDate from 'shared/hooks/useDate';
 
-import { getDiaryState } from 'redux/diary/diary-selectors';
+import { diaryDayId } from 'redux/diary/diary-selectors';
 import { removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDayInfo } from 'redux/diary/diary-operations';
 import { startDay } from 'redux/diary/diary-selectors';
 
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
 import {
-  diaryDay,
   diaryDayLast,
   diaryDayEatenProducts,
 } from 'redux/diary/diary-selectors';
@@ -59,10 +58,12 @@ function Diary() {
   const prevPageLocation = location.state?.prevPageLocation || '/';
   const goBack = () => navigate(prevPageLocation);
 
-  const data = useDate();
+  const dayId = useSelector(diaryDayId);
 
-  const onRemoveProduct = id => {
-    dispatch(removeEatenProduct(id));
+
+
+  const onRemoveProduct = eatenProductId => {
+    dispatch(removeEatenProduct({ dayId, eatenProductId }));
   };
 
   const currentData = useDate();
@@ -77,7 +78,7 @@ function Diary() {
     : [];
 
   let elements = listEatenProductsUser;
-
+  
   if (listEatenProductsDiary && currentData === lastDay) {
     elements = listEatenProductsDiary;
   }
@@ -93,7 +94,7 @@ function Diary() {
         <DiaryAddProductForm />
       </div>
       <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
-      <AddButton onClick={openModal} />
+      <AddButton type="button" onClick={openModal} />
       {isShowed && <DiaryMobileMenu onClick={closeModal} type="button" />}
       {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}
     </>
@@ -103,9 +104,6 @@ export default Diary;
 
 
 
-// {
-//   "dayId": "507f1f77bcf86cd799439011",
-//   "eatenProductId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-// }
+
 
    

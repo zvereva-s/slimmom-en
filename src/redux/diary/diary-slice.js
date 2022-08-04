@@ -50,14 +50,19 @@ const diarySlice = createSlice({
 
     [removeEatenProduct.pending]: pending,
     [removeEatenProduct.rejected]: rejected,
-    [removeEatenProduct.fulfilled]: (store, { payload }) => ({
-      ...store,
-      loading: false,
-      error: null,
-      eatenProducts: store.eatenProducts.filter(
-        el => el.id !== payload.eatenProductId && el.data !== payload.dayId
-      ),
-    }),
+    [removeEatenProduct.fulfilled]: (store, { payload }) => {
+      store.dateInfo.resposne.eatenProducts = store.dateInfo.resposne.eatenProducts.filter(el => el.id === payload.id);
+      
+
+    // {
+    //     ...store,
+    //     loading: false,
+    //     error: null,
+    //     eatenProducts: store.product.eatenProducts.filter(
+    //       el => el.id !== payload.eatenProductId && el.data !== payload.dayId
+    //     ),
+    //   },
+  },
   },
 });
 

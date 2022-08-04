@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import useAuth from "shared/hooks/useAuth";
-
 import HeaderMenu from "./HeaderMenu";
-import Logo from "../../shared/components/Logo";
 import UserMenu from "./UserMenu/UserMenu";
 import UserInfo from "./UserInfo";
 import MobileMenu from "./MobileMenu";
+
+import useAuth from "shared/hooks/useAuth";
+import Logo from "../../shared/components/Logo";
 
 import styles from "./header.module.css";
 
@@ -29,7 +29,7 @@ function Header() {
 
     const bodyEl = document.querySelector("body");    
     isShowed ? bodyEl.classList.add('stop-scrolling') : bodyEl.classList.remove('stop-scrolling');
-
+    
     return (
             <div  className={`${styles.outline} ${styles.container}`} >
                 <div >
@@ -49,7 +49,7 @@ function Header() {
                         <UserInfo />
                     </div>
                 )}
-                {isShowed && <MobileMenu onClick={onMenuBtnClick} />}
+                {isShowed && isLogin && <MobileMenu onClick={onMenuBtnClick} />}
             </div>
     )
 };

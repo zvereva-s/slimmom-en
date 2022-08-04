@@ -1,27 +1,24 @@
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import useAuthState from 'shared/hooks/useAuthState';
-import { loginRequest } from "redux/auth/auth-operations";
+import { loginRequest } from 'redux/auth/auth-operations';
 
-
-import LoginForm from "./LoginForm/LoginForm";
-import Loader from "shared/components/Loader";
+import LoginForm from './LoginForm/LoginForm';
+import Loader from 'shared/components/Loader';
 
 function Login() {
-    const {loading} = useAuthState();
+  const { loading } = useAuthState();
 
-    const dispatch = useDispatch();
-    
-    function onLogin(data) {
-        dispatch(loginRequest(data))
-    }
+  const dispatch = useDispatch();
+  function onLogin(data) {
+    dispatch(loginRequest(data));
+  }
 
-    return (
-        <>
-        {loading && <Loader />}
-        <LoginForm onSubmit={onLogin} />
-        </>
-        
-    )
-};
- 
+  return (
+    <>
+      {loading && <Loader />}
+      <LoginForm onSubmit={onLogin} />
+    </>
+  );
+}
+
 export default Login;

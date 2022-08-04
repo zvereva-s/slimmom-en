@@ -14,8 +14,8 @@ import Notification from 'shared/components/Notification';
 
 function App() {
   const dispatch = useDispatch();
-
   const isLogin = useAuth();
+  
   useEffect(() => {
     dispatch(getCurrentRequest())
   }, [dispatch]);

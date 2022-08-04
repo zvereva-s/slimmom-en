@@ -98,7 +98,7 @@ const DiaryAddProductForm = () => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div>
         <label htmlFor="1"></label>
         <DebounceInput

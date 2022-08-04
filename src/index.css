@@ -3,3 +3,8 @@
 @import './shared/styles/common.module.css';
 @import './shared/styles/breakpoints.module.css';
 @import './shared/styles/variables.module.css';
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }

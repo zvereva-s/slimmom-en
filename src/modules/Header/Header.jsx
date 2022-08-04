@@ -27,6 +27,9 @@ function Header() {
         }
     });
 
+    const bodyEl = document.querySelector("body");    
+    isShowed ? bodyEl.classList.add('stop-scrolling') : bodyEl.classList.remove('stop-scrolling');
+
     return (
             <div  className={styles.outline} >
                 <div className="container" >

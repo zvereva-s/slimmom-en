@@ -1,17 +1,11 @@
-.btnOutline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background-color: #FC842D;
-    border: none;
-    border-radius: 50%;
-    margin: 60px auto;
+.BackBtn {
+    position: absolute;
+    top: -25px;
+    left: 20px;
 }
 
 @media screen and (min-width: 768px) {
-    .btnOutline {
+    .BackBtn {
         display: none;
     }
-}
+  }

@@ -4,6 +4,7 @@ import styles from './button.module.css';
 
 function Button({ text, type, onClick, isLoading, className, children }) {
   const style = isLoading ? styles.isDeleting : styles.button;
+
   return (
     <button
       className={`${style} ${className}`}

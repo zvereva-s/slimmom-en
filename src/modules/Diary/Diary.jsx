@@ -96,7 +96,9 @@ function Diary() {
             <div className={styles.hideForm}>
                 <DiaryAddProductForm />
             </div>
+
             <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
+
             <AddButton onClick={openModal} />
             {isShowed && <DiaryMobileMenu onClick={closeModal} type='button' />}
             {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}

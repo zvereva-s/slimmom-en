@@ -5,16 +5,19 @@ import DiaryProductsListItem from './DiaryProductsListItem';
 import styles from "./diary-product-list.module.css";
 
 function DiaryProductList({ diary, removeProduct }) {
-    const diaryElement = diary.map(({ id, title, weight, kcal }) => (
-        <DiaryProductsListItem
+    const diaryElement = diary.map(({ id, title, weight, kcal }) => {
+        const updKcal = kcal.toFixed(0);
+        return <DiaryProductsListItem
             key={id}
             removeProduct={removeProduct}
             product={title}
             grams={weight}
             id={id}
-            kcal={kcal}
+
+            kcal={updKcal}
+
         />
-    )) 
+    })
 
     return (
         <ul className={styles.list}>{diaryElement}</ul>

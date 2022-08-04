@@ -26,24 +26,13 @@ function CalculatorForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextField
-        onChange={handleChange}
-        required
-        value={height}
-        {...fields.height}
+      <TextField onChange={handleChange} required value={height} {...fields.height}
       />
       <TextField onChange={handleChange} required value={age} {...fields.age} />
-      <TextField
-        onChange={handleChange}
-        required
-        value={weight}
+      <TextField onChange={handleChange} required value={weight}
         {...fields.weight}
       />
-      <TextField
-        onChange={handleChange}
-        required
-        value={desiredWeight}
-        {...fields.desiredWeight}
+      <TextField onChange={handleChange} required value={desiredWeight} {...fields.desiredWeight}
       />
       <div className={styles.wrap}>
         <p className={styles.text}>Blood type *</p>

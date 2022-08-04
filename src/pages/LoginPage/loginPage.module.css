@@ -46,7 +46,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .title{
+    .title {
         margin-bottom: 68px;
         font-size: 34px;
         line-height: 1.2;
@@ -175,6 +175,6 @@
         position: absolute;
         top: -75px;
         right: 10px;
-        z-index: 0;
+        z-index: -1;
     }
 }

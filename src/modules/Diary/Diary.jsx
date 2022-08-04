@@ -1,30 +1,23 @@
 
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import useDate from "shared/hooks/useDate";
-
-
-import { getDiaryState } from "redux/diary/diary-selectors";
 import { removeEatenProduct } from "redux/diary/diary-operations";
 
+import { diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
-import { diaryDay, diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
 
+import useDate from "shared/hooks/useDate";
+import AddButton from "shared/components/Button/MobileAddButton";
 
 import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
 import DiaryDateCalendar from "./DiaryDateСalendar";
 import DiaryProductsList from "./DiaryProductsList";
 import DiaryMobileMenu from "./DiaryMobileMenu";
 
-import Button from '../../shared/components/Button';
-import AddButton from "shared/components/Button/MobileAddButton";
 
-import initialList from "./initialList";
-
-import { ReactComponent as AddBtn } from "../../images/add.svg";
 import { ReactComponent as BackBtn } from "images/back.svg";
 import styles from "./diary.module.css";
 
@@ -53,8 +46,6 @@ function Diary() {
         }
     });
 
-
-
     const navigate = useNavigate();
     const location = useLocation();
     const prevPageLocation = location.state?.prevPageLocation || "/";
@@ -66,12 +57,6 @@ function Diary() {
     const onRemoveProduct = (id) => {
         dispatch(removeEatenProduct(id))
     }
-
-
-// {
-//   "dayId": "507f1f77bcf86cd799439011",
-//   "eatenProductId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-// }
 
     const currentData = useDate();
     const lastDay = useSelector(diaryDayLast);  

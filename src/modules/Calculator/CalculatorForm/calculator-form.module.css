@@ -8,9 +8,9 @@
     padding-left: 1px;
     padding-right: 2px;
     margin-bottom: 32px;
-    color: #9b9faa80;
+    color: var(--color-placeholder);
     width: 240px;
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid var(--color-line);
 }
 
 .wrap {
@@ -21,10 +21,10 @@ margin-bottom: 40px;
     display: block;
     padding: 13px 25px;
     border: none;
-    background: #FC842D;
+    background: var(--color-focus);
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     border-radius: 30px;
-    color: white;
+    color: var(--color-white);
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;

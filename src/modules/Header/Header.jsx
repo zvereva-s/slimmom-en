@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import useAuth from "shared/hooks/useAuth";
+import Logo from "../../shared/components/Logo";
 
 import HeaderMenu from "./HeaderMenu";
-import Logo from "../../shared/components/Logo";
 import UserMenu from "./UserMenu/UserMenu";
 import UserInfo from "./UserInfo";
 import MobileMenu from "./MobileMenu";

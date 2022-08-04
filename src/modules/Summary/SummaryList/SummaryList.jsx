@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './summaryList.module.css';
 
 function SummaryList({ items }) {

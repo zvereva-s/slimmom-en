@@ -1,180 +1,159 @@
-/* .title{
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 13px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-    
-        color: var(--color-focus);
-
-        margin-bottom: 60px;
-} */
-
-@media screen and (max-width: 767px) {
-    .section {
-        padding-top: 32px;
-        padding-bottom: 100px;
-    }
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-focus);
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
+
 @media screen and (min-width: 768px) {
-    .section {
-        padding-top: 160px;
-        padding-bottom: 495px;
-    }
+  .section {
+    padding-top: 160px;
+    padding-bottom: 495px;
+  }
+
+  .title {
+    line-height: 1.2;
+    text-align: start;
+    margin-top: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .section {
-        padding-top: 67px;
-        padding-bottom: 0;
-    }
-}
-
-.title {
-
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.4;
-
-    color: var(--color-dark);
-
-    margin-bottom: 32px;
-    max-width: 608px;
-}
-
-@media screen and (min-width: 768px) {
-    .title{
-        margin-bottom: 68px;
-        font-size: 34px;
-        line-height: 1.2;
-    }
+  .section {
+    padding-top: 80px;
+    padding-bottom: 0;
+  }
 }
 
 .wrapper {
-    position: relative;
+  position: relative;
 }
 
 @media screen and (max-width: 767px) {
-    .vector {
-        display: none;
-    }
+  .vector {
+    display: none;
+  }
 
-    .strawberry {
-        display: none;
-    }
+  .strawberry {
+    display: none;
+  }
 
-    .banana {
-        display: none;
-    }
+  .banana {
+    display: none;
+  }
 
-    .layer {
-        display: none;
-    }
+  .layer {
+    display: none;
+  }
 
-    .tablenVector {
-        display: none;
-    }
+  .tablenVector {
+    display: none;
+  }
 
-    .tabletStrawberry {
-        display: none;
-    }
+  .tabletStrawberry {
+    display: none;
+  }
 
-    .tabletBanana {
-        display: none;
-    }
+  .tabletBanana {
+    display: none;
+  }
 
-    .tabletLayer {
-        display: none;
-    }
+  .tabletLayer {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .vector {
-        position: absolute;
-        /* top: -53px; */
-        top: -150px;
-        right: 0;
-    }
+  .vector {
+    position: absolute;
+    /* top: -53px; */
+    top: -150px;
+    right: 0;
+  }
 
-    .strawberry {
-        position: absolute;
-        bottom: -310px;
-        right: 0;
-    }
+  .strawberry {
+    position: absolute;
+    bottom: -310px;
+    right: 0;
+  }
 
-    .banana {
-        position: absolute;
-        top: -200px;
-        right: 0;
-    }
+  .banana {
+    position: absolute;
+    top: -200px;
+    right: 0;
+  }
 
-    .layer {
-        position: absolute;
-        top: -210px;
-        right: 190px;
-    }
+  .layer {
+    position: absolute;
+    top: -210px;
+    right: 190px;
+  }
 
-    .tablenVector {
-        display: none;
-    }
+  .tablenVector {
+    display: none;
+  }
 
-    .tabletStrawberry {
-        display: none;
-    }
+  .tabletStrawberry {
+    display: none;
+  }
 
-    .tabletBanana {
-        display: none;
-    }
+  .tabletBanana {
+    display: none;
+  }
 
-    .tabletLayer {
-        display: none;
-    }
+  .tabletLayer {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .vector {
-        display: none;
-    }
+  .vector {
+    display: none;
+  }
 
-    .strawberry {
-        display: none;
-    }
+  .strawberry {
+    display: none;
+  }
 
-    .banana {
-        display: none;
-    }
+  .banana {
+    display: none;
+  }
 
-    .layer {
-        display: none;
-    }
-    
-    .tablenVector {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+  .layer {
+    display: none;
+  }
 
-    .tabletStrawberry {
-        position: absolute;
-        bottom: 200px;
-        right: 0;
-        z-index: 10;
-    }
+  .tablenVector {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 
-    .tabletBanana {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 10;
-    }
+  .tabletStrawberry {
+    position: absolute;
+    bottom: 200px;
+    right: 0;
+    z-index: 10;
+  }
 
-    .tabletLayer {
-        position: absolute;
-        top: -75px;
-        right: 10px;
-        z-index: 0;
-    }
+  .tabletBanana {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .tabletLayer {
+    position: absolute;
+    top: -75px;
+    right: 10px;
+    z-index: 0;
+  }
 }

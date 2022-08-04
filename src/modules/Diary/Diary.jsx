@@ -67,6 +67,12 @@ function Diary() {
         dispatch(removeEatenProduct(id))
     }
 
+
+// {
+//   "dayId": "507f1f77bcf86cd799439011",
+//   "eatenProductId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+// }
+
     const currentData = useDate();
     const lastDay = useSelector(diaryDayLast);  
 
@@ -90,8 +96,8 @@ function Diary() {
             <div className={styles.hideForm}>
                 <DiaryAddProductForm />
             </div>
-        
-            <DiaryProductsList diary={elements} emoveProduct={onRemoveProduct}/>
+
+            <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
 
             <AddButton onClick={openModal} />
             {isShowed && <DiaryMobileMenu onClick={closeModal} type='button' />}

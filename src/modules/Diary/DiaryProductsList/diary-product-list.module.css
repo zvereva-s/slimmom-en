@@ -1,9 +1,9 @@
 .list {
     max-height: 200px;
-    padding-right: 20px;
     list-style: none;
     overflow: scroll;
     margin-top: 20px;
+    padding-right: 5px;
 }
 
 /* Scrollbar Styling */
@@ -25,6 +25,7 @@
 
 @media screen and (min-width: 768px) {
     .list {
+        padding-right: 20px;
         max-height: 250px;
     }
   }

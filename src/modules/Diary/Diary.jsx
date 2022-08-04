@@ -91,7 +91,6 @@ function Diary() {
                 <DiaryAddProductForm />
             </div>
         
-            <DiaryAddProductForm />
             <DiaryProductsList diary={elements} emoveProduct={onRemoveProduct}/>
 
             <AddButton onClick={openModal} />

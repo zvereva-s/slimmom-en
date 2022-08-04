@@ -51,6 +51,7 @@ function Diary() {
     if (width > '768') {
       changeShowed(false);
     }
+
   });
 
   const navigate = useNavigate();
@@ -99,3 +100,12 @@ function Diary() {
   );
 }
 export default Diary;
+
+
+
+// {
+//   "dayId": "507f1f77bcf86cd799439011",
+//   "eatenProductId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+// }
+
+   

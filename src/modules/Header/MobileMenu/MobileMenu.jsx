@@ -1,9 +1,9 @@
 import { createPortal } from "react-dom";
 import { NavLink } from 'react-router-dom';
 
-import styles from "./mobile-menu.module.css"
-
 import { items } from '../HeaderMenu/items';
+
+import styles from "./mobile-menu.module.css"
 
 function getClassName({ isActive }) {
   const style = isActive ? styles.isActive : styles.link;

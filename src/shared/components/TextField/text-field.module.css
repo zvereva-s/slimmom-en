@@ -4,13 +4,13 @@
     padding-bottom: 8px;
     outline: none;
     border: none;
-    border-bottom: 1px solid #E0E0E0; 
+    border-bottom: 1px solid var(--color-line); 
     margin-bottom: 32px;
     font-family: var(--ff);
     font-weight: 700;
     font-size: 14px;
     line-height: 1.21;
-    color: #9B9FAA;
+    color: var(--color-text);
 }
 
 .inputGrams {

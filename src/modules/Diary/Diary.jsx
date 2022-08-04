@@ -4,12 +4,35 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import useDate from 'shared/hooks/useDate';
 
+
+import { useState} from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { removeEatenProduct } from "redux/diary/diary-operations";
+
 import { getDiaryState } from 'redux/diary/diary-selectors';
 import { removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDayInfo } from 'redux/diary/diary-operations';
 import { startDay } from 'redux/diary/diary-selectors';
 
+
+import { diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
+
+
+import useDate from "shared/hooks/useDate";
+import AddButton from "shared/components/Button/MobileAddButton";
+
+import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
+import DiaryDateCalendar from "./DiaryDateСalendar";
+import DiaryProductsList from "./DiaryProductsList";
+import DiaryMobileMenu from "./DiaryMobileMenu";
+
+
+import { ReactComponent as BackBtn } from "images/back.svg";
+import styles from "./diary.module.css";
+=======
 import {
   diaryDay,
   diaryDayLast,
@@ -52,6 +75,7 @@ function Diary() {
       changeShowed(false);
     }
 
+
   });
 
   const navigate = useNavigate();
@@ -71,6 +95,12 @@ function Diary() {
   const listEatenProductsUserDays = useSelector(eatenProductsUser);
   const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
 
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const prevPageLocation = location.state?.prevPageLocation || "/";
+    const goBack = () => navigate(prevPageLocation);  
+
   const listEatenProductsUser = listEatenProductsUserDays
     ? listEatenProductsUserDays.find(el => el.date === currentData)
         ?.eatenProducts
@@ -81,6 +111,7 @@ function Diary() {
   if (listEatenProductsDiary && currentData === lastDay) {
     elements = listEatenProductsDiary;
   }
+
 
   useEffect(() => {
     dispatch(getDayInfo(date));
@@ -103,9 +134,3 @@ export default Diary;
 
 
 
-// {
-//   "dayId": "507f1f77bcf86cd799439011",
-//   "eatenProductId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-// }
-
-   

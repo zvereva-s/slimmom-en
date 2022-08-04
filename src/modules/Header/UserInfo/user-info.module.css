@@ -8,19 +8,19 @@
     height: 32px;
     margin-left: 16px;
     margin-right: 16px;
-    background-color: #E0E0E0;
+    background-color: var(--color-line);
 }
 
 .name {
     font-weight: 700;
     font-size: 14px;
-    color: #212121;
+    color:var(--color-dark);
 }
 
 .btn {    
     font-weight: 700;
     font-size: 14px;
-    color: #9B9FAA;
+    color: var(--color-text);
     background-color: inherit;
     border: none;
     cursor: pointer;

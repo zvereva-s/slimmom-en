@@ -3,9 +3,9 @@ import useForm from '../../../shared/hooks/useForm';
 import { initialState } from './initialState';
 import { fields } from './fields';
 
-import Button from 'shared/components/Button/Button';
-import RadioField from 'shared/components/RadioField';
+import RadioField from '../../../shared/components/RadioField';
 import TextField from '../../../shared/components/TextField';
+import Button from '../../../shared/components/Button/Button';
 
 import styles from './calculator-form.module.css';
 

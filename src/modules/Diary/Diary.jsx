@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 
 import useDate from "shared/hooks/useDate";
 
-import { getDiaryState } from "redux/diary/diary-selectors";
+import { eatenProductsUser } from 'redux/auth/auth-selectors';
+import { diaryDay, diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
 
 import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
 import DiaryDateCalendar from "./DiaryDateСalendar";
@@ -45,20 +46,33 @@ function Diary() {
         }
     });
 
+
+
     const navigate = useNavigate();
     const location = useLocation();
     const prevPageLocation = location.state?.prevPageLocation || "/";
     const goBack = () => navigate(prevPageLocation);  
 
-    const data = useDate();
- 
+    const currentData = useDate();
+    const lastDay = useSelector(diaryDayLast);  
 
+    const listEatenProductsUserDays = useSelector(eatenProductsUser);
+    const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
+
+    const listEatenProductsUser = listEatenProductsUserDays.find(el => el.date === currentData)?.eatenProducts;
     
+    let elements = listEatenProductsUser;
+
+    if (listEatenProductsDiary && (currentData === lastDay)) {
+        elements = listEatenProductsDiary;
+    }
+
+
     return (
         <>
             <DiaryDateCalendar />
             <DiaryAddProductForm />
-            <DiaryProductsList diary={initialList} />
+            <DiaryProductsList diary={elements} />
             <AddButton onClick={openModal} />
             {isShowed && <DiaryMobileMenu onClick={closeModal} />}
             {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}

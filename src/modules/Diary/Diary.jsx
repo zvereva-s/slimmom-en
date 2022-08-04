@@ -59,7 +59,7 @@ function Diary() {
     const listEatenProductsUserDays = useSelector(eatenProductsUser);
     const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
 
-    const listEatenProductsUser = listEatenProductsUserDays.find(el => el.date === currentData)?.eatenProducts;
+    const listEatenProductsUser = listEatenProductsUserDays ? listEatenProductsUserDays.find(el => el.date === currentData)?.eatenProducts : [];
     
     let elements = listEatenProductsUser;
 

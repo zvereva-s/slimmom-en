@@ -35,7 +35,7 @@ export async function getCurrent(token) {
     }
     catch (error) {
         setToken('');
-        throw error;
+        throw(error);
     }
     
 }

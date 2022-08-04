@@ -16,8 +16,8 @@ export const getCurrentRequest=createAsyncThunk(
             const response = await getCurrent(auth.token);  
             return response;
          }
-        catch (error) {
-            return rejectWithValue(error)
+            catch (error) {
+            return rejectWithValue(error.message)
         }
     },
     {condition: (_, { getState }) => {

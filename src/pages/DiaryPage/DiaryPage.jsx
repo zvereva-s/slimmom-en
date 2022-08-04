@@ -1,5 +1,6 @@
 import Diary from 'modules/Diary';
 import Summary from 'modules/Summary';
+
 import layer from '../../images/desktop/layer-1.png';
 import tabletLayer from '../../images/tablet/layer-1.png';
 

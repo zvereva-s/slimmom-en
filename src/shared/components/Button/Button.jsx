@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
+
 import styles from './button.module.css';
 
 function Button({ text, type, onClick, isLoading, className, children }) {

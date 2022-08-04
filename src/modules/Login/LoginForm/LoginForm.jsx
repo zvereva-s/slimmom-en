@@ -5,8 +5,8 @@ import Button from 'shared/components/Button/Button';
 import { initialState } from './initialState';
 import { fields } from './fields';
 
-import styles from './login-form.module.css';
 import btnStyles from '../../../shared/styles/buttons.module.css';
+import styles from './login-form.module.css';
 
 const LoginForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({

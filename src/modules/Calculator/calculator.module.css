@@ -9,7 +9,7 @@
     width: 509px;
     letter-spacing: 0.05em;
     display: inline-block;
-    color: #212121;
+    color: var(--color-dark);
   }
   
   .modal__calories {
@@ -19,7 +19,7 @@
     text-align: center;
     letter-spacing: 0.04em;
     border-bottom: 1px solid #e0e0e0;
-    color: #264061;
+    color: var(--color-modal-calories);
   }
   .ccal {
     font-size: 14px;
@@ -32,7 +32,7 @@
     margin-top: 12px;
     letter-spacing: 0.04em;
   
-    color: #212121;
+    color: var(--color-dark);
   }
   
   .modal__list {
@@ -40,7 +40,7 @@
   }
   
   .item {
-    color: #9b9faa;
+    color: var(--color-text);
     font-family: 'Verdana';
     font-style: normal;
     font-weight: 400;
@@ -52,8 +52,8 @@
   .modalBtn {
     width: 210px;
     height: 43px;
-    color: #fff;
-    background: #fc842d;
+    color: var(--color-white);
+    background: var(--color-focus);
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
     border-radius: 30px;
     margin: 40px auto;
@@ -66,8 +66,8 @@
     display: block;
   }
   .modalBtn:active{
-    color: #fc842d;
-    background: #fff;
+    color: var(--color-focus);
+    background: var(--color-white);
   }
   
   @media screen and (max-width: 767px) {

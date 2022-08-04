@@ -6,16 +6,16 @@
   margin-top: 5px;
   margin-bottom: 10px;
   position: absolute;
-  background-color: #fff;
+  background-color: var(--color-white);
   z-index: 10;
 }
 .item {
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 .item:hover {
-  background-color: #fc842d;
-  color: #fff;
+  background-color: var(--color-focus);
+  color: var(--color-white);
 }
 .input {
   width: 236px;
@@ -23,13 +23,13 @@
   padding-bottom: 8px;
   outline: none;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-line);
   margin-bottom: 32px;
   font-family: var(--ff);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.21;
-  color: #9b9faa;
+  color: var(--color-text);
 }
 
 .plusBtn {

@@ -53,7 +53,7 @@
     height: 40px;
     padding-right: 20px;
     margin: 0 -15px;
-    background-color: #EFF1F3;
+    background-color: var(--color-mobile-bg);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -96,7 +96,7 @@
         margin-left: 20px;
         margin-right: 20px;
         margin-bottom: -10px;
-        background-color: #E0E0E0;
+        background-color: var(--color-line);
     }
 
     .menuIcon {

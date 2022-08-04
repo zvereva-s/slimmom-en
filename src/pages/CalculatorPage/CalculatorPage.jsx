@@ -9,7 +9,7 @@ import styles from './calculatorPage.module.css';
 function CalculatorPage() {
   return (
     <main>
-      <div className={styles.wrapper}>
+      <div className={` ${styles.wrapper}`}>
         {/* <div className="container">
           <div className={styles.section}>
             <h1 className={styles.title}>

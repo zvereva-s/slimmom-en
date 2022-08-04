@@ -99,7 +99,7 @@
 
     .layer {
         position: absolute;
-        bottom: -50px;
+        bottom: 0;
         right: 0;
         z-index: 0;
     }
@@ -120,7 +120,8 @@
 
     .tabletLayer {
         position: absolute;
-        bottom: -593px;
+        top: 672px;
+        bottom: 0;
         right: 0;
     }
 }

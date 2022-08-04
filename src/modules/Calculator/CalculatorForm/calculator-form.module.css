@@ -1,3 +1,21 @@
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        grid-column-gap: 30px;
+        width: 704px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            grid-column-gap: 25px;
+            width: 608px;
+        }
+}
 
 .text {
     font-style: normal;

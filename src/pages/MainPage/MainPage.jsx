@@ -1,4 +1,5 @@
 import Home from 'modules/Home';
+
 import banana from '../../images/desktop/banana.png';
 import strawberry from '../../images/desktop/strawberry.png';
 import layer from '../../images/desktop/layer-2.png';

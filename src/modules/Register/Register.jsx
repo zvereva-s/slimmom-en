@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { NotificationManager } from 'react-notifications';
+
+import { signupRequest } from "redux/auth/auth-operations";
 
 import useAuthState from 'shared/hooks/useAuthState';
-import { NotificationManager } from 'react-notifications';
-import {signupRequest } from "redux/auth/auth-operations";
+import Loader from "shared/components/Loader";
 
 import RegisterForm from './RegisterForm';
-import Loader from "shared/components/Loader";
 
 function Register() {
     const { loading, error } = useAuthState();

@@ -14,7 +14,8 @@
 }
 
 .deleteBtn {
-    width: 15px;
+    cursor: pointer;
+    width: 15px;  
 }
 
 .item {

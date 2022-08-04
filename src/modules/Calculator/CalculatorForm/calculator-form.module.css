@@ -17,48 +17,6 @@
 margin-bottom: 40px;
 }
 
-.label {
-    display: inline-flex;
-    align-items: center;
-    padding-right: 24px;
-    
-}
-
-
-
-.span {
-    text-align: center;
-    padding-left: 8px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.21;
-}
-
-
-.input {
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    padding: 3px;
-    background-clip: content-box;
-    border: 2px solid #bbbbbb;
-    border-radius: 50%;
-}
-
-.input:checked{
-    background-color: #FC842D;
-}
-
-.input:checked+.span{
-    font-weight: 700;
-    color: #FC842D;
-}
-
 .btn{
     display: block;
     padding: 13px 25px;

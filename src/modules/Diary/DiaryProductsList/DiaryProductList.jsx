@@ -11,6 +11,9 @@ function DiaryProductList({ diary, removeProduct }) {
             removeProduct={removeProduct}
             product={title}
             grams={weight}
+
+            id={id}
+
             kcal={kcal.toFixed(0)}
         />
     )) 
@@ -18,7 +21,7 @@ function DiaryProductList({ diary, removeProduct }) {
     return (
         <ul className={styles.list}>{diaryElement}</ul>
     )
- };
+};
 
 DiaryProductList.defaultProps = {
     diary: [],

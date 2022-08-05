@@ -5,10 +5,7 @@ import { items } from '../HeaderMenu/items';
 
 import styles from "./mobile-menu.module.css"
 
-function getClassName({ isActive }) {
-  const style = isActive ? styles.isActive : styles.link;
-  return style;
-}
+import { getClassName } from '../../../services/utils/getClassNameMobileMenu';
 
 const modalRoot = document.getElementById("modal");
 

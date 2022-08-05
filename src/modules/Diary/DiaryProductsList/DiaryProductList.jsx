@@ -1,5 +1,4 @@
 // import PropTypes from 'prop-types';
-
 import DiaryProductsListItem from './DiaryProductsListItem';
 
 import styles from "./diary-product-list.module.css";
@@ -17,9 +16,18 @@ function DiaryProductList({ diary, removeProduct }) {
         />
     })
 
+    const handleScroll = ({ target }) => {
+        const bottom = target.scrollHeight - target.scrollTop === target.clientHeight;
+        if (!bottom) {         
+            target.nextSibling.style.zIndex = "1";
+        } else {
+            target.nextSibling.style.zIndex = "-1";
+        }
+    }
+
     return (
         <div className={styles.box}>
-            <ul className={styles.list}>{diaryElement}</ul>
+            <ul className={styles.list} onScroll={handleScroll}>{diaryElement}</ul>
             <div className={styles.q}></div>
         </div>
         

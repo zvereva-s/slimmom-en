@@ -2,99 +2,65 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {
-  startDay,
-  diaryDay,
-  diaryDayLast,
-  diaryDayEatenProducts,
-} from 'redux/diary/diary-selectors';
-import { eatenProductsUser } from 'redux/auth/auth-selectors';
+import useDate from 'shared/hooks/useDate';
 
-import { getDiaryState } from 'redux/diary/diary-selectors';
-
-import { removeEatenProduct } from 'redux/diary/diary-operations';
-import { getDayInfo } from 'redux/diary/diary-operations';
-
-
-import useDate from "shared/hooks/useDate";
-import AddButton from "shared/components/Button/MobileAddButton";
-import { ReactComponent as BackBtn } from 'images/icons/back.svg';
-
+import { fetchDayInfo, fetchUserInfo, removeProduct} from 'redux/userAte/userAte-operations';
+import { daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
 
 import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
 import DiaryDateCalendar from './DiaryDateСalendar';
 import DiaryProductsList from './DiaryProductsList';
 import DiaryMobileMenu from './DiaryMobileMenu';
+import AddButton from 'shared/components/Button/MobileAddButton';
 
-// <<<<<<< HEAD
-// import AddButton from 'shared/components/Button/MobileAddButton';
-// import useDate from "shared/hooks/useDate";
-
-// import { ReactComponent as AddBtn } from '../../images/icons/add.svg';
-// import { ReactComponent as BackBtn } from 'images/icons/back.svg';
-// =======
-// >>>>>>> dev
+import { ReactComponent as BackBtn } from 'images/icons/back.svg';
 import styles from './diary.module.css';
 
 function Diary() {
-  const date = useSelector(startDay);
+
+  const dispatch = useDispatch();
+  const date = useDate();
+  const daysUserAte = useSelector(daysOfEatenProducts);
+  const dayId = daysUserAte && (daysUserAte.find(el => el.date === date)._id ||daysUserAte.find(el => el.date === date).id) ;
+
+  let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.eatenProducts : [];
+
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const prevPageLocation = location.state?.prevPageLocation || '/';
+
   const [isShowed, changeShowed] = useState(false);
   const bodyEl = document.querySelector('body');
 
-  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchUserInfo())
+    dispatch(fetchDayInfo(date))
+  }, [dispatch, date])
+  
+  const goBack = () => navigate(prevPageLocation);
   const openModal = () => {
     changeShowed(true);
     window.scrollTo(0, 0);
     bodyEl.classList.add('stop-scrolling');
   };
-
   const closeModal = () => {
     changeShowed(false);
     bodyEl.classList.remove('stop-scrolling');
   };
-
   window.addEventListener('resize', () => {
     let width = window.innerWidth;
     if (width > '768') {
       changeShowed(false);
     }
 
-
-  });
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  const prevPageLocation = location.state?.prevPageLocation || '/';
-  const goBack = () => navigate(prevPageLocation);
-
-  const data = useDate();
-
-  const onRemoveProduct = id => {
-    dispatch(removeEatenProduct(id));
+  });  
+  
+  const onRemoveProduct = eatenProductId => {
+    dispatch(removeProduct({ dayId, eatenProductId }));
   };
-
-  const currentData = useDate();
-  const lastDay = useSelector(diaryDayLast);
-
-  const listEatenProductsUserDays = useSelector(eatenProductsUser);
-  const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
-
-  const listEatenProductsUser = listEatenProductsUserDays
-    ? listEatenProductsUserDays.find(el => el.date === currentData)
-        ?.eatenProducts
-    : [];
-
-  let elements = listEatenProductsUser;
-
-  if (listEatenProductsDiary && currentData === lastDay) {
-    elements = listEatenProductsDiary;
-  }
-
-
-  useEffect(() => {
-    dispatch(getDayInfo(date));
-  }, []);
+ 
   return (
     <>
       <DiaryDateCalendar />
@@ -102,14 +68,12 @@ function Diary() {
       <div className={styles.hideForm}>
         <DiaryAddProductForm />
       </div>
-      <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
-      <AddButton onClick={openModal} type='button'/>
+
+      <DiaryProductsList diary={products} removeProduct={onRemoveProduct}/>
+      <AddButton type="button" onClick={openModal} />
       {isShowed && <DiaryMobileMenu onClick={closeModal} type="button" />}
       {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}
     </>
   );
 }
 export default Diary;
-
-
-

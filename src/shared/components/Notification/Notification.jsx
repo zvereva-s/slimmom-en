@@ -1,6 +1,7 @@
 import React from 'react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import styles from './notification.module.css';
 
 class Notification extends React.Component {
   createNotification = (type) => {
@@ -28,7 +29,7 @@ class Notification extends React.Component {
   render() {
     return (
       <div>
-        <NotificationContainer/>
+        <NotificationContainer className={styles.wraper}/>
       </div>
     );
   }

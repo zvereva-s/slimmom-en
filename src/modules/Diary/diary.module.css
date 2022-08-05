@@ -8,6 +8,11 @@
     .BackBtn {
         display: none;
     }
+
+    .noticeEmpty {
+        margin-left: 140px;
+        margin-bottom: 50px;
+    }
   }
 
 .hideForm{

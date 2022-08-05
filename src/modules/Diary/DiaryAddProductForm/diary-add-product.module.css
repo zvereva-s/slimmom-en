@@ -9,6 +9,8 @@
   background-color: var(--color-white);
   z-index: 10;
 }
+
+
 .item {
   cursor: pointer;
   background-color: var(--color-white);
@@ -32,8 +34,27 @@
   color: var(--color-text);
 }
 
+
 .plusBtn {
   display: none;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 280px;
+    margin: 60px auto;
+  }
+
+  .input {
+    width: 280px;
+  }
+
+  .gram {
+    width: 280px;
+    margin-bottom: 60px;
+  }
 }
 
 @media screen and (min-width: 768px) {

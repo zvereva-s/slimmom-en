@@ -1,4 +1,20 @@
 
+.box{
+    position: relative;
+        max-height: 250px;
+        overflow: hidden;
+}
+
+.q{
+    position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 45px;
+        background-image: linear-gradient(#ffffff82, #ffffffd9, #ffffff);
+}
+
+
 .list {
   scroll-behavior: smooth;
   max-height: 330px;

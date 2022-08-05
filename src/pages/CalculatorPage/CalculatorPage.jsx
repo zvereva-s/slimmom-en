@@ -8,7 +8,7 @@ import styles from './calculatorPage.module.css';
 
 function CalculatorPage() {
   return (
-    <main>
+    <main className='container' >
       <div className={styles.wrapper}>
         {/* <div className="container">
           <div className={styles.section}>

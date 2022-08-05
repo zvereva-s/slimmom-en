@@ -25,6 +25,7 @@
 }
 
 .summarySection {
+    margin: 0 -15px;
     background-color: var(--bg-color);
 }
 
@@ -58,6 +59,11 @@
     .section {
         padding-top: 67px;
         padding-bottom: 111px;
+    }
+
+    .summarySection {
+        margin: 0;
+        background-color: inherit;
     }
 
     .wrapper {

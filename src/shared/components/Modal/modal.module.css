@@ -16,7 +16,8 @@
 .modal {
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
-  background-color: #fff;
+  background-color: var(--color-white);
+  
 }
 
 .btn__wrapper {
@@ -26,7 +27,7 @@
 .btnClose {
   margin-top: 20px;
   margin-right: 20px;
-  background-color: #fff;
+  background-color: var(--color-white);
   width: 20px;
   height: 20px;
   border: none;
@@ -59,10 +60,10 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    margin-top: 125px;
+    margin-top: 120px;
     width: 100vw;
     height: 700px;
-    background-color: #fff;
+    background-color: var(--color-white);
     z-index: 1200;
     overflow: hidden;
   }

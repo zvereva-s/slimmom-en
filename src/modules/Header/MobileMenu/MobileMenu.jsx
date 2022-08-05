@@ -1,14 +1,11 @@
 import { createPortal } from "react-dom";
 import { NavLink } from 'react-router-dom';
 
-import styles from "./mobile-menu.module.css"
-
 import { items } from '../HeaderMenu/items';
 
-function getClassName({ isActive }) {
-  const style = isActive ? styles.isActive : styles.link;
-  return style;
-}
+import styles from "./mobile-menu.module.css"
+
+import { getClassName } from '../../../services/utils/getClassNameMobileMenu';
 
 const modalRoot = document.getElementById("modal");
 

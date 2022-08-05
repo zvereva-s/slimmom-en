@@ -8,7 +8,7 @@ import styles from './calculatorPage.module.css';
 
 function CalculatorPage() {
   return (
-    <main>
+    <main className='container' >
       <div className={styles.wrapper}>
         {/* <div className="container">
           <div className={styles.section}>
@@ -30,9 +30,10 @@ function CalculatorPage() {
             <Summary />
           </div>
         </section>
-      </div>
-      <img src={layer} className={styles.layer} alt="layer" />
+        <img src={layer} className={styles.layer} alt="layer" />
       <img src={tabletLayer} className={styles.tabletLayer} alt="tabletLayer" />
+      </div>
+      
       {/* </div> */}
     </main>
   );

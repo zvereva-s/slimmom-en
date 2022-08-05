@@ -1,5 +1,5 @@
-import { ReactComponent as MenuIcon } from "../../../images/menu.svg";
-import { ReactComponent as MenuClose } from "../../../images/close.svg";
+import { ReactComponent as MenuIcon } from "../../../images/icons/menu.svg";
+import { ReactComponent as MenuClose } from "../../../images/icons/close.svg";
 
 import UserInfo from "../UserInfo";
 

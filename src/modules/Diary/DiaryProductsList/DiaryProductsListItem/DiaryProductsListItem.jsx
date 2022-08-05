@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { ReactComponent as DeleteProduct } from '../../../../images/close.svg';
+import { ReactComponent as DeleteProduct } from '../../../../images/icons/close.svg';
 
 import styles from './diary-products-list-item.module.css';
 

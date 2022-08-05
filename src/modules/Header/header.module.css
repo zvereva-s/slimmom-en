@@ -1,5 +1,5 @@
 .container {
-    min-width: 290px;
+    min-width: 320px;
     margin: 0 auto;
     padding: 0 15px;
   }
@@ -7,11 +7,6 @@
   @media screen and (min-width: 320px) {
     .container {
         max-width: 767px;
-    }
-}
-  
-  @media screen and (min-width: 350px) {
-    .container {
     }
 }
 
@@ -53,7 +48,7 @@
     height: 40px;
     padding-right: 20px;
     margin: 0 -15px;
-    background-color: #EFF1F3;
+    background-color: var(--color-mobile-bg);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -96,7 +91,7 @@
         margin-left: 20px;
         margin-right: 20px;
         margin-bottom: -10px;
-        background-color: #E0E0E0;
+        background-color: var(--color-line);
     }
 
     .menuIcon {

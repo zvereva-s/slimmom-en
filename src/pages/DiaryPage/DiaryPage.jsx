@@ -1,5 +1,6 @@
 import Diary from 'modules/Diary';
 import Summary from 'modules/Summary';
+
 import layer from '../../images/desktop/layer-1.png';
 import tabletLayer from '../../images/tablet/layer-1.png';
 
@@ -9,7 +10,7 @@ function DiaryPage() {
 
   return (
     <main>
-      <div className={styles.wrapper} >
+      <div className={`${styles.wrapper} ${"container"}`} >
         <section className={styles.section} >
           <div className={styles.leftSide} >
             <Diary />
@@ -31,6 +32,7 @@ function DiaryPage() {
           alt="tabletLayer"
         />
       </div>
+      
     </main>
   );
 }

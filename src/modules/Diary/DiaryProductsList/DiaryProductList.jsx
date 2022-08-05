@@ -16,8 +16,21 @@ function DiaryProductList({ diary, removeProduct }) {
         />
     })
 
+    const handleScroll = ({ target }) => {
+        const bottom = target.scrollHeight - target.scrollTop === target.clientHeight;
+        if (!bottom) {         
+            target.nextSibling.style.zIndex = "1";
+        } else {
+            target.nextSibling.style.zIndex = "-1";
+        }
+    }
+
     return (
-        <ul className={styles.list}>{diaryElement}</ul>
+        <div className={styles.box}>
+            <ul className={styles.list} onScroll={handleScroll}>{diaryElement}</ul>
+            <div className={styles.q}></div>
+        </div>
+        
     )
 };
 

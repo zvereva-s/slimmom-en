@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import useAuth from "shared/hooks/useAuth";
+import Logo from "../../shared/components/Logo";
 
 import HeaderMenu from "./HeaderMenu";
-import Logo from "../../shared/components/Logo";
 import UserMenu from "./UserMenu/UserMenu";
 import UserInfo from "./UserInfo";
 import MobileMenu from "./MobileMenu";
@@ -15,6 +15,10 @@ function Header() {
     const [isShowed, changeShowed] = useState(false);
 
     const isLogin = useAuth();
+
+    useEffect(() => {
+        !isLogin && changeShowed( false)
+    }, [isLogin] )
 
     const onMenuBtnClick = () => {
         isShowed ? changeShowed( false) : changeShowed( true);
@@ -28,7 +32,7 @@ function Header() {
     });
 
     const bodyEl = document.querySelector("body");    
-    isShowed ? bodyEl.classList.add('stop-scrolling') : bodyEl.classList.remove('stop-scrolling');
+    isShowed && isLogin ? bodyEl.classList.add('stop-scrolling') : bodyEl.classList.remove('stop-scrolling');
 
     return (
             <div  className={`${styles.outline} ${styles.container}`} >
@@ -49,7 +53,7 @@ function Header() {
                         <UserInfo />
                     </div>
                 )}
-                {isShowed && <MobileMenu onClick={onMenuBtnClick} />}
+                {isShowed && isLogin && <MobileMenu onClick={onMenuBtnClick} />}
             </div>
     )
 };

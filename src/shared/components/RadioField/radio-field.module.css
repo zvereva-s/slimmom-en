@@ -29,10 +29,10 @@
 }
 
 .input:checked {
-    background-color: #FC842D;
+    background-color: var(--color-focus);
 }
 
 .input:checked+.span {
     font-weight: 700;
-    color: #FC842D;
+    color: var(--color-focus);
 }

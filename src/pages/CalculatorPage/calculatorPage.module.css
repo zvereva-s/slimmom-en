@@ -25,6 +25,7 @@
 }
 
 .summarySection {
+    margin: 0 -15px;
     background-color: var(--bg-color);
 }
 
@@ -58,6 +59,11 @@
     .section {
         padding-top: 67px;
         padding-bottom: 111px;
+    }
+
+    .summarySection {
+        margin: 0;
+        background-color: inherit;
     }
 
     .wrapper {
@@ -99,9 +105,11 @@
 
     .layer {
         position: absolute;
-        bottom: -350px;
+        
+        /* bottom: 0; */
+        top: 0;
         right: 0;
-        z-index: -1;
+        z-index: 0;
     }
 
     .tabletLayer {
@@ -120,7 +128,8 @@
 
     .tabletLayer {
         position: absolute;
-        bottom: -662px;
+        top: 672px;
+        bottom: 0;
         right: 0;
     }
 }

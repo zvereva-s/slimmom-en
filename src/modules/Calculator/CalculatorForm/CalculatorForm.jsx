@@ -3,9 +3,9 @@ import useForm from '../../../shared/hooks/useForm';
 import { initialState } from './initialState';
 import { fields } from './fields';
 
-import Button from 'shared/components/Button/Button';
-import RadioField from 'shared/components/RadioField';
+import RadioField from '../../../shared/components/RadioField';
 import TextField from '../../../shared/components/TextField';
+import Button from '../../../shared/components/Button/Button';
 
 import styles from './calculator-form.module.css';
 
@@ -26,20 +26,22 @@ function CalculatorForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextField onChange={handleChange} required value={height} {...fields.height}
-      />
-      <TextField onChange={handleChange} required value={age} {...fields.age} />
-      <TextField onChange={handleChange} required value={weight}
-        {...fields.weight}
-      />
-      <TextField onChange={handleChange} required value={desiredWeight} {...fields.desiredWeight}
-      />
-      <div className={styles.wrap}>
-        <p className={styles.text}>Blood type *</p>
-        <RadioField onChange={handleChangeRadio} {...fields.one} />
-        <RadioField onChange={handleChangeRadio} {...fields.two} />
-        <RadioField onChange={handleChangeRadio} {...fields.three} />
-        <RadioField onChange={handleChangeRadio} {...fields.four} />
+      <div className={styles.wrapper}>
+        <TextField onChange={handleChange} required value={height} {...fields.height}
+        />
+        <TextField onChange={handleChange} required value={age} {...fields.age} />
+        <TextField onChange={handleChange} required value={weight}
+          {...fields.weight}
+        />
+        <TextField onChange={handleChange} required value={desiredWeight} {...fields.desiredWeight}
+        />
+        <div className={styles.wrap}>
+          <p className={styles.text}>Blood type *</p>
+          <RadioField onChange={handleChangeRadio} {...fields.one} />
+          <RadioField onChange={handleChangeRadio} {...fields.two} />
+          <RadioField onChange={handleChangeRadio} {...fields.three} />
+          <RadioField onChange={handleChangeRadio} {...fields.four} />
+        </div>
       </div>
       <Button className={styles.btn} text="Start losing weight" type="submit" />
     </form>

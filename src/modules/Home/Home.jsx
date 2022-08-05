@@ -1,11 +1,13 @@
 import { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Modal from '../../shared/components/Modal';
-import CalculatorForm from 'modules/Calculator/CalculatorForm';
-import Button from 'shared/components/Button/Button';
 import { useNavigate } from "react-router-dom";
+
 import { getDailyRate } from '../../redux/daily/daily-operations';
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
+
+import Modal from '../../shared/components/Modal';
+import Button from 'shared/components/Button/Button';
+import CalculatorForm from 'modules/Calculator/CalculatorForm';
 
 import styles from './home.module.css';
 
@@ -22,7 +24,9 @@ function Home() {
   ));
   let navigate = useNavigate();
 
+
   const showModal = useCallback(() => {
+    document.body.style.overflow = "hidden";
     setModalOpen(true);
   }, []);
 
@@ -33,6 +37,7 @@ function Home() {
 
 
   const closeModal = useCallback(() => {
+    document.body.style.overflow = "";
     setModalOpen(false);
   }, []);
 

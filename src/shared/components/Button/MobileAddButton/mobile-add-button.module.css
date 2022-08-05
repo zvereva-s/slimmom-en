@@ -4,7 +4,7 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    background-color: #FC842D;
+    background-color: var(--color-focus);
     border: none;
     border-radius: 50%;
     margin: 60px auto;

@@ -5,7 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import useDate from 'shared/hooks/useDate';
 
 import { diaryDayId } from 'redux/diary/diary-selectors';
-import { removeEatenProduct } from 'redux/diary/diary-operations';
+// import { removeEatenProduct } from 'redux/diary/diary-operations';
+
+import { fetchDayInfo, fetchUserInfo, removeProduct} from 'redux/userAte/userAte-operations';
+import { dateUserAte, daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
+
 import { getDayInfo } from 'redux/diary/diary-operations';
 import { startDay } from 'redux/diary/diary-selectors';
 
@@ -29,6 +33,8 @@ import styles from './diary.module.css';
 
 function Diary() {
   const date = useSelector(startDay);
+
+
   const [isShowed, changeShowed] = useState(false);
   const bodyEl = document.querySelector('body');
 
@@ -63,7 +69,7 @@ function Diary() {
 
 
   const onRemoveProduct = eatenProductId => {
-    dispatch(removeEatenProduct({ dayId, eatenProductId }));
+    dispatch(removeProduct({ dayId, eatenProductId }));
   };
 
   const currentData = useDate();
@@ -86,6 +92,26 @@ function Diary() {
   useEffect(() => {
     dispatch(getDayInfo(date));
   }, []);
+
+
+
+ 
+  const userAteDate = useSelector(dateUserAte);
+
+  useEffect(() => {
+    dispatch(fetchUserInfo())
+    dispatch(fetchDayInfo(userAteDate))
+  }, [])
+
+  const daysUserAte = useSelector(daysOfEatenProducts);
+
+  let products = [];
+  if (daysUserAte) {
+    products = daysUserAte?.find(el => el.date === userAteDate)?.eatenProducts;
+  }
+  
+  
+
   return (
     <>
       <DiaryDateCalendar />
@@ -93,7 +119,11 @@ function Diary() {
       <div className={styles.hideForm}>
         <DiaryAddProductForm />
       </div>
-      <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
+      {/* <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} /> */}
+
+    
+      <DiaryProductsList diary={products} removeProduct={onRemoveProduct}/>
+
       <AddButton type="button" onClick={openModal} />
       {isShowed && <DiaryMobileMenu onClick={closeModal} type="button" />}
       {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}

@@ -3,12 +3,16 @@ import {
   signupRequest,
   loginRequest,
   logoutRequest,
-  getCurrentRequest
+  getCurrentRequest,
 } from '../auth/auth-operations';
 import { pending, rejected } from 'services/utils/utils';
 
 const initialState = {
   user: {},
+  userInfo: {
+    todaySummary: {},
+    notAllowedProducts: [],
+  },
   token: '',
   isLogin: false,
 
@@ -17,9 +21,18 @@ const initialState = {
 };
 
 const fulfilled = (store, { payload }) => {
+  console.log(payload);
   store.loading = false;
   store.error = null;
-  store.user = payload.user;
+  store.user = {
+    email: payload.user.email,
+    username: payload.user.username,
+    id: payload.user.id,
+  };
+  store.userInfo = {
+    todaySummary: payload.todaySummary,
+    notAllowedProducts: payload.user.userData.notAllowedProducts,
+  };
   store.token = payload.accessToken;
   store.isLogin = true;
 };
@@ -48,9 +61,25 @@ const authSlice = createSlice({
     [getCurrentRequest.pending]: pending,
 
     [getCurrentRequest.rejected]: rejected,
-    // [getCurrentRequest.rejected]: (store, { payload }) => ({...store, loading: false, isLogin: false, error: {...payload.status, ...payload.statusText}}),
-
-    [getCurrentRequest.fulfilled]: (store, { payload }) => ({ ...store, loading: false, error: null, user: payload, isLogin: true, })
+    [getCurrentRequest.fulfilled]: (store, { payload }) => {
+      console.log('current', payload);
+      return {
+        ...store,
+        loading: false,
+        error: null,
+        user: {
+          email: payload.email,
+          username: payload.username,
+          id: payload.id,
+        },
+        userInfo: {
+          todaySummary: payload.daySummary,
+          notAllowedProducts: payload.userData.notAllowedProducts,
+        },
+        isLogin: true,
+      };
+    },
+    //
   },
 });
 export default authSlice.reducer;

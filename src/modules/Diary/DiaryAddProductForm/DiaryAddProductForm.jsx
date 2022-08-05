@@ -9,7 +9,8 @@ import useForm from '../../../shared/hooks/useForm';
 import useDate from 'shared/hooks/useDate';
 import { searchProductInfo } from 'services/api/diari';
 
-import { addDayProduct } from 'redux/diary/diary-operations';
+// import { addDayProduct } from 'redux/diary/diary-operations';
+import { addDayProduct } from 'redux/userAte/userAte-operations';
 
 import TextField from '../../../shared/components/TextField';
 import Button from '../../../shared/components/Button/Button';

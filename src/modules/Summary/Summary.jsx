@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { getDiaryState } from 'redux/diary/diary-selectors';
+import {getNotAllowedProducts} from 'redux/auth/auth-selectors'
+import { dateUserAte, daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
 
 import SummaryList from "./SummaryList";
 
@@ -9,15 +11,25 @@ function Summary() {
 
     const { dateInfo } = useSelector(getDiaryState);
 
+    const date = useSelector(dateUserAte);
+    const days = useSelector(daysOfEatenProducts);
+    const notAllowProducts = useSelector(getNotAllowedProducts);
 
-    const items = dateInfo.response ? dateInfo.response : [];
+    console.log('days', days);
+    console.log(' date',date);
 
-    const elements = [].map(el => <li></li>);
+    let items = [];
+    if (days) {
+        items = days.find(el => el.date === date).daySummary;
+    }
+    console.log('notAllowProducts', notAllowProducts)
+
+    const elements = notAllowProducts.slice(0, 4).map((el, idx) => <li key={idx}>{el}</li>);
 
     return (
         <div className={styles.wrapper}>
             <div>
-                <h3 className={styles.title}>Summary for {dateInfo.date.replaceAll('-', '/')} </h3>
+                <h3 className={styles.title}>Summary for {date.replaceAll('-', '/')} </h3>
                 <SummaryList items={items} />
             </div>
             <div>

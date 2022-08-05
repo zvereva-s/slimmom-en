@@ -6,6 +6,8 @@ import authReducer from 'redux/auth/auth-slice';
 import dailyReducer from 'redux/daily/daily-slice';
 import diaryReducer from "./diary/diary-slice";
 
+import userAteReducer from "./userAte/userAte-slice";
+
 
 const persistConfig = {
     key: 'token',
@@ -19,6 +21,7 @@ const rootReducer = combineReducers({
     auth: persistAuthReducer, 
     dayli: dailyReducer,
     diary: diaryReducer,
+    userAte: userAteReducer,
 })
 
 export default rootReducer;

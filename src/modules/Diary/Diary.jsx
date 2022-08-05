@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import useDate from 'shared/hooks/useDate';
 
-
 import { fetchDayInfo, fetchUserInfo, removeProduct} from 'redux/userAte/userAte-operations';
 import { daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
 
@@ -14,7 +13,7 @@ import DiaryProductsList from './DiaryProductsList';
 import DiaryMobileMenu from './DiaryMobileMenu';
 import AddButton from 'shared/components/Button/MobileAddButton';
 
-import { ReactComponent as BackBtn } from 'images/back.svg';
+import { ReactComponent as BackBtn } from 'images/icons/back.svg';
 import styles from './diary.module.css';
 
 function Diary() {
@@ -22,7 +21,7 @@ function Diary() {
   const dispatch = useDispatch();
   const date = useDate();
   const daysUserAte = useSelector(daysOfEatenProducts);
-  const dayId = daysUserAte && daysUserAte.find(el => el.date === date)._id ||daysUserAte.find(el => el.date === date).id ;
+  const dayId = daysUserAte && (daysUserAte.find(el => el.date === date)._id ||daysUserAte.find(el => el.date === date).id) ;
 
   let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.eatenProducts : [];
 

@@ -10,7 +10,6 @@ import {
 } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
 import { getDiaryState } from 'redux/diary/diary-selectors';
-
 import { removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDayInfo } from 'redux/diary/diary-operations';
 
@@ -77,9 +76,8 @@ function Diary() {
   let elements = listEatenProductsUser;
 
   if (listEatenProductsDiary && currentData === lastDay) {
-    elements = listEatenProductsDiary;
+    elements = listEatenProductsDiary ? listEatenProductsDiary : [];
   }
-
 
   useEffect(() => {
     dispatch(getDayInfo(date));
@@ -91,7 +89,7 @@ function Diary() {
       <div className={styles.hideForm}>
         <DiaryAddProductForm />
       </div>
-      <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
+      {elements.length ? <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} /> : <h3 className={styles.noticeEmpty} >List of products empty</h3>}
       <AddButton onClick={openModal} type='button'/>
       {isShowed && <DiaryMobileMenu onClick={closeModal} type="button" />}
       {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}

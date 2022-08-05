@@ -87,13 +87,13 @@
     .vector {
         position: absolute;
         /* top: -53px; */
-        top: -150px;
+        top: -160px;
         right: 0;
     }
 
     .strawberry {
         position: absolute;
-        bottom: 0;
+        top: 55%;
         right: 0;
     }
 
@@ -106,7 +106,7 @@
     .layer {
         position: absolute;
         /* top: -240px; */
-        bottom: 30px;
+        bottom: -100px;
         right: 190px;
     }
 

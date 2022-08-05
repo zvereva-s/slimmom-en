@@ -3,10 +3,7 @@ import { items } from './items';
 
 import styles from './header-menu.module.css';
 
-function getClassName({ isActive }) {
-  const style = isActive ? styles.isActive : styles.link;
-  return style;
-}
+import { getClassName } from '../../../services/utils/getClassName';
 
 function HeaderMenu({isLogin}) {
   

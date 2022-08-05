@@ -1,14 +1,13 @@
 
 import { useState, useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { DebounceInput } from 'react-debounce-input';
 
-import { addDayProduct } from 'redux/diary/diary-operations';
-
-import { searchProductInfo } from 'services/api/diari';
-
 import useForm from '../../../shared/hooks/useForm';
-import useDate from '../../../shared/hooks/useDate';
+import useDate from 'shared/hooks/useDate';
+
+import { searchProductInfo } from 'services/api/userDayFood';
+import { addDayProduct } from 'redux/userAte/userAte-operations';
 
 import TextField from '../../../shared/components/TextField';
 import Button from '../../../shared/components/Button/Button';
@@ -26,20 +25,15 @@ const DiaryAddProductForm = () => {
     initialState
   });
   const { grams } = state;
-
   const dispatch = useDispatch();
-
   const [products, setProducts] = useState({
     items: [],
     loading: false,
     error: null,
   });
- 
   const [valueFromList, setValueFromList] = useState('');
   const [diplayList, setDiplayList] = useState(true);
-
   const { items } = products;
-
   const product = {
     date: useDate(),
     productId: items.length && items.find(el => el.title.ru === valueFromList)?._id,
@@ -49,14 +43,12 @@ const DiaryAddProductForm = () => {
   const onAddProduct = (product) => {
     dispatch(addDayProduct(product))
   } 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddProduct(product);
     setValueFromList("")
     reset()
   };
-
   const handleInput = ({ target }) => {
     setValueFromList(target.value);
   };
@@ -133,7 +125,6 @@ const DiaryAddProductForm = () => {
           </datalist>
         )}
       </div>
-
       <TextField className={styles.gram} onChange={handleChange} value={grams} {...fields.grams} />
       <Button className={btnStyles.add} type="submit" text="Add" />
       <MobileAddButton type="submit" className={styles.plusBtn} />

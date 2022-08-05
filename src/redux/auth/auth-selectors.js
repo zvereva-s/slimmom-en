@@ -6,6 +6,6 @@ export const eatenProductsUser = ({ auth, }) => {
         return auth.user.days
     }
     return false
-}
-    
-    ;
+};
+
+export const getNotAllowedProducts = ({ auth }) => auth.userInfo.notAllowedProducts;

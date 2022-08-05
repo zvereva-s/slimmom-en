@@ -1,32 +1,26 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch} from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { getDayInfo } from 'redux/diary/diary-operations';
+import useDate from 'shared/hooks/useDate';
 
-import { getDiaryState } from 'redux/diary/diary-selectors';
-
+import { fetchDayInfo } from 'redux/userAte/userAte-operations';
 import { convertDate, dateRevers } from 'services/utils/utils';
-
 
 function DiaryDateCalendar() {
 
-  const { dateInfo } = useSelector(getDiaryState);
-
+  const dateUser = useDate();
   const dispatch = useDispatch();
-  
+
   function onGetDateInfo(date) {
-    const newDate = dateRevers(date)
-   
-    dispatch(getDayInfo(newDate));
+    const newDate = dateRevers(date);
+    dispatch(fetchDayInfo(newDate))
   }
 
   return (
     <DatePicker
       dateFormat="dd.MM.yyyy"
-      selected={convertDate(dateInfo.date)}
+      selected={convertDate(dateUser)}
       onChange={date => onGetDateInfo(date)}
     />
   );

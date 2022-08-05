@@ -9,20 +9,31 @@ import {
   diaryDayEatenProducts,
 } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
+
 import { getDiaryState } from 'redux/diary/diary-selectors';
 
 import { removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDayInfo } from 'redux/diary/diary-operations';
 
+
 import useDate from "shared/hooks/useDate";
 import AddButton from "shared/components/Button/MobileAddButton";
 import { ReactComponent as BackBtn } from 'images/icons/back.svg';
+
 
 import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
 import DiaryDateCalendar from './DiaryDateСalendar';
 import DiaryProductsList from './DiaryProductsList';
 import DiaryMobileMenu from './DiaryMobileMenu';
 
+// <<<<<<< HEAD
+// import AddButton from 'shared/components/Button/MobileAddButton';
+// import useDate from "shared/hooks/useDate";
+
+// import { ReactComponent as AddBtn } from '../../images/icons/add.svg';
+// import { ReactComponent as BackBtn } from 'images/icons/back.svg';
+// =======
+// >>>>>>> dev
 import styles from './diary.module.css';
 
 function Diary() {

@@ -32,6 +32,7 @@ function DiaryPage() {
           alt="tabletLayer"
         />
       </div>
+      
     </main>
   );
 }

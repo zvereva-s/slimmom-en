@@ -24,7 +24,9 @@ function Home() {
   ));
   let navigate = useNavigate();
 
+
   const showModal = useCallback(() => {
+    document.body.style.overflow = "hidden";
     setModalOpen(true);
   }, []);
 
@@ -35,6 +37,7 @@ function Home() {
 
 
   const closeModal = useCallback(() => {
+    document.body.style.overflow = "";
     setModalOpen(false);
   }, []);
 

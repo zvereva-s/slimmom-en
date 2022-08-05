@@ -1,19 +1,17 @@
-
-.box{
-    position: relative;
-        max-height: 250px;
-        overflow: hidden;
+/* .box {
+  position: relative;
+  max-height: 250px;
+  overflow: hidden;
 }
 
-.q{
-    position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 45px;
-        background-image: linear-gradient(#ffffff82, #ffffffd9, #ffffff);
-}
-
+.q {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45px;
+  background-image: linear-gradient(#ffffff82, #ffffffd9, #ffffff);
+} */
 
 .list {
   scroll-behavior: smooth;
@@ -23,7 +21,6 @@
   margin-top: 20px;
   padding-right: 5px;
 }
-
 
 /* Scrollbar Styling */
 .list::-webkit-scrollbar {
@@ -44,20 +41,19 @@
 
 @media screen and (min-width: 768px) {
   .box {
-      position: relative;
-      height: 350px;
-      overflow: hidden;
-    }
-  
-    .q {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 45px;
-      background-image: linear-gradient(#ffffff82, #ffffffd9, #ffffff);
-    }
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+  }
 
+  .q {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+    background-image: linear-gradient(#ffffff82, #ffffffd9, #ffffff);
+  }
 
   .list {
     padding-right: 20px;
@@ -68,7 +64,5 @@
 @media screen and (min-width: 1280px) {
   .list {
     max-height: 400px;
-    
   }
-
 }

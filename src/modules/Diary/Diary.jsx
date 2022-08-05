@@ -2,17 +2,33 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 import {
   startDay,
   diaryDay,
   diaryDayLast,
   diaryDayEatenProducts,
 } from 'redux/diary/diary-selectors';
-// import { startDay } from 'redux/diary/diary-selectors';
+import { startDay } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
 
 import { removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDayInfo } from 'redux/diary/diary-operations';
+
+
+import { getDiaryState } from 'redux/diary/diary-selectors';
+import { removeEatenProduct } from 'redux/diary/diary-operations';
+import { getDayInfo } from 'redux/diary/diary-operations';
+import { startDay } from 'redux/diary/diary-selectors';
+
+
+import { diaryDay, diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
+import { eatenProductsUser } from 'redux/auth/auth-selectors';
+
+
+import useDate from "shared/hooks/useDate";
+import AddButton from "shared/components/Button/MobileAddButton";
+
 
 import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
 import DiaryDateCalendar from './DiaryDateСalendar';
@@ -26,6 +42,7 @@ import useDate from "shared/hooks/useDate";
 import { ReactComponent as AddBtn } from '../../images/icons/add.svg';
 import { ReactComponent as BackBtn } from 'images/icons/back.svg';
 import styles from './diary.module.css';
+
 
 function Diary() {
   const date = useSelector(startDay);
@@ -71,12 +88,6 @@ function Diary() {
   const listEatenProductsUserDays = useSelector(eatenProductsUser);
   const listEatenProductsDiary = useSelector(diaryDayEatenProducts);
 
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    const prevPageLocation = location.state?.prevPageLocation || "/";
-    const goBack = () => navigate(prevPageLocation);  
-
   const listEatenProductsUser = listEatenProductsUserDays
     ? listEatenProductsUserDays.find(el => el.date === currentData)
         ?.eatenProducts
@@ -100,7 +111,7 @@ function Diary() {
         <DiaryAddProductForm />
       </div>
       <DiaryProductsList diary={elements} removeProduct={onRemoveProduct} />
-      <AddButton onClick={openModal} />
+      <AddButton onClick={openModal} type='button'/>
       {isShowed && <DiaryMobileMenu onClick={closeModal} type="button" />}
       {!isShowed && <BackBtn className={styles.BackBtn} onClick={goBack} />}
     </>

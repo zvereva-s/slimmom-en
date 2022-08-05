@@ -18,7 +18,11 @@ function DiaryProductList({ diary, removeProduct }) {
     })
 
     return (
-        <ul className={styles.list}>{diaryElement}</ul>
+        <div className={styles.box}>
+            <ul className={styles.list}>{diaryElement}</ul>
+            <div className={styles.q}></div>
+        </div>
+        
     )
 };
 

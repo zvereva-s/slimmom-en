@@ -76,6 +76,7 @@
     /* top: -53px; */
     top: -150px;
     right: 0;
+    z-index: -2;
   }
 
   .strawberry {
@@ -94,6 +95,7 @@
     position: absolute;
     top: -210px;
     right: 190px;
+    z-index: -1;
   }
 
   .tablenVector {
@@ -134,6 +136,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    z-index: -1;
   }
 
   .tabletStrawberry {

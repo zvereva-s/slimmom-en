@@ -1,4 +1,5 @@
 .wrapper {
+    position: relative;
     width: 280px;
     padding: 40px 20px;
     margin: 0 auto;
@@ -10,17 +11,20 @@
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 20px;
+    z-index: 999;
 }
 
 .foodList {
     max-height: 200px;
     padding-right: 10px;
     overflow: scroll;
+    z-index: 100;
 }
 
 .footerFood {
     max-height: 113px;
     overflow: scroll;
+    z-index: 100;
 }
 
 @media screen and (min-width: 768px) {
@@ -35,10 +39,12 @@
 
 @media screen and (min-width: 1280px) {
     .wrapper {
+        position: relative;
         padding-top: 70px;
         padding-left: 90px;
         display: flex;
         flex-direction: column;
         width: 270px;
+        z-index: 10;
     }
 }

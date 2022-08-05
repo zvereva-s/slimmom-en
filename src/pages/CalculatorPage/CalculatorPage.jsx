@@ -30,9 +30,10 @@ function CalculatorPage() {
             <Summary />
           </div>
         </section>
-      </div>
-      <img src={layer} className={styles.layer} alt="layer" />
+        <img src={layer} className={styles.layer} alt="layer" />
       <img src={tabletLayer} className={styles.tabletLayer} alt="tabletLayer" />
+      </div>
+      
       {/* </div> */}
     </main>
   );

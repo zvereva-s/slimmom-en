@@ -87,8 +87,10 @@
     .vector {
         position: absolute;
         /* top: -53px; */
-        top: -160px;
+
+        top: -165px;
         right: 0;
+        z-index: -2;
     }
 
     .strawberry {
@@ -106,8 +108,11 @@
     .layer {
         position: absolute;
         /* top: -240px; */
-        bottom: -100px;
+
+        bottom: -103px;
+
         right: 190px;
+        z-index: -1;
     }
 
     .tablenVector {

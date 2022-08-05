@@ -1,9 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
+import useDate from 'shared/hooks/useDate';
 
+import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
+import { fetchDayInfo } from 'redux/userAte/userAte-operations.js'
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
 import { userId } from '../../redux/auth/auth-selectors';
 
@@ -14,10 +16,14 @@ import Button from 'shared/components/Button/Button';
 import styles from './calculator.module.css';
 
 function Calculator() {
-  const [modalOpen, setModalOpen] = useState(false);
+
   const dispatch = useDispatch();
-  const { dailyRate, notAllowedProducts } = useSelector(getDailyInfo);
   const idUser = useSelector(userId);
+  const { dailyRate, notAllowedProducts } = useSelector(getDailyInfo);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const date = useDate();
+  
   const calories = dailyRate ? Math.floor(dailyRate) : 0;
   const foodNotEat = notAllowedProducts?.slice(0, 4);
   const renderArr = foodNotEat?.map((el, idx) => (
@@ -47,6 +53,10 @@ function Calculator() {
     dispatch(getDailyRateByUserId(obj));
     showModal();
   }
+  
+  useEffect(() => {
+    dispatch(fetchDayInfo(date))
+  }, [dispatch, date])
 
   return (
     <div className={styles.wrapper}>

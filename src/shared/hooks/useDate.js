@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { getDiaryState } from 'redux/diary/diary-selectors';
+import { dateUserAte } from 'redux/userAte/userAte-selectors';
 
 function useDate() {
-  const { dateInfo } = useSelector(getDiaryState);
-  return dateInfo.date;
+  const date = useSelector(dateUserAte);
+  return date;
 }
 
 export default useDate;

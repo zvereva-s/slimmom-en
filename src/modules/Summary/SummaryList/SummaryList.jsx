@@ -3,10 +3,10 @@ import styles from './summaryList.module.css';
 
 function SummaryList({ items }) {
     const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = items;
-    const kcalLeftFixed = kcalLeft.toFixed(0);
-    const kcalConsumedFixed = kcalConsumed.toFixed(0);
-    const dailyRateFixed = dailyRate.toFixed(0);
-    const percentsOfDailyRateFixed = percentsOfDailyRate.toFixed(0)
+    const kcalLeftFixed = kcalLeft?.toFixed(0);
+    const kcalConsumedFixed = kcalConsumed?.toFixed(0);
+    const dailyRateFixed = dailyRate?.toFixed(0);
+    const percentsOfDailyRateFixed = percentsOfDailyRate?.toFixed(0)
 
     return (
         <ul className={styles.list}>
@@ -34,6 +34,7 @@ export default SummaryList;
 
 
 SummaryList.defaultProps = {
+    items: [],
     kcalLeft: 0,
     kcalConsumed: 0,
     dailyRate: 0,

@@ -62,7 +62,6 @@ const authSlice = createSlice({
 
     [getCurrentRequest.rejected]: rejected,
     [getCurrentRequest.fulfilled]: (store, { payload }) => {
-      console.log('current', payload);
       return {
         ...store,
         loading: false,

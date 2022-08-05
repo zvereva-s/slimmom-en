@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { NotificationManager } from 'react-notifications';
 
 export const createOperation = (name, request, condition) => {
   return createAsyncThunk(
@@ -8,7 +9,8 @@ export const createOperation = (name, request, condition) => {
         const response = await request(data);
         return response;
       } catch (error) {
-        return rejectWithValue(error.message);
+        NotificationManager.error(`${error.response.data.message}`);
+        return rejectWithValue({...error.message, status: error.status, response: error.response.data.message });
       }
     },
     { condition }

@@ -1,30 +1,25 @@
 import { useSelector } from "react-redux";
-import { getDiaryState } from 'redux/diary/diary-selectors';
+
+import useDate from "shared/hooks/useDate";
+
 import {getNotAllowedProducts} from 'redux/auth/auth-selectors'
-import { dateUserAte, daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
+import { daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
 
 import SummaryList from "./SummaryList";
+import FoodNotRecommended from '../FoodNotRecommended';
 
 import styles from './summary.module.css';
 
 function Summary() { 
 
-    const { dateInfo } = useSelector(getDiaryState);
-
-    const date = useSelector(dateUserAte);
+    const date = useDate();
     const days = useSelector(daysOfEatenProducts);
     const notAllowProducts = useSelector(getNotAllowedProducts);
+    console.log('days', days)
+    const items = days && (days.find(el => el.date === date).daySummary ? days.find(el => el.date === date).daySummary : []);
+    console.log('items', items)
 
-    console.log('days', days);
-    console.log(' date',date);
-
-    let items = [];
-    if (days) {
-        items = days.find(el => el.date === date).daySummary;
-    }
-    console.log('notAllowProducts', notAllowProducts)
-
-    const elements = notAllowProducts.slice(0, 4).map((el, idx) => <li key={idx}>{el}</li>);
+    const elements = notAllowProducts.map((el, idx) => <li key={idx}>{el}</li>);
 
     return (
         <div className={styles.wrapper}>
@@ -32,10 +27,7 @@ function Summary() {
                 <h3 className={styles.title}>Summary for {date.replaceAll('-', '/')} </h3>
                 <SummaryList items={items} />
             </div>
-            <div>
-                <h3 className={styles.title}>Food not recommended</h3>
-                <ul>{elements}</ul>
-            </div>
+            <FoodNotRecommended elements={elements} />
         </div>
     )
 };

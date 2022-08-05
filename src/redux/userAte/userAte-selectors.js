@@ -6,3 +6,4 @@ export const daysOfEatenProducts = ({ userAte }) => {
 };
 
 export const dateUserAte = ({ userAte }) => userAte.date;
+export const userAte = (store) => store.userAte;

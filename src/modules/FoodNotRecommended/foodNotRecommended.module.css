@@ -1,5 +1,10 @@
 
-
+@media screen and (min-width: 768px) and (max-width: 1279px){
+    .wrapper {
+            position: relative;
+            z-index: 10;
+        }
+}
 
 .title {
     color: #212121;

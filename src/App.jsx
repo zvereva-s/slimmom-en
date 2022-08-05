@@ -17,7 +17,9 @@ function App() {
   const isLogin = useAuth();
   
   useEffect(() => {
-    dispatch(getCurrentRequest())
+    if (isLogin){
+      dispatch(getCurrentRequest())
+    }
   }, [dispatch]);
 
   return (

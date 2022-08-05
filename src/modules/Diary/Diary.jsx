@@ -9,25 +9,10 @@ import {
   diaryDayLast,
   diaryDayEatenProducts,
 } from 'redux/diary/diary-selectors';
-import { startDay } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
 
 import { removeEatenProduct } from 'redux/diary/diary-operations';
 import { getDayInfo } from 'redux/diary/diary-operations';
-
-
-import { getDiaryState } from 'redux/diary/diary-selectors';
-import { removeEatenProduct } from 'redux/diary/diary-operations';
-import { getDayInfo } from 'redux/diary/diary-operations';
-import { startDay } from 'redux/diary/diary-selectors';
-
-
-import { diaryDay, diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
-import { eatenProductsUser } from 'redux/auth/auth-selectors';
-
-
-import useDate from "shared/hooks/useDate";
-import AddButton from "shared/components/Button/MobileAddButton";
 
 
 import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
@@ -35,7 +20,6 @@ import DiaryDateCalendar from './DiaryDateСalendar';
 import DiaryProductsList from './DiaryProductsList';
 import DiaryMobileMenu from './DiaryMobileMenu';
 
-import Button from '../../shared/components/Button';
 import AddButton from 'shared/components/Button/MobileAddButton';
 import useDate from "shared/hooks/useDate";
 
@@ -71,10 +55,10 @@ function Diary() {
 
   });
 
-  // const navigate = useNavigate();
-  // const location = useLocation();
-  // const prevPageLocation = location.state?.prevPageLocation || '/';
-  // const goBack = () => navigate(prevPageLocation);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const prevPageLocation = location.state?.prevPageLocation || '/';
+  const goBack = () => navigate(prevPageLocation);
 
   const data = useDate();
 

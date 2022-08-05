@@ -9,21 +9,25 @@ import { getDayInfo } from 'redux/diary/diary-operations';
 import { startDay } from 'redux/diary/diary-selectors';
 
 
-import { diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
+import { diaryDay, diaryDayLast, diaryDayEatenProducts } from 'redux/diary/diary-selectors';
 import { eatenProductsUser } from 'redux/auth/auth-selectors';
 
 
 import useDate from "shared/hooks/useDate";
 import AddButton from "shared/components/Button/MobileAddButton";
 
-import DiaryAddProductForm from "modules/Diary/DiaryAddProductForm";
-import DiaryDateCalendar from "./DiaryDateСalendar";
-import DiaryProductsList from "./DiaryProductsList";
-import DiaryMobileMenu from "./DiaryMobileMenu";
+import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
+import DiaryDateCalendar from './DiaryDateСalendar';
+import DiaryProductsList from './DiaryProductsList';
+import DiaryMobileMenu from './DiaryMobileMenu';
 
+import Button from '../../shared/components/Button';
+import AddButton from 'shared/components/Button/MobileAddButton';
 
-import { ReactComponent as BackBtn } from "images/back.svg";
-import styles from "./diary.module.css";
+import { ReactComponent as AddBtn } from '../../images/icons/add.svg';
+import { ReactComponent as BackBtn } from 'images/icons/back.svg';
+import styles from './diary.module.css';
+
 
 function Diary() {
   const date = useSelector(startDay);

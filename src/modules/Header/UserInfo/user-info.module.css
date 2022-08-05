@@ -24,6 +24,7 @@
     background-color: inherit;
     border: none;
     cursor: pointer;
+    z-index: 100;
 }
 
 .userBar {

@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import useDate from 'shared/hooks/useDate';
+import useUserAteState from "shared/hooks/useUserAteState";
+import Loader from "shared/components/Loader";
 
 import { fetchDayInfo, fetchUserInfo, removeProduct} from 'redux/userAte/userAte-operations';
 import { daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
@@ -17,14 +19,14 @@ import { ReactComponent as BackBtn } from 'images/icons/back.svg';
 import styles from './diary.module.css';
 
 function Diary() {
-
   const dispatch = useDispatch();
   const date = useDate();
+  const {loading} = useUserAteState();
+
   const daysUserAte = useSelector(daysOfEatenProducts);
   const dayId = daysUserAte && (daysUserAte.find(el => el.date === date)?._id ||daysUserAte.find(el => el.date === date)?.id) ;
 
   let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.eatenProducts : [];
-
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -63,11 +65,13 @@ function Diary() {
  
   return (
     <>
+      {loading && Loader } 
+
       <DiaryDateCalendar />
 
       <div className={styles.hideForm}>
         <DiaryAddProductForm />
-      </div>
+      </div>      
 
       <DiaryProductsList diary={products} removeProduct={onRemoveProduct}/>
       <AddButton type="button" onClick={openModal} />

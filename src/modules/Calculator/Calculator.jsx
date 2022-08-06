@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import useDate from 'shared/hooks/useDate';
+import useUserAteState from "shared/hooks/useUserAteState";
+import useDailyLoading from "shared/hooks/useDailyLoading";
+import Loader from "shared/components/Loader";
 
 import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
 import { fetchDayInfo } from 'redux/userAte/userAte-operations.js';
@@ -18,6 +21,8 @@ import styles from './calculator.module.css';
 function Calculator() {
   const dispatch = useDispatch();
   const idUser = useSelector(userId);
+  const loadUserAte = useUserAteState().loading;
+  const LoadDaily = useDailyLoading();
   const { dailyRate, notAllowedProducts } = useSelector(getDailyInfo);
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -59,6 +64,7 @@ function Calculator() {
 
   return (
     <div className={styles.wrapper}>
+      {loadUserAte || LoadDaily && <Loader />}
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <h2 className={styles.modal__title}>

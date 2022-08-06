@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { items } from '../HeaderMenu/items';
 
@@ -36,3 +37,11 @@ function MobileMenu({onClick}) {
 }
 
 export default MobileMenu;
+
+MobileMenu.defaultProps = {
+  onClick: () => {},
+}
+
+MobileMenu.propTypes = { 
+  onClick: PropTypes.func.isRequired,
+}

@@ -10,6 +10,7 @@ import { getDailyInfo } from '../../redux/daily/daily-selectors';
 import { userId } from '../../redux/auth/auth-selectors';
 
 import Modal from '../../shared/components/Modal';
+import ContentModal from 'shared/components/ContentModal';
 import CalculatorForm from 'modules/Calculator/CalculatorForm';
 import Button from 'shared/components/Button/Button';
 
@@ -62,14 +63,7 @@ function Calculator() {
     <div className={styles.wrapper}>
       {modalOpen && (
         <Modal closeModal={closeModal}>
-          <h2 className={styles.modal__title}>
-            Your recommended daily calorie intake is
-          </h2>
-          <p className={styles.modal__calories}>
-            {calories} <span className={styles.ccal}>ккал</span>
-          </p>
-          <p className={styles.modal__listTitle}>Foods you should not eat</p>
-          <ol className={styles.modal__list}>{renderArr}</ol>
+          <ContentModal calories={calories} renderArr={renderArr} />
           <Button
             text={'Start losing weight'}
             type={'button'}

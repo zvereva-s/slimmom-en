@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import { items } from './items';
 
 import styles from './header-menu.module.css';
@@ -22,3 +24,7 @@ function HeaderMenu({isLogin}) {
   );
 }
 export default HeaderMenu;
+
+HeaderMenu.propTypes = {
+  isLogin: PropTypes.bool.isRequired,
+}

@@ -10,5 +10,7 @@ export const fields = {
     placeholder: 'Password',
     type: 'password',
     required: true,
+    pattern: '.{8,}',
+    title: 'Please enter at least 8 characters',
   },
 };

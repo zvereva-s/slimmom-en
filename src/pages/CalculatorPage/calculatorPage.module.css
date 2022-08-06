@@ -1,16 +1,3 @@
-/* .title {
-
-    font-style: normal;
-    font-weight: 700;
-    font-size: 34px;
-    line-height: 41px;
-
-    color: var(--color-dark);
-
-    margin-bottom: 60px;
-    max-width: 608px;
-} */
-
 .title {
 
     font-style: normal;
@@ -37,9 +24,6 @@
     }
 }
 
-/* .section {
-    width: 608px;
-} */
 
 @media screen and (max-width: 767px) {
     .section {
@@ -79,9 +63,6 @@
     .leftSide {
         display: flex;
         flex-direction: column;
-        /* width: 560px;
-        margin-right: 120px;
-        margin-left: auto; */
         padding-left: 15px;
     }
 
@@ -111,9 +92,7 @@
         position: absolute;
         
         bottom: 0;
-        /* top: 0; */
         right: 0;
-        /* z-index: -0; */
     }
 
     .tabletLayer {

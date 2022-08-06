@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import {ReactComponent as LogoIcon} from "../../../images/icons/logo.svg";
 import {ReactComponent as LogoText} from "../../../images/icons/logo-text.svg";
 
 import styles from "./logo.module.css";
 
 function Logo({isLogin}) {
-    
     return (
         <Link to="/home">
             <div className={styles.logoContainer}>
@@ -18,3 +18,7 @@ function Logo({isLogin}) {
 };
 
 export default Logo;
+
+Logo.propTypes = {
+    isLogin: PropTypes.bool.isRequired,
+}

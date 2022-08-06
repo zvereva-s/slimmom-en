@@ -9,7 +9,6 @@ import SummaryList from "./SummaryList";
 import FoodNotRecommended from '../FoodNotRecommended';
 
 import styles from './summary.module.css';
-import { NotificationManager } from "react-notifications";
 
 function Summary() { 
 
@@ -18,7 +17,7 @@ function Summary() {
     const notAllowProducts = useSelector(getNotAllowedProducts);
     let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.daySummary : [];
 
-
+    console.log('products',products)
     const elements = notAllowProducts.map((el, idx) => <li key={idx}>{el}</li>);
 
     return (

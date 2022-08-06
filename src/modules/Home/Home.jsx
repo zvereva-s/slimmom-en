@@ -31,6 +31,7 @@ function Home() {
   }, []);
 
   const onSubmitModal = useCallback(() => {
+    document.body.style.overflow = '';
     navigate('/register', { replace: true });
   }, [navigate]);
 

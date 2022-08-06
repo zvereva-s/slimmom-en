@@ -16,8 +16,25 @@
 .list {
     width: 288px;
     max-height: 112px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
+
+.list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+}
+
+.list::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--color-white);
+}
+
 @media screen and (min-width: 1280px) {
     .list {
         max-height: 200px;

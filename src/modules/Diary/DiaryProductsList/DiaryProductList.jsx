@@ -24,11 +24,12 @@ function DiaryProductList({ diary, removeProduct }) {
             target.nextSibling.style.zIndex = "-1";
         }
     }
+    const style = diary.length === 4 ? '' : styles.q;
 
     return (
         <div className={styles.box}>
             <ul className={styles.list} onScroll={handleScroll}>{diaryElement}</ul>
-            <div className={styles.q}></div>
+            <div className={style}></div>
         </div>
         
     )

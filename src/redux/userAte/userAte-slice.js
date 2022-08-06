@@ -15,6 +15,7 @@ const initialState = {
 
   loading: false,
   error: null,
+
 };
 
 const userAteSlice = createSlice({
@@ -54,16 +55,29 @@ const userAteSlice = createSlice({
       store.loading = false;
       store.error = null;
       store.days = store.days.map(el => {
-        if (el.date === payload.day?.date || el.date === payload.newDay?.date) {
-          return { ...el, ...payload[payload.day ? 'day' : 'newDay'] };
+        if (el.date === payload[payload.day ? 'day' : 'newDay'].date) {
+          return { ...el, ...payload[payload.day ? 'day' : 'newDay'] }
         }
-        return el;
+        return { ...el, ...payload[payload.day ? 'day' : 'newDay'] };
       });
     },
 
     [removeProduct.pending]: pending,
-    [removeProduct.rejected]: rejected,
+    [removeProduct.rejected]: (store, { payload }) => {
+      
+      store.loading = false;
+      store.error = true;
+      store.days = store.days.map(day => {
+        if (day.dayId === payload.dayId) {
+          return day.eatenProducts.filter(product => product.id !== payload.eatenProductId)
+        }
+        return day;
+      }
+     )
+    },
+
     [removeProduct.fulfilled]: (store, { payload }) => {
+    
       store.loading = false;
       store.error = null;
       store.days = store.days.map(el => {
@@ -79,6 +93,7 @@ const userAteSlice = createSlice({
       });
     },
   },
-});
+}
+);
 
 export default userAteSlice.reducer;

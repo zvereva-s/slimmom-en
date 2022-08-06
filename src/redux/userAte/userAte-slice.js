@@ -15,6 +15,7 @@ const initialState = {
 
   loading: false,
   error: null,
+  removeError: null,
 
 };
 
@@ -64,32 +65,34 @@ const userAteSlice = createSlice({
 
     [removeProduct.pending]: pending,
     [removeProduct.rejected]: (store, { payload }) => {
-      
       store.loading = false;
       store.error = true;
-      store.days = store.days.map(day => {
-        if (day.dayId === payload.dayId) {
-          return day.eatenProducts.filter(product => product.id !== payload.eatenProductId)
-        }
-        return day;
-      }
-     )
+      store.removeError = payload;
+      // store.days = store.days.map(day => {
+      //   if (day.dayId === payload.dayId) {
+      //     return {
+      //       ...day, eatenProducts: day.eatenProducts.filter(product => product[product.id ? 'id' : '_id'] === payload.eatenProductId)
+      //     }
+      //   }
+      //   return day;
+      // }
+    // }
     },
 
     [removeProduct.fulfilled]: (store, { payload }) => {
     
       store.loading = false;
       store.error = null;
-      store.days = store.days.map(el => {
-        if (el.date === payload.newDaySummary.date) {
+      store.days = store.days.map(day => {
+        if (day.date === payload.newDaySummary.date) {
           return {
-            ...el,
-            eatenProducts: el.eatenProducts.filter(
+            ...day,
+            eatenProducts: day.eatenProducts.filter(
               product => product.id !== payload.productId
             ),
           };
         }
-        return el;
+        return day;
       });
     },
   },

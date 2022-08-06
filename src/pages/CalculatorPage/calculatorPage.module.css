@@ -66,11 +66,14 @@
         background-color: inherit;
     }
 
-    .wrapper {
-        position: relative;
+    .content{
         display: grid;
         grid-template-columns: 3fr 2fr;        
         margin: 0 auto;
+    }
+
+    .wrapper {
+        position: relative;
     }
 
     .leftSide {

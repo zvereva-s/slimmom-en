@@ -1,7 +1,7 @@
 
 .box{
     position: relative;
-        max-height: 250px;
+        height: auto;
         overflow: hidden;
 }
 
@@ -45,7 +45,7 @@
 @media screen and (min-width: 768px) {
   .box {
       position: relative;
-      height: 350px;
+      height: auto;
       overflow: hidden;
     }
   
@@ -67,7 +67,7 @@
 
 @media screen and (min-width: 1280px) {
   .list {
-    max-height: 400px;
+    max-height: 350px;
     
   }
 

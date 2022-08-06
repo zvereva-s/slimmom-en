@@ -16,7 +16,7 @@ function Summary() {
     const days = useSelector(daysOfEatenProducts);
     const notAllowProducts = useSelector(getNotAllowedProducts);
     console.log('days', days)
-    const items = days && (days.find(el => el.date === date).daySummary ? days.find(el => el.date === date).daySummary : []);
+    const items = days && (days.find(el => el.date === date)?.daySummary ? days.find(el => el.date === date)?.daySummary : []);
     console.log('items', items)
 
     const elements = notAllowProducts.map((el, idx) => <li key={idx}>{el}</li>);

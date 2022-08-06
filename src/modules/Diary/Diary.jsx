@@ -21,7 +21,7 @@ function Diary() {
   const dispatch = useDispatch();
   const date = useDate();
   const daysUserAte = useSelector(daysOfEatenProducts);
-  const dayId = daysUserAte && (daysUserAte.find(el => el.date === date)._id ||daysUserAte.find(el => el.date === date).id) ;
+  const dayId = daysUserAte && (daysUserAte.find(el => el.date === date)?._id ||daysUserAte.find(el => el.date === date)?.id) ;
 
   let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.eatenProducts : [];
 

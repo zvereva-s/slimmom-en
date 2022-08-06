@@ -65,7 +65,7 @@ function Diary() {
  
   return (
     <>
-      {loading && Loader } 
+      {loading && <Loader /> } 
 
       <DiaryDateCalendar />
 

@@ -4,7 +4,6 @@ import DiaryProductsListItem from './DiaryProductsListItem';
 import styles from './diary-product-list.module.css';
 
 function DiaryProductList({ diary, removeProduct }) {
-  console.log('diary', diary);
   const diaryElement = diary.map(({ id, title, weight, kcal }) => {
     const updKcal = kcal.toFixed(0);
     return (
@@ -46,17 +45,9 @@ DiaryProductList.defaultProps = {
 };
 
 DiaryProductList.propTypes = {
-  removeProduct: PropTypes.func,
-  diary: PropTypes.arrayOf(
-    PropTypes.shape(
-      PropTypes.object({
-        id: PropTypes.string,
-        product: PropTypes.string.isRequired,
-        grams: PropTypes.string.isRequired,
-        kcal: PropTypes.string.isRequired,
-      })
-    )
-  ),
-};
+  removeProduct: PropTypes.func.isRequired,
+  diary: PropTypes.array.isRequired,
+}
+
 
 export default DiaryProductList;

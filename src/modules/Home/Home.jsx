@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 import { getDailyRate } from '../../redux/daily/daily-operations';
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
@@ -24,27 +24,27 @@ function Home() {
   ));
   let navigate = useNavigate();
 
-
   const showModal = useCallback(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     setModalOpen(true);
   }, []);
 
-
-  const onSubmitModal = () => {
-    navigate("/register", { replace: true });
-  };
-
+  const onSubmitModal = useCallback(() => {
+    navigate('/register', { replace: true });
+  }, [navigate]);
 
   const closeModal = useCallback(() => {
-    document.body.style.overflow = "";
+    document.body.style.overflow = '';
     setModalOpen(false);
   }, []);
 
-  function onSubmit(data) {
-    dispatch(getDailyRate(data));
-    showModal();
-  }
+  const onSubmit = useCallback(
+    data => {
+      dispatch(getDailyRate(data));
+      showModal();
+    },
+    [dispatch, showModal]
+  );
 
   return (
     <div>

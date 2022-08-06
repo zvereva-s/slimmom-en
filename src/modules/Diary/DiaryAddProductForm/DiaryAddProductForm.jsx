@@ -7,7 +7,7 @@ import useForm from '../../../shared/hooks/useForm';
 import useDate from 'shared/hooks/useDate';
 
 import { searchProductInfo } from 'services/api/userDayFood';
-import { addDayProduct } from 'redux/userAte/userAte-operations';
+import { addDayProduct,fetchDayInfo,fetchUserInfo } from 'redux/userAte/userAte-operations';
 
 import TextField from '../../../shared/components/TextField';
 import Button from '../../../shared/components/Button/Button';
@@ -42,6 +42,8 @@ const DiaryAddProductForm = () => {
 
   const onAddProduct = (product) => {
     dispatch(addDayProduct(product))
+    // dispatch(fetchDayInfo(product.date))
+    // dispatch(fetchUserInfo())
   } 
   const handleSubmit = (e) => {
     e.preventDefault();

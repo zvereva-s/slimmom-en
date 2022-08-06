@@ -17,7 +17,7 @@
   scroll-behavior: smooth;
   max-height: 330px;
   list-style: none;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-top: 20px;
   padding-right: 5px;
 }

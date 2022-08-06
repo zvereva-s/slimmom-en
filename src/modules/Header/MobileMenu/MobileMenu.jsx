@@ -5,9 +5,13 @@ import { items } from '../HeaderMenu/items';
 
 import styles from "./mobile-menu.module.css"
 
-import { getClassNameMobileMenu } from '../../../services/utils/utils';
 
 const modalRoot = document.getElementById("modal");
+
+function getClassNameMobileMenu({ isActive }) {
+  const style = isActive ? styles.isActive : styles.link;
+  return style;
+}
 
 function MobileMenu({onClick}) {
 

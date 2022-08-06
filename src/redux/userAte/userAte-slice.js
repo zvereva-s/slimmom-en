@@ -59,26 +59,12 @@ const userAteSlice = createSlice({
         if (el.date === payload[payload.day ? 'day' : 'newDay'].date) {
           return { ...el, ...payload[payload.day ? 'day' : 'newDay'] }
         }
-        // return { ...el, ...payload[payload.day ? 'day' : 'newDay'] };
         return el;
       });
     },
 
     [removeProduct.pending]: pending,
-    [removeProduct.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = true;
-      store.removeError = payload;
-      // store.days = store.days.map(day => {
-      //   if (day.dayId === payload.dayId) {
-      //     return {
-      //       ...day, eatenProducts: day.eatenProducts.filter(product => product[product.id ? 'id' : '_id'] === payload.eatenProductId)
-      //     }
-      //   }
-      //   return day;
-      // }
-    // }
-    },
+    [removeProduct.rejected]: rejected,
 
     [removeProduct.fulfilled]: (store, { payload }) => {
     

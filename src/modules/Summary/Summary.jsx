@@ -9,15 +9,15 @@ import SummaryList from "./SummaryList";
 import FoodNotRecommended from '../FoodNotRecommended';
 
 import styles from './summary.module.css';
+import { NotificationManager } from "react-notifications";
 
 function Summary() { 
 
     const date = useDate();
-    const days = useSelector(daysOfEatenProducts);
+    const daysUserAte = useSelector(daysOfEatenProducts);
     const notAllowProducts = useSelector(getNotAllowedProducts);
-    const items = days ? days && days.find(el => el.date === date).daySummary : [];
+    let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.daySummary : [];
 
-    console.log('items', items);
 
     const elements = notAllowProducts.map((el, idx) => <li key={idx}>{el}</li>);
 
@@ -25,7 +25,8 @@ function Summary() {
         <div className={styles.wrapper}>
             <div>
                 <h3 className={styles.title}>Summary for {date.replaceAll('-', '/')} </h3>
-                <SummaryList items={items} />
+                
+                {products ? <SummaryList items={products} />  : <p>You don't have a summary for the day. Please add products, which have been eaten.</p>}
             </div>
             <FoodNotRecommended elements={elements} />
         </div>

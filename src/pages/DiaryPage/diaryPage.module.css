@@ -11,9 +11,9 @@
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+    /* position: relative; */
 }
 
 .leftSide {
@@ -48,6 +48,7 @@
     }
 
     .wrapper {
+        position: relative;
         margin: 0 auto;
     }
 
@@ -59,9 +60,13 @@
 }
 
 @media screen and (min-width: 1280px) {
-    .wrapper {
+    .content{
         display: grid;
-        grid-template-columns: 3fr 2fr;        
+        grid-template-columns: 3fr 2fr;  
+    }
+
+    .wrapper {
+           position: relative;   
     }
 
     .summarySection {

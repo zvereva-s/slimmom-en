@@ -37,7 +37,7 @@ function Diary() {
 
 
   useEffect(() => {
-    dispatch(fetchUserInfo())
+    // dispatch(fetchUserInfo())
     dispatch(fetchDayInfo(date))
   }, [dispatch, date])
   
@@ -65,7 +65,7 @@ function Diary() {
  
   return (
     <>
-      {loading && Loader } 
+      {loading && <Loader /> } 
 
       <DiaryDateCalendar />
 

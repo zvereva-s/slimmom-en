@@ -59,7 +59,9 @@ const userAteSlice = createSlice({
         if (el.date === payload[payload.day ? 'day' : 'newDay'].date) {
           return { ...el, ...payload[payload.day ? 'day' : 'newDay'] }
         }
-        return el
+
+        return el;
+
       });
     },
 

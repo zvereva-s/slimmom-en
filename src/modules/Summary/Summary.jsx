@@ -16,9 +16,11 @@ function Summary() {
   const daysUserAte = useSelector(daysOfEatenProducts);
   const notAllowProducts = useSelector(getNotAllowedProducts);
 
-  console.log(daysUserAte);
   let products = daysUserAte
     ? daysUserAte && daysUserAte?.find(el => el.date === date)?.daySummary
+    : [];
+  let eatenProducts = daysUserAte
+    ? daysUserAte && daysUserAte?.find(el => el.date === date)?.eatenProducts
     : [];
 
   const elements = notAllowProducts.map((el, idx) => <li key={idx}>{el}</li>);
@@ -30,7 +32,7 @@ function Summary() {
           Summary for {date.replaceAll('-', '/')}{' '}
         </h3>
 
-        {products ? (
+        {products && eatenProducts.length > 0 ? (
           <SummaryList items={products} />
         ) : (
           <p>

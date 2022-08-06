@@ -83,6 +83,7 @@
     position: absolute;
     bottom: -310px;
     right: 0;
+    z-index: -1;
   }
 
   .banana {

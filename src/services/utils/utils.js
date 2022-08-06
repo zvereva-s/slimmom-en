@@ -12,6 +12,10 @@ export const createOperation = (name, request, condition) => {
         const response = await request(data);
         return response;
       } catch (error) {
+        
+        if (error.response.data.message === "Product not found") {
+          return rejectWithValue({data})
+        }
         NotificationManager.error(`${error.response.data.message}`);
         return rejectWithValue({...error.message, status: error.status, response: error.response.data.message });
       }
@@ -21,7 +25,7 @@ export const createOperation = (name, request, condition) => {
 };
 
 export const pending = store => ({ ...store, loading: true, error: null });
-export const rejected = (store, { payload }) => ({...store, loading: false, isLogin: false, error: {...payload.status, ...payload.statusText}});
+export const rejected = (store, { payload }) => ({ ...store, loading: false, isLogin: false, error: { ...payload.status, ...payload.statusText }} );
 
 export const dateRevers = date =>
   date.toLocaleDateString().replaceAll('.', '-').split('-').reverse().join('-');

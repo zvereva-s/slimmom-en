@@ -1,3 +1,4 @@
+
 import { useSelector } from "react-redux";
 
 import useDate from "shared/hooks/useDate";
@@ -11,11 +12,13 @@ import FoodNotRecommended from '../FoodNotRecommended';
 import styles from './summary.module.css';
 
 function Summary() { 
-
+    
     const date = useDate();
+    
     const daysUserAte = useSelector(daysOfEatenProducts);
     const notAllowProducts = useSelector(getNotAllowedProducts);
-    
+
+
     let products = daysUserAte ? daysUserAte && daysUserAte?.find(el => el.date === date)?.daySummary : [];
 
     const elements = notAllowProducts.map((el, idx) => <li key={idx}>{el}</li>);

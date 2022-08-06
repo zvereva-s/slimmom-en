@@ -53,11 +53,12 @@ const userAteSlice = createSlice({
     [addDayProduct.pending]: pending,
     [addDayProduct.rejected]: rejected,
     [addDayProduct.fulfilled]: (store, { payload }) => {
+      console.log('payoad', payload);
       store.loading = false;
       store.error = null;
       store.days = store.days.map(el => {
         if (el.date === payload[payload.day ? 'day' : 'newDay'].date) {
-          return { ...el, ...payload[payload.day ? 'day' : 'newDay'] }
+          return { ...el, ...payload[payload.day ? 'day' : 'newDay'],daySummary: payload.daySummary}
         }
         return el;
       });

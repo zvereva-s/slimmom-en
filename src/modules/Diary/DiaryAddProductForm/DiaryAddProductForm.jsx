@@ -53,12 +53,12 @@ const DiaryAddProductForm = () => {
   const handleInput = ({ target }) => {
     setValueFromList(target.value);
   };
-  const onFocus = useCallback(() => setDiplayList(true));
+  const onFocus = useCallback(() => setDiplayList(true),[]);
 
   const handleOption = useCallback(e => {
     setDiplayList(false);
     handleInput(e);
-  });
+  },[]);
 
   useEffect(() => {
     const getSearchList = async value => {

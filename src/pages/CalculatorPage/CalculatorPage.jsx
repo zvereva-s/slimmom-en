@@ -8,8 +8,8 @@ import styles from './calculatorPage.module.css';
 
 function CalculatorPage() {
   return (
-    <main className='container' >
-      <div className={styles.wrapper}>
+    <main className={styles.wrapper} >
+      <div className={`container ${styles.content}`}>
         {/* <div className="container">
           <div className={styles.section}>
             <h1 className={styles.title}>

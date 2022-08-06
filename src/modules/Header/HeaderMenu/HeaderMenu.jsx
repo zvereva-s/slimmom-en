@@ -3,7 +3,7 @@ import { items } from './items';
 
 import styles from './header-menu.module.css';
 
-import { getClassName } from '../../../services/utils/getClassName';
+import { getClassName } from '../../../services/utils/utils';
 
 function HeaderMenu({isLogin}) {
   

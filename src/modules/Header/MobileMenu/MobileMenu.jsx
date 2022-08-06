@@ -5,7 +5,7 @@ import { items } from '../HeaderMenu/items';
 
 import styles from "./mobile-menu.module.css"
 
-import { getClassName } from '../../../services/utils/getClassNameMobileMenu';
+import { getClassNameMobileMenu } from '../../../services/utils/utils';
 
 const modalRoot = document.getElementById("modal");
 
@@ -15,7 +15,7 @@ function MobileMenu({onClick}) {
   
   const elements = selectItems.map(({id, link, title}) => 
     <li key={id} className={styles.item}>
-      <NavLink className={getClassName} onClick={onClick} to={link}>
+      <NavLink className={getClassNameMobileMenu} onClick={onClick} to={link}>
         {title}
       </NavLink>
     </li>

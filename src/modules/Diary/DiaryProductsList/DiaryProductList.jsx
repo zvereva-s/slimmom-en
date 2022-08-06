@@ -38,6 +38,18 @@ function DiaryProductList({ diary, removeProduct }) {
   );
 }
 
+    const style = diary.length === 4 ? '' : styles.q;
+
+    return (
+        <div className={styles.box}>
+            <ul className={styles.list} onScroll={handleScroll}>{diaryElement}</ul>
+            <div className={style}></div>
+        </div>
+        
+    )
+};
+
+
 DiaryProductList.defaultProps = {
   diary: [],
   removeProduct: () => {},

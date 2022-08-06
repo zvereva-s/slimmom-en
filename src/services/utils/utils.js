@@ -1,6 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { NotificationManager } from 'react-notifications';
 
+import styles from '../../modules/Header/HeaderMenu/header-menu.module.css';
+import stylesMobileMenu from '../../modules/Header/MobileMenu/mobile-menu.module.css';
+
 export const createOperation = (name, request, condition) => {
   return createAsyncThunk(
     name,
@@ -28,3 +31,13 @@ export const convertDate = date => {
   const newDate = new Date(year, mounth - 1, day);
   return newDate;
 };
+
+export function getClassName({ isActive }) {
+  const style = isActive ? styles.isActive : styles.link;
+  return style;
+}
+
+export function getClassNameMobileMenu({ isActive }) {
+  const style = isActive ? stylesMobileMenu.isActive : stylesMobileMenu.link;
+  return style;
+}

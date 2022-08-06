@@ -5,7 +5,8 @@ import {
   fetchUserInfo,
   addDayProduct,
   removeProduct,
-  logoutUser
+  logoutUser,
+  getDayInfoByDate
 } from './userAte-operations';
 import { pending, rejected } from 'services/utils/utils';
 import { dateRevers } from 'services/utils/utils';
@@ -54,7 +55,7 @@ const userAteSlice = createSlice({
     [addDayProduct.pending]: pending,
     [addDayProduct.rejected]: rejected,
     [addDayProduct.fulfilled]: (store, { payload }) => {
-      console.log('payoad', payload);
+  
       store.loading = false;
       store.error = null;
       store.days = store.days.map(el => {
@@ -85,7 +86,21 @@ const userAteSlice = createSlice({
 
     [logoutUser.pending]: pending,
     [logoutUser.rejected]: rejected,
-    [logoutUser.fulfilled]: ()=>({...initialState}),
+    [logoutUser.fulfilled]: () => ({ ...initialState }),
+    
+    [getDayInfoByDate.pending]: pending,
+    [getDayInfoByDate.rejected]: rejected,
+    [getDayInfoByDate.fulfilled]: (store, { payload }) => {
+
+      store.loading = false;
+      store.error = null;
+      store.days = store.days.map(el => {
+        if (el.date === payload.date) {
+          return { ...el, daySummary: payload.response.daySummary}
+        }
+        return el;
+      });
+    }
   },
 }
 );

@@ -6,7 +6,7 @@ import useDate from 'shared/hooks/useDate';
 import useUserAteState from "shared/hooks/useUserAteState";
 import Loader from "shared/components/Loader";
 
-import { fetchDayInfo, fetchUserInfo, removeProduct} from 'redux/userAte/userAte-operations';
+import { fetchDayInfo, getDayInfoByDate, removeProduct} from 'redux/userAte/userAte-operations';
 import { daysOfEatenProducts } from 'redux/userAte/userAte-selectors';
 
 import DiaryAddProductForm from 'modules/Diary/DiaryAddProductForm';
@@ -37,7 +37,6 @@ function Diary() {
 
 
   useEffect(() => {
-    // dispatch(fetchUserInfo())
     dispatch(fetchDayInfo(date))
   }, [dispatch, date])
   
@@ -61,6 +60,7 @@ function Diary() {
   
   const onRemoveProduct = eatenProductId => {
     dispatch(removeProduct({ dayId, eatenProductId }));
+    dispatch(getDayInfoByDate(date));
   };
  
   return (

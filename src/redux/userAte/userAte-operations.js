@@ -8,4 +8,5 @@ export const fetchUserInfo = createOperation('userAte/fetchUser', userDayFood.fe
 export const addDayProduct = createOperation('userAte/add', userDayFood.postDayProduct);
 export const removeProduct = createOperation('userAte/remove', userDayFood.deleteEatenProduct);
 
+export const getDayInfoByDate = createOperation('userAte/getInfoDay', userDayFood.fetchDayInfo);
 export const logoutUser = createOperation('userAte/logout', logout)

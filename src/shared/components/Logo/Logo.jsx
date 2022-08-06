@@ -6,8 +6,11 @@ import {ReactComponent as LogoText} from "../../../images/icons/logo-text.svg";
 import styles from "./logo.module.css";
 
 function Logo({isLogin}) {
+    
+    const path = isLogin ? "/diary" : "/home";
+
     return (
-        <Link to="/home">
+        <Link to={path}>
             <div className={styles.logoContainer}>
                 <LogoIcon className={styles.logo} />
                 <LogoText className={styles.logoText} />

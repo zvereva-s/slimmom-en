@@ -19,7 +19,7 @@ function App() {
     if (isLogin || token) {
       dispatch(getCurrentRequest());
     }
-  }, [dispatch]);
+  }, [dispatch,isLogin,token]);
 
   return (
     <>

@@ -9,8 +9,8 @@ import styles from './diaryPage.module.css';
 function DiaryPage() {
 
   return (
-    <main>
-      <div className={`${styles.wrapper} ${"container"}`} >
+    <main className={styles.wrapper}>
+      <div className={`container ${styles.content}`} >
         <section className={styles.section} >
           <div className={styles.leftSide} >
             <Diary />

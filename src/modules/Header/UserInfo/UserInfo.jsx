@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { auth } from "redux/auth/auth-selectors";
 import { logoutRequest } from "redux/auth/auth-operations";
+import {logoutUser} from 'redux/userAte/userAte-operations'
 
 import Button from "shared/components/Button/Button";
 
@@ -13,7 +14,8 @@ function UserInfo() {
     const name = user.username;
     const dispatch = useDispatch();
     
-    function onLogout(){
+    function onLogout() {
+        dispatch(logoutUser());
         dispatch(logoutRequest())
     }
 

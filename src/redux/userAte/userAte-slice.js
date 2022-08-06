@@ -5,6 +5,7 @@ import {
   fetchUserInfo,
   addDayProduct,
   removeProduct,
+  logoutUser
 } from './userAte-operations';
 import { pending, rejected } from 'services/utils/utils';
 import { dateRevers } from 'services/utils/utils';
@@ -66,9 +67,7 @@ const userAteSlice = createSlice({
 
     [removeProduct.pending]: pending,
     [removeProduct.rejected]: rejected,
-
     [removeProduct.fulfilled]: (store, { payload }) => {
-    
       store.loading = false;
       store.error = null;
       store.days = store.days.map(day => {
@@ -83,6 +82,10 @@ const userAteSlice = createSlice({
         return day;
       });
     },
+
+    [logoutUser.pending]: pending,
+    [logoutUser.rejected]: rejected,
+    [logoutUser.fulfilled]: ()=>({...initialState}),
   },
 }
 );

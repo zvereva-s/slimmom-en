@@ -20,7 +20,8 @@ function DiaryProductList({ diary, removeProduct }) {
 
   const handleScroll = ({ target }) => {
     const bottom =
-      Number((target.scrollHeight - target.scrollTop).toFixed(0)) ===
+      Math.round((target.scrollHeight - target.scrollTop)) ===
+      target.clientHeight || Math.round((target.scrollHeight - target.scrollTop)) -1 ===
       target.clientHeight;
     if (!bottom) {
       target.nextSibling.style.zIndex = '1';
@@ -34,7 +35,7 @@ function DiaryProductList({ diary, removeProduct }) {
       <ul className={styles.list} onScroll={handleScroll}>
         {diaryElement}
       </ul>
-      {diary.length > 4 && <div className={styles.q}></div>}
+      {diary.length > 6 && <div className={styles.q}></div>}
     </div>
   );
 }

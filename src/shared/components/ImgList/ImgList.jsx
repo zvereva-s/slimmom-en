@@ -11,7 +11,6 @@ import tabletLayer from '../../../images/tablet/layer-lr.png';
 import tablenVector from '../../../images/tablet/vector.png';
 
 import styles from './img-list.module.css';
-import { TailSpin } from 'react-loader-spinner';
 
 function ImgList({
   classNameVector,

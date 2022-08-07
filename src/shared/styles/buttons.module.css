@@ -61,6 +61,12 @@
   box-shadow: none;
 }
 
+.register:hover, .register:focus{
+  border: 2px solid #fc842d;
+    background-color: #fc842d;
+    color: #fff;
+}
+
 @media screen and (min-width: 768px) {
   .register {
     padding: 13px 37px;

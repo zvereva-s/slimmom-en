@@ -78,4 +78,9 @@
   .modal__listTitle {
     margin-top: 20px;
   }
+
+  .container {
+    width: 260px;
+    margin: 0 auto;
+  }
 }

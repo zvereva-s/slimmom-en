@@ -5,7 +5,11 @@ import { items } from './items';
 
 import styles from './header-menu.module.css';
 
-import { getClassName } from '../../../services/utils/utils';
+
+export function getClassName({ isActive }) {
+  const style = isActive ? styles.isActive : styles.link;
+  return style;
+}
 
 function HeaderMenu({isLogin}) {
   

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import useAuth from "shared/hooks/useAuth";
-import Logo from "../../shared/components/Logo";
 
+import Logo from "../../shared/components/Logo";
 import HeaderMenu from "./HeaderMenu";
 import UserMenu from "./UserMenu/UserMenu";
 import UserInfo from "./UserInfo";

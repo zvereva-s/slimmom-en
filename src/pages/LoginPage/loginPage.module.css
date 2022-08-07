@@ -11,6 +11,17 @@
   margin-bottom: 60px;
 }
 
+.section {
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .section form {
+    width: 280px;
+    margin: 0 auto;
+  }
+
+}
 
 @media screen and (min-width: 768px) {
   .section {

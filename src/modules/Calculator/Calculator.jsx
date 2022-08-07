@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import useDate from 'shared/hooks/useDate';
-import useUserAteState from "shared/hooks/useUserAteState";
-import useDailyLoading from "shared/hooks/useDailyLoading";
-import Loader from "shared/components/Loader";
+import useAuthState from 'shared/hooks/useAuthState';
+import useUserAteState from 'shared/hooks/useUserAteState';
+import useDailyLoading from 'shared/hooks/useDailyLoading';
+import Loader from 'shared/components/Loader';
 
 import { getDailyRateByUserId } from '../../redux/daily/daily-operations';
 import { fetchDayInfo } from 'redux/userAte/userAte-operations.js';
+import { authUserInfo } from 'redux/auth/auth-operations';
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
 import { userId } from '../../redux/auth/auth-selectors';
 
@@ -28,6 +30,7 @@ function Calculator() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const date = useDate();
+  const auth = useAuthState();
 
   const calories = dailyRate ? Math.floor(dailyRate) : 0;
   const foodNotEat = notAllowedProducts?.slice(0, 4);
@@ -50,22 +53,28 @@ function Calculator() {
     setModalOpen(false);
   }, []);
 
-  const onSubmit = useCallback(data => {
-    const obj = {
-      data: data,
-      userId: idUser,
-    };
-    dispatch(getDailyRateByUserId(obj));
-    showModal();
-  },[dispatch,idUser,showModal]);
+  const onSubmit = useCallback(
+    data => {
+      const obj = {
+        data: data,
+        userId: idUser,
+      };
+      dispatch(getDailyRateByUserId(obj));
+      dispatch(authUserInfo(obj));
+      showModal();
+    },
+    [dispatch, idUser, showModal]
+  );
 
   useEffect(() => {
-    dispatch(fetchDayInfo(date));
-  }, [dispatch, date]);
+    if (!auth.userInfo.notAllowedProducts.length < 1) {
+      dispatch(fetchDayInfo(date));
+    }
+  }, [dispatch, date, auth]);
 
   return (
     <div className={styles.wrapper}>
-      {loadUserAte || LoadDaily && <Loader />}
+      {loadUserAte || (LoadDaily && <Loader />)}
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <ContentModal calories={calories} renderArr={renderArr} />

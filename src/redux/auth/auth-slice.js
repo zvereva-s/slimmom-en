@@ -4,6 +4,7 @@ import {
   loginRequest,
   logoutRequest,
   getCurrentRequest,
+  authUserInfo,
 } from '../auth/auth-operations';
 import { pending, rejected } from 'services/utils/utils';
 
@@ -21,7 +22,6 @@ const initialState = {
 };
 
 const fulfilled = (store, { payload }) => {
-  console.log(payload);
   store.loading = false;
   store.error = null;
   store.user = {
@@ -78,6 +78,14 @@ const authSlice = createSlice({
         isLogin: true,
       };
     },
+    [authUserInfo.pending]: pending,
+    [authUserInfo.rejected]: rejected,
+    [authUserInfo.fulfilled]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: null,
+      userInfo: { notAllowedProducts: payload.notAllowedProducts },
+    }),
     //
   },
 });

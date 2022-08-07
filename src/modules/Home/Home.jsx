@@ -49,7 +49,7 @@ function Home() {
   );
 
   return (
-    <div>
+    <div className={styles.container}>
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <ContentModal calories={calories} renderArr={renderArr} />

@@ -5,6 +5,8 @@ import {
   fetchUserInfo,
   addDayProduct,
   removeProduct,
+  logoutUser,
+  getDayInfoByDate,
 } from './userAte-operations';
 import { pending, rejected } from 'services/utils/utils';
 import { dateRevers } from 'services/utils/utils';
@@ -16,7 +18,6 @@ const initialState = {
   loading: false,
   error: null,
   removeError: null,
-
 };
 
 const userAteSlice = createSlice({
@@ -25,7 +26,7 @@ const userAteSlice = createSlice({
 
   extraReducers: {
     [fetchDayInfo.pending]: pending,
-    [fetchDayInfo.rejected]: pending,
+    [fetchDayInfo.rejected]: rejected,
     [fetchDayInfo.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.error = null;
@@ -57,31 +58,20 @@ const userAteSlice = createSlice({
       store.error = null;
       store.days = store.days.map(el => {
         if (el.date === payload[payload.day ? 'day' : 'newDay'].date) {
-          return { ...el, ...payload[payload.day ? 'day' : 'newDay'] }
+          return {
+            ...el,
+            ...payload[payload.day ? 'day' : 'newDay'],
+            daySummary:
+              payload[payload.daySummary ? 'daySummary' : 'newSummary'],
+          };
         }
-        // return { ...el, ...payload[payload.day ? 'day' : 'newDay'] };
         return el;
       });
     },
 
     [removeProduct.pending]: pending,
-    [removeProduct.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = true;
-      store.removeError = payload;
-      // store.days = store.days.map(day => {
-      //   if (day.dayId === payload.dayId) {
-      //     return {
-      //       ...day, eatenProducts: day.eatenProducts.filter(product => product[product.id ? 'id' : '_id'] === payload.eatenProductId)
-      //     }
-      //   }
-      //   return day;
-      // }
-    // }
-    },
-
+    [removeProduct.rejected]: rejected,
     [removeProduct.fulfilled]: (store, { payload }) => {
-    
       store.loading = false;
       store.error = null;
       store.days = store.days.map(day => {
@@ -96,8 +86,24 @@ const userAteSlice = createSlice({
         return day;
       });
     },
+
+    [logoutUser.pending]: pending,
+    [logoutUser.rejected]: rejected,
+    [logoutUser.fulfilled]: () => ({ ...initialState }),
+
+    [getDayInfoByDate.pending]: pending,
+    [getDayInfoByDate.rejected]: rejected,
+    [getDayInfoByDate.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.error = null;
+      store.days = store.days.map(el => {
+        if (el.date === payload.date) {
+          return { ...el, daySummary: payload.response.daySummary };
+        }
+        return el;
+      });
+    },
   },
-}
-);
+});
 
 export default userAteSlice.reducer;

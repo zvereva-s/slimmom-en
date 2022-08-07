@@ -1,17 +1,19 @@
-
 import { useState, useEffect, useCallback } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { DebounceInput } from 'react-debounce-input';
 
 import useForm from '../../../shared/hooks/useForm';
 import useDate from 'shared/hooks/useDate';
 
 import { searchProductInfo } from 'services/api/userDayFood';
-import { addDayProduct,getDayInfoByDate } from 'redux/userAte/userAte-operations';
+import {
+  addDayProduct,
+  // getDayInfoByDate,
+} from 'redux/userAte/userAte-operations';
 
 import TextField from '../../../shared/components/TextField';
 import Button from '../../../shared/components/Button/Button';
-import MobileAddButton from "shared/components/Button/MobileAddButton";
+import MobileAddButton from 'shared/components/Button/MobileAddButton';
 
 import { initialState } from './initialState';
 import { fields } from './fields';
@@ -19,10 +21,9 @@ import { fields } from './fields';
 import btnStyles from '../../../shared/styles/buttons.module.css';
 import styles from './diary-add-product.module.css';
 
-
 const DiaryAddProductForm = () => {
-  const { state, handleChange, reset} = useForm({
-    initialState
+  const { state, handleChange, reset } = useForm({
+    initialState,
   });
   const { grams } = state;
   const dispatch = useDispatch();
@@ -36,29 +37,31 @@ const DiaryAddProductForm = () => {
   const { items } = products;
   const product = {
     date: useDate(),
-    productId: items.length && items.find(el => el.title.ru === valueFromList)?._id,
+    productId:
+      items.length && items.find(el => el.title.ru === valueFromList)?._id,
     weight: Number(grams),
-  }
+  };
 
-  const onAddProduct = (product) => {
-    dispatch(addDayProduct(product))
-    dispatch(getDayInfoByDate(product.date))
-  } 
-  const handleSubmit = (e) => {
+  const onAddProduct = product => {
+    dispatch(addDayProduct(product));
+    // dispatch(getDayInfoByDate(product.date));
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
     onAddProduct(product);
-    setValueFromList("")
-    reset()
+    setValueFromList('');
+    reset();
   };
   const handleInput = ({ target }) => {
     setValueFromList(target.value);
   };
-  const onFocus = useCallback(() => setDiplayList(true));
+  const onFocus = useCallback(() => setDiplayList(true), []);
 
   const handleOption = useCallback(e => {
     setDiplayList(false);
     handleInput(e);
-  });
+  }, []);
 
   useEffect(() => {
     const getSearchList = async value => {
@@ -89,7 +92,6 @@ const DiaryAddProductForm = () => {
 
     getSearchList(valueFromList);
   }, [valueFromList]);
-
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -126,7 +128,12 @@ const DiaryAddProductForm = () => {
           </datalist>
         )}
       </div>
-      <TextField className={styles.gram} onChange={handleChange} value={grams} {...fields.grams} />
+      <TextField
+        className={styles.gram}
+        onChange={handleChange}
+        value={grams}
+        {...fields.grams}
+      />
       <Button className={btnStyles.add} type="submit" text="Add" />
       <MobileAddButton type="submit" className={styles.plusBtn} />
     </form>
@@ -134,4 +141,3 @@ const DiaryAddProductForm = () => {
 };
 
 export default DiaryAddProductForm;
-

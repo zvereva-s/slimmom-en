@@ -6,7 +6,7 @@ import {
   addDayProduct,
   removeProduct,
   logoutUser,
-  getDayInfoByDate
+  getDayInfoByDate,
 } from './userAte-operations';
 import { pending, rejected } from 'services/utils/utils';
 import { dateRevers } from 'services/utils/utils';
@@ -18,7 +18,6 @@ const initialState = {
   loading: false,
   error: null,
   removeError: null,
-
 };
 
 const userAteSlice = createSlice({
@@ -27,7 +26,7 @@ const userAteSlice = createSlice({
 
   extraReducers: {
     [fetchDayInfo.pending]: pending,
-    [fetchDayInfo.rejected]: pending,
+    [fetchDayInfo.rejected]: rejected,
     [fetchDayInfo.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.error = null;
@@ -55,12 +54,16 @@ const userAteSlice = createSlice({
     [addDayProduct.pending]: pending,
     [addDayProduct.rejected]: rejected,
     [addDayProduct.fulfilled]: (store, { payload }) => {
-  
       store.loading = false;
       store.error = null;
       store.days = store.days.map(el => {
         if (el.date === payload[payload.day ? 'day' : 'newDay'].date) {
-          return { ...el, ...payload[payload.day ? 'day' : 'newDay'],daySummary: payload.daySummary}
+          return {
+            ...el,
+            ...payload[payload.day ? 'day' : 'newDay'],
+            daySummary:
+              payload[payload.daySummary ? 'daySummary' : 'newSummary'],
+          };
         }
         return el;
       });
@@ -87,22 +90,20 @@ const userAteSlice = createSlice({
     [logoutUser.pending]: pending,
     [logoutUser.rejected]: rejected,
     [logoutUser.fulfilled]: () => ({ ...initialState }),
-    
+
     [getDayInfoByDate.pending]: pending,
     [getDayInfoByDate.rejected]: rejected,
     [getDayInfoByDate.fulfilled]: (store, { payload }) => {
-
       store.loading = false;
       store.error = null;
       store.days = store.days.map(el => {
         if (el.date === payload.date) {
-          return { ...el, daySummary: payload.response.daySummary}
+          return { ...el, daySummary: payload.response.daySummary };
         }
         return el;
       });
-    }
+    },
   },
-}
-);
+});
 
 export default userAteSlice.reducer;

@@ -8,7 +8,7 @@ export const fields = {
   grams: {
     name: 'grams',
     placeholder: 'Grams',
-    type: 'text',
+    type: 'number',
     required: true,
   },
 };

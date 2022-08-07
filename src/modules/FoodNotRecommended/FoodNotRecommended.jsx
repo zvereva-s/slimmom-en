@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './foodNotRecommended.module.css';
 
 function FoodNotRecommended({ elements }) {
@@ -10,3 +12,12 @@ function FoodNotRecommended({ elements }) {
   );
 }
 export default FoodNotRecommended;
+
+
+FoodNotRecommended.defaultProps = {
+  elements: [],
+}
+
+FoodNotRecommended.propTypes = {
+  elements: PropTypes.array.isRequired,
+}

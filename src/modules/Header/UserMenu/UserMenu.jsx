@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { ReactComponent as MenuIcon } from "../../../images/icons/menu.svg";
 import { ReactComponent as MenuClose } from "../../../images/icons/close.svg";
 
@@ -20,3 +22,12 @@ function UserMenu({isLogin, onClick, isShowed}) {
 }
 
 export default UserMenu;
+
+UserMenu.defaultProps = {
+    onClick: () => {},
+}
+
+UserMenu.propTypes = { 
+    onClick: PropTypes.func.isRequired,
+    isShowed: PropTypes.bool.isRequired,
+}

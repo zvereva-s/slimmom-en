@@ -1,70 +1,28 @@
-import Register from "modules/Register/Register";
+import Register from 'modules/Register/Register';
 
-import banana from '../../images/desktop/banana.png';
-import strawberry from '../../images/desktop/strawberry.png';
-import layer from '../../images/desktop/layer-2.png';
-import vector from '../../images/desktop/vector.png';
-
-import tabletBanana from '../../images/tablet/banana.png';
-import tabletStrawberry from '../../images/tablet/strawberry-lr.png';
-import tabletLayer from '../../images/tablet/layer-lr.png';
-import tablenVector from '../../images/tablet/vector.png';
+import ImgList from 'shared/components/ImgList';
 
 import styles from './registerPage.module.css';
 
 function RegisterPage() {
-    return (
-        <main>
-            <div className={styles.wrapper}>
-                <div className="container">
-                    <div className={styles.section}>
-                        <h1  className={styles.title}>Register Page</h1>
-                    <Register />
-                    </div>
-                </div>
-                <img
-                src={vector}
-                className={styles.vector}
-                alt="vector"
-                />
-                <img
-                src={strawberry}
-                className={styles.strawberry}
-                alt="strawberry"
-                />
-                <img
-                src={banana}
-                className={styles.banana}
-                alt="banana"
-                />
-                <img
-                src={layer}
-                className={styles.layer}
-                alt="layer"
-                />
-
-                <img
-                src={tablenVector}
-                className={styles.tablenVector}
-                alt="tablenVector"
-                />
-                <img
-                src={tabletStrawberry}
-                className={styles.tabletStrawberry}
-                alt="tabletStrawberry"
-                />
-                <img
-                src={tabletBanana}
-                className={styles.tabletBanana}
-                alt="tabletBanana"
-                />
-                <img
-                src={tabletLayer}
-                className={styles.tabletLayer}
-                alt="tabletLayer"
-                />
-            </div>
-        </main>
-    )
-};
+  return (
+    <main>
+      <div className={styles.wrapper}>
+        <div className="container">
+          <div className={styles.section}>
+            <h1 className={styles.title}>Register Page</h1>
+            <Register />
+          </div>
+        </div>
+        <ImgList
+          classNameVector={styles.vector}
+          classNameStrawberry={styles.strawberry}
+          classNameTablenVector={styles.tablenVector}
+          classNameTabletBanana={styles.tabletBanana}
+          classNameTabletLayer={styles.tabletLayer}
+        />
+      </div>
+    </main>
+  );
+}
 export default RegisterPage;

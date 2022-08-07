@@ -25,12 +25,12 @@ DiaryProductListItem.defaultProps = {
   id: '',
 };
 
-// DiaryProductListItem.propTypes = {
-//   product: PropTypes.string.isRequired,
-//   grams: PropTypes.string.isRequired,
-//   kcal: PropTypes.string.isRequired,
-//   removeProduct: PropTypes.func.isRequired,
-//   _id: PropTypes.string.isRequired,
-// };
+DiaryProductListItem.propTypes = {
+  product: PropTypes.string.isRequired,
+  grams: PropTypes.number.isRequired,
+  kcal: PropTypes.string.isRequired,
+  removeProduct: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export default memo(DiaryProductListItem);

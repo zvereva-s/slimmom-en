@@ -6,6 +6,7 @@ import { getDailyRate } from '../../redux/daily/daily-operations';
 import { getDailyInfo } from '../../redux/daily/daily-selectors';
 
 import Modal from '../../shared/components/Modal';
+import ContentModal from 'shared/components/ContentModal';
 import Button from 'shared/components/Button/Button';
 import CalculatorForm from 'modules/Calculator/CalculatorForm';
 
@@ -30,6 +31,7 @@ function Home() {
   }, []);
 
   const onSubmitModal = useCallback(() => {
+    document.body.style.overflow = '';
     navigate('/register', { replace: true });
   }, [navigate]);
 
@@ -50,14 +52,7 @@ function Home() {
     <div className={styles.container}>
       {modalOpen && (
         <Modal closeModal={closeModal}>
-          <h2 className={styles.modal__title}>
-            Your recommended daily calorie intake is
-          </h2>
-          <p className={styles.modal__calories}>
-            {calories} <span className={styles.ccal}>ккал</span>
-          </p>
-          <p className={styles.modal__listTitle}>Foods you should not eat</p>
-          <ol className={styles.modal__list}>{renderArr}</ol>
+          <ContentModal calories={calories} renderArr={renderArr} />
           <Button
             text={'Start losing weight'}
             type={'button'}

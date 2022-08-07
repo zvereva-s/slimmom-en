@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import Button from "../Button";
 import {ReactComponent as AddBtn} from "images/icons/add.svg";
 
@@ -14,3 +16,13 @@ function MobileAddButton({ onClick, className, type }) {
 }
 
 export default MobileAddButton;
+
+MobileAddButton.defaultProps = {
+    onClick: () => {},
+}
+
+MobileAddButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    type: PropTypes.string.isRequired,
+    className: PropTypes.string,
+}

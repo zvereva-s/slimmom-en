@@ -10,7 +10,7 @@
     letter-spacing: 0.05em;
     display: inline-block;
     color: var(--color-dark);
-  }
+}
   
   .modal__calories {
     font-weight: 700;
@@ -79,6 +79,11 @@
     }
     .modal__listTitle {
       margin-top: 20px;
+    }
+
+    .wrapper {      
+      width: 260px;
+      margin: 0 auto;
     }
   }
   

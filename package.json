@@ -1,8 +1,8 @@
 {
-  "name": "health-en",
+  "name": "slimmom",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://zvereva-s.github.io/health-en/",
+  "homepage": "https://zvereva-s.github.io/slimmom-en/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.3",

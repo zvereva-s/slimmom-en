@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import useForm from '../../../shared/hooks/useForm';
 
 import { initialState } from './initialState';
@@ -49,3 +51,12 @@ function CalculatorForm({ onSubmit }) {
 }
 
 export default CalculatorForm;
+
+
+CalculatorForm.defaultProps = {
+  onSubmit: () => {}
+}
+
+CalculatorForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+}

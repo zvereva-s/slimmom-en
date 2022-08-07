@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import PropTypes from 'prop-types';
 
 import DiaryAddProductForm from "../DiaryAddProductForm";
 
@@ -26,3 +27,11 @@ function DiaryMobileMenu({onClick}) {
 }
 
 export default DiaryMobileMenu;
+
+DiaryMobileMenu.defaultProps = {
+  onClick: () => {},
+}
+
+DiaryMobileMenu.propTypes = {
+  onClick: PropTypes.func.isRequired,
+}

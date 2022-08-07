@@ -1,59 +1,3 @@
-.wrapper {
-    position: relative;
-}
-
-.section {
-    padding: 0 20px;
-}
-
-@media screen and (max-width: 767px) {
-    .section {
-        padding-top: 32px;
-        padding-bottom: 100px;
-    }
-
-    .title {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-}
-
-@media screen and (min-width: 768px) {
-    .section {
-        padding-top: 160px;
-        padding-bottom: 398px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .section {
-        padding-top: 67px;
-        padding-bottom: 0;
-    }
-}
-
-.title {
-
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.4;
-
-    color: var(--color-dark);
-
-    margin-bottom: 32px;
-    max-width: 608px;
-}
-
-@media screen and (min-width: 768px) {
-    .title{
-        margin-bottom: 68px;
-        font-size: 34px;
-        line-height: 1.2;
-    }
-}
-
 @media screen and (max-width: 767px) {
     .vector {
         display: none;
@@ -95,10 +39,10 @@
         right: 0;
         z-index: -2;
     }
- 
+
     .strawberry {
         position: absolute;
-        top: 54%;
+        bottom: -275px;
         right: 0;
     }
 
@@ -110,8 +54,7 @@
 
     .layer {
         position: absolute;
-        bottom: -103px;
-
+        top: -210px;
         right: 190px;
         z-index: -1;
     }
@@ -154,13 +97,14 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        z-index: -2;
+        z-index: -1;
     }
 
     .tabletStrawberry {
         position: absolute;
-        bottom: 180px;
-        right: 20px;
+        bottom: 200px;
+        right: 0;
+        z-index: 10;
     }
 
     .tabletBanana {
@@ -172,8 +116,8 @@
 
     .tabletLayer {
         position: absolute;
-        bottom: 0;
-        right: 175px;
+        top: -75px;
+        right: 10px;
         z-index: -1;
     }
 }

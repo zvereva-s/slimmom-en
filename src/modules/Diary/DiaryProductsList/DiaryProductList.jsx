@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import DiaryProductsListItem from './DiaryProductsListItem';
 
 import styles from './diary-product-list.module.css';
@@ -19,40 +19,36 @@ function DiaryProductList({ diary, removeProduct }) {
   });
 
   const handleScroll = ({ target }) => {
-      const bottom = Number((target.scrollHeight - target.scrollTop).toFixed(0)) === target.clientHeight;
-      if (!bottom) {
-        target.nextSibling.style.zIndex = '1';
-      } else {
-        target.nextSibling.style.zIndex = '-1';
+    const bottom =
+      Math.round((target.scrollHeight - target.scrollTop)) ===
+      target.clientHeight || Math.round((target.scrollHeight - target.scrollTop)) -1 ===
+      target.clientHeight;
+    if (!bottom) {
+      target.nextSibling.style.zIndex = '1';
+    } else {
+      target.nextSibling.style.zIndex = '-1';
     }
-      
   };
 
-
-    return (
-        <div className={styles.box}>
-            <ul className={styles.list} onScroll={handleScroll}>{diaryElement}</ul>
-            {diary.length > 4 && <div className={styles.q}></div>}
-        </div>
-    );
-};
-
+  return (
+    <div className={styles.box}>
+      <ul className={styles.list} onScroll={handleScroll}>
+        {diaryElement}
+      </ul>
+      {diary.length > 6 && <div className={styles.q}></div>}
+    </div>
+  );
+}
 
 DiaryProductList.defaultProps = {
   diary: [],
   removeProduct: () => {},
 };
 
-// DiaryProductList.propTypes = {
-//     removeProduct: PropTypes.func,
-//     diary: PropTypes.objectOf(
-//         PropTypes.shape({
-//             _id: PropTypes.string.isRequired,
-//             product: PropTypes.string.isRequired,
-//             grams: PropTypes.string.isRequired,
-//             kcal: PropTypes.string.isRequired,
-//         })
-//     ),
-// }
+DiaryProductList.propTypes = {
+  removeProduct: PropTypes.func.isRequired,
+  diary: PropTypes.array.isRequired,
+}
+
 
 export default DiaryProductList;

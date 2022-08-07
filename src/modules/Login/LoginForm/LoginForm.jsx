@@ -30,7 +30,7 @@ const LoginForm = ({ onSubmit }) => {
           <Button
             className={btnStyles.register}
             text="Register"
-            type="submit"
+            type="button" disabled
           />
         </div>
       </form>

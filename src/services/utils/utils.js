@@ -15,6 +15,10 @@ export const createOperation = (name, request, condition) => {
         if (error.response.data.message === "Product not found") {
           return rejectWithValue({data})
         }
+        if (error.response.data.message === "\"productId\" is required") {
+          NotificationManager.error(`Please choose the product from dropdown list`)
+          return rejectWithValue({ ...error.message, status: error.status, response: error.response.data.message });
+        }
         NotificationManager.error(`${error.response.data.message}`);
         return rejectWithValue({...error.message, status: error.status, response: error.response.data.message });
       }

@@ -20,6 +20,7 @@ import { fields } from './fields';
 
 import btnStyles from '../../../shared/styles/buttons.module.css';
 import styles from './diary-add-product.module.css';
+import { NotificationManager } from 'react-notifications';
 
 const DiaryAddProductForm = () => {
   const { state, handleChange, reset } = useForm({
@@ -44,7 +45,6 @@ const DiaryAddProductForm = () => {
 
   const onAddProduct = product => {
     dispatch(addDayProduct(product));
-    // dispatch(getDayInfoByDate(product.date));
   };
 
   const handleSubmit = e => {

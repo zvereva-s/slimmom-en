@@ -10,7 +10,6 @@
   z-index: 10;
 }
 
-
 .item {
   cursor: pointer;
   background-color: var(--color-white);
@@ -34,12 +33,9 @@
   color: var(--color-text);
 }
 
-
 .plusBtn {
   display: none;
 }
-
-
 
 @media screen and (max-width: 767px) {
   .form {
@@ -69,6 +65,51 @@
     margin: 0;
     margin-left: 41px;
     margin-top: -14px;
+
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+    position: relative;
+
+    -o-transition: transform 1s linear;
+    -ms-transition: transform 1s linear;
+    -moz-transition: transform 1s linear;
+    -webkit-transition: transform 1s linear;
+    transition: transform 1s linear;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+  }
+
+  .form .plusBtn:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    border: var(--color-focus) solid 4px;
+    border-radius: 50%;
+    top: -16px;
+    right: -16px;
+    bottom: -16px;
+    left: -16px;
+    opacity: 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: top, right, bottom, left;
+    transition-property: top, right, bottom, left;
+  }
+
+  .form .plusBtn:hover,
+  .form .plusBtn:focus {
+    -o-transform: rotate3d(0, 0, 1, 360deg);
+    -ms-transform: rotate3d(0, 0, 1, 360deg);
+    -moz-transform: rotate3d(0, 0, 1, 360deg);
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+
+  .form .plusBtn:hover:before,
+  .form .plusBtn:focus:before {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    opacity: 1;
   }
 
   .gram {

@@ -9,5 +9,7 @@
     --color-line:#E0E0E0;
     --color-mobile-bg:#EFF1F3;
     --color-placeholder: #9b9faa80;
+
+    --time: cubic-bezier(0.4, 0, 0.2, 1);
 }
 

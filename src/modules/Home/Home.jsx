@@ -47,7 +47,7 @@ function Home() {
   );
 
   return (
-    <div>
+    <div className={styles.container}>
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <h2 className={styles.modal__title}>

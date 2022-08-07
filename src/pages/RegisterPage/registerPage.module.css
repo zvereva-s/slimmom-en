@@ -12,6 +12,21 @@
 }
 
 
+.section {
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .section form {
+        width: 280px;
+        margin: 0 auto;
+    }
+
+    form > input {
+        width: 280px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .section {
         padding-top: 160px;

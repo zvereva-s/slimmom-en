@@ -19,8 +19,8 @@ const RegisterForm = ({ onSubmit }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <TextField onChange={handleChange} value={username} {...fields.name} />
-        <TextField onChange={handleChange} value={email} {...fields.email} />
+        <TextField onChange={handleChange} value={username} {...fields.name} className={styles.input} />
+        <TextField onChange={handleChange} value={email} {...fields.email} className={styles.input}/>
         <TextField className={styles.input} onChange={handleChange} value={password} {...fields.password} />
         <div className={styles.wrap}>
         <Button className={btnStyles.login} text="Login" type='submit' />

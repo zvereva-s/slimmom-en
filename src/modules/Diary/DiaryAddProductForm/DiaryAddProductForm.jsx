@@ -44,7 +44,6 @@ const DiaryAddProductForm = () => {
 
   const onAddProduct = product => {
     dispatch(addDayProduct(product));
-    // dispatch(getDayInfoByDate(product.date));
   };
 
   const handleSubmit = e => {

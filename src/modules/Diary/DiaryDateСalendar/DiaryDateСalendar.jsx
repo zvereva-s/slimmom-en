@@ -22,6 +22,7 @@ function DiaryDateCalendar() {
       dateFormat="dd.MM.yyyy"
       selected={convertDate(dateUser)}
       onChange={date => onGetDateInfo(date)}
+      closeOnScroll={true}
     />
   );
 }

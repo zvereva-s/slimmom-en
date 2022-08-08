@@ -19,17 +19,17 @@ const UserRoutes = () => {
         <Suspense fallback={<Loader />}>
             <Routes>   
                 <Route element={<PublicRoute />}>
-                    <Route path="zvereva-s.github.io/login" element={<LoginPage />} />
-                    <Route path="zvereva-s.github.io/register" element={<RegisterPage />} />
-                    <Route path="zvereva-s.github.io/slimmom-en" element={<MainPage />} />
-                    <Route path="zvereva-s.github.io/home" element={<MainPage />} />
-                    <Route path="zvereva-s.github.io/" element={<MainPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/slimmom-en" element={<MainPage />} />
+                    <Route path="/home" element={<MainPage />} />
+                    <Route path="/" element={<MainPage />} />
 
                 </Route>
                 
                 <Route element={<PrivateRoute />}>
-                <Route path="zvereva-s.github.io/diary" element={<DiaryPage />} />
-                <Route path="zvereva-s.github.io/calculator"  element={<CalculatorPage />} />
+                <Route path="/diary" element={<DiaryPage />} />
+                <Route path="/calculator"  element={<CalculatorPage />} />
                 </Route>
                 
                 
